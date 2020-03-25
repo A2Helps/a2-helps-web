@@ -1,5 +1,5 @@
 import React from 'react';
-import AppBar from './containers/header';
+import AppBar from './components/header';
 
 function App() {
   return (
