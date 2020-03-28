@@ -1,5 +1,5 @@
 import { loadStripe } from '@stripe/stripe-js';
-import Donation from '../../models/Donation';
+import Donation from '../../models/donation';
 
 export const submitDonation = (amount) => {
   let donation = new Donation({ amount });
