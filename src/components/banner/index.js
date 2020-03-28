@@ -26,9 +26,9 @@ export default function Banner() {
         container
         className={classes.center}
       >
-        <Grid item xs={6}>
-          <Typography variant="h6" color="inherit">
-          Support front-line workers and local businesses in Ann Arbor during the COVID-19 crisis.
+        <Grid item xs={12} sm={6}>
+          <Typography variant="h4" color="inherit">
+            Support front-line workers and local businesses in Ann Arbor during the COVID-19 crisis.
           </Typography>
         </Grid>
       </Grid>

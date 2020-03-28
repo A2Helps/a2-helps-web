@@ -1,4 +1,4 @@
-import Model from './Model'
+import Model from './model'
 
 export default class Donation extends Model {
 	resource()

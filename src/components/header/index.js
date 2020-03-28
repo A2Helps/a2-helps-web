@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import DonationTest from '../DonationTest'; // unsure how to import via absolute path
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,13 +21,13 @@ export default function MainAppBar() {
     <div className={classes.root}>
       <AppBar position="static" className={classes.bar}>
         <Toolbar variant="dense">
-          <Typography variant="h6" color="inherit">
-            A2 Helps
-          </Typography>
+          <Container>
+            <Typography variant="h6" color="inherit">
+              A2 Helps
+            </Typography>
+          </Container>
         </Toolbar>
       </AppBar>
-
-      <DonationTest />
     </div>
   );
 }

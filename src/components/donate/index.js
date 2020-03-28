@@ -11,9 +11,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
-import Snackbar from '@material-ui/core/Snackbar';
-import IconButton from '@material-ui/core/IconButton';
-import CloseIcon from '@material-ui/icons/Close';
+import { EmptySubmissionSnackbar } from './empty-submission-snackbar';
+import { submitDonation } from './submit-donation';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,15 +31,11 @@ export default function Donate() {
   };
 
   const handleInputChange = event => {
-    setInputValue(event.target.value);
+    setInputValue(event.target.value.replace(/\D/g,''));
   };
 
   const openDonations = () => {
     let finalValue;
-    console.log({
-      inputValue,
-      value,
-    });
 
     if (inputValue === '' && value === 'other') {
       setOpen(true);
@@ -53,21 +48,13 @@ export default function Donate() {
       finalValue = parseInt(value);
     }
 
-    console.log(finalValue);
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
+    submitDonation(finalValue * 100);
   };
 
   const classes = useStyles();
 
   return (
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={4}>
       <Typography variant="h4" color="inherit">
         Provide Support
       </Typography>
@@ -111,23 +98,9 @@ export default function Donate() {
         </FormControl>
       </Paper>
 
-      <Snackbar
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'center',
-        }}
-        open={open}
-        autoHideDuration={6000}
-        onClose={handleClose}
-        message="Submit an amount in dollars you wish to donate."
-        action={
-          <React.Fragment>
-            <Button color="secondary" size="small" onClick={handleClose}>
-              Continue
-            </Button>
-          </React.Fragment>
-        }
-      />
+      <EmptySubmissionSnackbar open={open} setOpen={setOpen} />
     </Grid>
   );
 }
+
+
