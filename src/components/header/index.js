@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-
+import DonationTest from '../DonationTest'; // unsure how to import via absolute path
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,6 +26,8 @@ export default function MainAppBar() {
           </Typography>
         </Toolbar>
       </AppBar>
+
+      <DonationTest />
     </div>
   );
 }

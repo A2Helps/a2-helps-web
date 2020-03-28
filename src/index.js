@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 import axios from 'axios';
 import { Model } from 'vue-api-query';
+import '@stripe/stripe-js';
 
 
 ReactDOM.render(
