@@ -1,11 +1,9 @@
 import React from 'react';
-import AppBar from './components/header';
+import Home from './pages/home';
 
 function App() {
   return (
-    <div className="App">
-      <AppBar />
-    </div>
+    <Home />
   );
 }
 

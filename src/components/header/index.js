@@ -9,8 +9,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
+  bar: {
+    backgroundColor: '#559700',
   },
 }));
 
@@ -19,7 +19,7 @@ export default function MainAppBar() {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="static" className={classes.bar}>
         <Toolbar variant="dense">
           <Typography variant="h6" color="inherit">
             A2 Helps
