@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     padding: 32,
   },
   img: {
-    height: 120,
+    width: '80%',
     paddingTop: 16,
     paddingBottom: 16,
   },
@@ -33,7 +33,7 @@ export default function Banner() {
           container
           className={classes.center}
         >
-          <Grid item xs={2} sm={2}>
+          <Grid item xs={4} sm={2}>
             <img className={classes.img} src="logo_white_transparentBG.png" alt="A2Cares" />
           </Grid>
           <Grid item xs={12} sm={10} className={classes.font}>

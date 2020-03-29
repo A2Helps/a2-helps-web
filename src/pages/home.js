@@ -2,11 +2,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import AppBar from '../components/header';
 import Banner from '../components/banner';
 import Donate from '../components/donate';
 import RequestCodes from '../components/request-codes';
 import BusinessSignUp from '../components/business-sign-up';
+import Footer from '../components/footer';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
   ctas: {
     padding: 16,
     flexGrow: 1,
+  },
+  spacer: {
+    flex: 1,
   },
 }));
 
@@ -34,6 +37,8 @@ function Home() {
           <RequestCodes />
           <BusinessSignUp />
         </Grid>
+        <div className={styles.spacer} />
+        <Footer />
       </Container>
     </div>
   );
