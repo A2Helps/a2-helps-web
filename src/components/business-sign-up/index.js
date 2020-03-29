@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const openRequestForm = () => {
-  window.open('https://forms.gle/46sQecMioRpCYyBh9');
+  window.open('https://forms.gle/5JbWrAUh9Y5peri67');
 }
 
 export default function RequestCodes() {
@@ -23,7 +23,7 @@ export default function RequestCodes() {
   return (
     <Grid item xs={12} sm={4}>
       <Typography variant="h4" color="inherit">
-        Accept Gratitude
+        Claim Support
       </Typography>
       <Paper className={classes.root}>
         <Typography variant="h6" color="inherit">

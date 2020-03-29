@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const openRequestForm = () => {
-  window.open('https://forms.gle/5JbWrAUh9Y5peri67');
+  window.open('https://forms.gle/46sQecMioRpCYyBh9');
 }
 
 export default function BusinessSignUp() {
@@ -23,7 +23,7 @@ export default function BusinessSignUp() {
   return (
     <Grid item xs={12} sm={4}>
       <Typography variant="h4" color="inherit">
-        Sell Gift Certificates
+        Become an A2 Helps Vendor
       </Typography>
       <Paper className={classes.root}>
         <Typography variant="h6" color="inherit">
