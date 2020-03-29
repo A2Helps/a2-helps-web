@@ -7,9 +7,10 @@ import {
   BrowserRouter as Router,
   Route,
 } from "react-router-dom";
+import { withAuthentication } from './components/auth/Session';
 
 import { theme } from './theme';
-function App() {
+const App = () => {
   return (
     <MuiThemeProvider theme={createMuiTheme(theme)}>
       <Router>
@@ -27,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default withAuthentication(App);
