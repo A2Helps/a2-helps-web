@@ -28,39 +28,38 @@ var firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
+export const auth = (email, password) => {
+	firebase.auth().onAuthStateChanged(function(user) {
+		if (user) {
+			// User is signed in.
+			// var displayName = user.displayName;
+			var userEmail = user.email;
+			// var emailVerified = user.emailVerified;
+			// var photoURL = user.photoURL;
+			// var isAnonymous = user.isAnonymous;
+			var uid = user.uid;
+			// var providerData = user.providerData;
 
-let email = 'jim.hall.dev@gmail.com';
-let password = 'Small*Steaks';
+			console.log(userEmail, uid);
 
-firebase.auth().onAuthStateChanged(function(user) {
-	if (user) {
-		// User is signed in.
-		var displayName = user.displayName;
-		var email = user.email;
-		var emailVerified = user.emailVerified;
-		var photoURL = user.photoURL;
-		var isAnonymous = user.isAnonymous;
-		var uid = user.uid;
-		var providerData = user.providerData;
+			user.getIdToken().then(token => {
+				console.log(token);
+			})
 
-		console.log(email, uid);
+			// ...
+		} else {
+			console.log('signed out');
+		}
+	});
 
-		user.getIdToken().then(token => {
-			console.log(token);
-		})
 
+	firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
+		// Handle Errors here.
+		var errorCode = error.code;
+		var errorMessage = error.message;
 		// ...
-	} else {
-		console.log('signed out');
-	}
-});
 
+		console.log(errorCode, errorMessage);
+	});
+}
 
-firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-	// Handle Errors here.
-	var errorCode = error.code;
-	var errorMessage = error.message;
-	// ...
-
-	console.log(errorCode, errorMessage);
-});
