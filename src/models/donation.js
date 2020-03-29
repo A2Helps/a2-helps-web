@@ -6,7 +6,6 @@ export default class Donation extends Model {
 	}
 
 	cancel() {
-		this.canceled = true;
-		return this.save();
+		return this.sync({ canceled: true });
 	}
 }
