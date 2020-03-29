@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const cancelDonation = async (donationId) => {
-  const donation = await Donation.find({ id: donationId });
+  const donation = new Donation({ id: donationId });
   await donation.cancel();
 };
 
