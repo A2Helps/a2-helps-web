@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Firebase, { FirebaseContext } from './components/auth/Firebase';
 import * as serviceWorker from './serviceWorker';
 
 import axios from 'axios';
@@ -11,7 +12,9 @@ import '@stripe/stripe-js';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <FirebaseContext.Provider value={new Firebase()}>
+      <App />
+    </FirebaseContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
