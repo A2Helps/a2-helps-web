@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { Model } from 'vue-api-query';
 
-import Donation from '../models/donation'
+// import Donation from '../models/donation'
+import Code from '../models/code'
 
 // inject global axios instance as http client to Model
 Model.$http = axios
@@ -16,5 +17,7 @@ axios.interceptors.request.use(request => {
 })
 
 
-let d = new Donation({ id: 'Xk7eFb4wdydjZ2X9S9oHCG' });
-d.cancel(); // returns promise
+// let d = new Donation({ id: 'Xk7eFb4wdydjZ2X9S9oHCG' });
+// d.cancel(); // returns promise
+
+Code.where('used', true).get()
