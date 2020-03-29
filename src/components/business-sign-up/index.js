@@ -29,7 +29,7 @@ export default function RequestCodes() {
         <Typography variant="h6" color="inherit">
           Request Codes for your Team
         </Typography>
-        <Typography variant="p" color="inherit">
+        <Typography variant="body1" color="inherit">
           Do you lead a team of COVID-19 front-liners? Submit your information to see if your team is eligible to recieve A2Helps codes.
         </Typography>
         <br />

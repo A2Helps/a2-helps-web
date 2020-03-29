@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -10,6 +10,7 @@ import {
 import Banner from '../components/banner';
 import Footer from '../components/footer';
 import { querystringToObj } from '../util';
+import Donation from '../models/donation';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,13 +27,22 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const cancelDonation = async (donationId) => {
+  const donation = await Donation.find(donationId);
+  await donation.cancel();
+};
+
 function Success() {
   const styles = useStyles();
   const location = useLocation();
   const qs = querystringToObj(location.search);
-  const { sessionid } = qs;
+  const { donationid } = qs;
 
-  console.log(sessionid);
+  useEffect(() => {
+    if (donationid) {
+      cancelDonation(donationid);
+    }
+  });
 
   return (
     <div className={styles.root}>
@@ -43,7 +53,7 @@ function Success() {
           container
           className={styles.message}
         >
-          <Grid xs={12}>
+          <Grid item xs={12}>
             <br />
             <Typography variant="h4" color="inherit">
               Your payment has been canceled.

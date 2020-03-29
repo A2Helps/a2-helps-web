@@ -3,7 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-
+import {
+  Link,
+} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -34,7 +36,9 @@ export default function Banner() {
           className={classes.center}
         >
           <Grid item xs={4} sm={2}>
-            <img className={classes.img} src="logo_white_transparentBG.png" alt="A2Cares" />
+            <Link to="/">
+              <img className={classes.img} src="logo_white_transparentBG.png" alt="A2Cares" />
+            </Link>
           </Grid>
           <Grid item xs={12} sm={10} className={classes.font}>
             <Typography variant="h4" color="inherit">
