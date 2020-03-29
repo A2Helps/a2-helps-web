@@ -29,7 +29,7 @@ export default function BusinessSignUp() {
         <Typography variant="h6" color="inherit">
           Sign up your local business
         </Typography>
-        <Typography variant="p" color="inherit">
+        <Typography variant="body1" color="inherit">
           Are you a local business who can sell gift certificates to A2Helps?
         </Typography>
         <br />
