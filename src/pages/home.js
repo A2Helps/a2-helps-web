@@ -10,7 +10,7 @@ import BusinessSignUp from '../components/business-sign-up';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '100vh',
+    minHeight: '100vh',
     backgroundColor: '#efefef',
   },
   ctas: {
@@ -23,7 +23,6 @@ function Home() {
   const styles = useStyles();
   return (
     <div className={styles.root}>
-      <AppBar />
       <Banner />
       <Container>
         <Grid

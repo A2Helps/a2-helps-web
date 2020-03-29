@@ -2,19 +2,25 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     textAlign: 'center',
-    backgroundColor: '#e6f7cf',
+    backgroundColor: '#719F20',
+    borderBottom: '6px solid #7B6F68',
+    color: 'white',
   },
-  center: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    minHeight: 250
-  }
+  font: {
+    padding: 32,
+  },
+  img: {
+    height: 120,
+    paddingTop: 16,
+    paddingBottom: 16,
+  },
 }));
 
 export default function Banner() {
@@ -22,16 +28,21 @@ export default function Banner() {
 
   return (
     <div className={classes.root}>
-      <Grid
-        container
-        className={classes.center}
-      >
-        <Grid item xs={12} sm={6}>
-          <Typography variant="h4" color="inherit">
-            Support front-line workers and local businesses in Ann Arbor during the COVID-19 crisis.
-          </Typography>
+      <Container>
+        <Grid
+          container
+          className={classes.center}
+        >
+          <Grid item xs={2} sm={2}>
+            <img className={classes.img} src="logo_white_transparentBG.png" alt="A2Cares" />
+          </Grid>
+          <Grid item xs={12} sm={10} className={classes.font}>
+            <Typography variant="h4" color="inherit">
+              Support <strong>front-line workers</strong> and <strong>local businesses</strong> in Ann Arbor during the COVID-19 crisis.
+            </Typography>
+          </Grid>
         </Grid>
-      </Grid>
+      </Container>
     </div>
   );
 }

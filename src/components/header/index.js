@@ -4,13 +4,14 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
   },
   bar: {
-    backgroundColor: '#559700',
+    backgroundColor: '#719F20',
   },
 }));
 
@@ -22,9 +23,11 @@ export default function MainAppBar() {
       <AppBar position="static" className={classes.bar}>
         <Toolbar variant="dense">
           <Container>
-            <Typography variant="h6" color="inherit">
-              A2 Helps
-            </Typography>
+            <Grid container spacing={8}>
+              <Grid item xs={2}>
+                <img className={classes.img} src="logo_white_transparentBG.png" alt="A2Cares" />
+              </Grid>
+            </Grid>
           </Container>
         </Toolbar>
       </AppBar>
