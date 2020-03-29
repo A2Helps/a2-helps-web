@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import SignInForm from '../components/auth/SignInForm';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function Auth() {
+function SignInPage() {
   const classes = useStyles();
 
   return (
@@ -23,12 +24,15 @@ export default function Auth() {
       >
         <Grid item xs>
           <Paper className={classes.paper}>
-            <Typography variant="h6" color="inherit">
-              Sign in
+            <Typography variant="h1" color="inherit">
+              Sign In
             </Typography>
+            <SignInForm />
           </Paper>
         </Grid>
       </Grid>
     </div>
   );
 }
+
+export default SignInPage;

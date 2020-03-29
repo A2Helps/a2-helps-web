@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -7,6 +8,8 @@ import Donate from '../components/donate';
 import RequestCodes from '../components/request-codes';
 import BusinessSignUp from '../components/business-sign-up';
 import Footer from '../components/footer';
+import { AuthUserContext } from '../components/auth/Session';
+import SignOutButton from '../components/auth/SignOutButton';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,6 +24,17 @@ const useStyles = makeStyles(theme => ({
     flex: 1,
   },
 }));
+
+const LogIn = () => (
+  <Link to="/login">Log in</Link>
+);
+
+const LogOut = ({user}) => (
+  <div>
+    {`Logged in as ${user}`}
+    <SignOutButton />
+  </div>
+);
 
 function Home() {
   const styles = useStyles();
@@ -37,6 +51,11 @@ function Home() {
           <RequestCodes />
           <BusinessSignUp />
         </Grid>
+        <div>
+          <AuthUserContext.Consumer>
+            {authContext => authContext.isAuthenticated ? <LogOut user={authContext.user.email} /> : <LogIn />}
+          </AuthUserContext.Consumer>
+        </div>
         <div className={styles.spacer} />
         <Footer />
       </Container>
