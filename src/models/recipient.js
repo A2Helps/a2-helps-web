@@ -2,9 +2,9 @@ import Model from './model';
 import Org from './org';
 import OrgMember from './org_member';
 
-export default class Recipient extends Model {
+export default class Code extends Model {
 	resource() {
-		return 'recipients'
+		return 'codes'
 	}
 
 	org () {

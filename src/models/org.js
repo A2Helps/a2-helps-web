@@ -1,6 +1,6 @@
 import Model from './model';
 import OrgMember from './org_member';
-import Recipient from './recipient';
+import Code from './code';
 
 export default class Org extends Model {
 	resource() {
@@ -11,7 +11,7 @@ export default class Org extends Model {
 		return this.hasMany(OrgMember)
 	}
 
-	recipients () {
-		return this.hasMany(Recipient)
+	codes () {
+		return this.hasMany(Code)
 	}
 }
