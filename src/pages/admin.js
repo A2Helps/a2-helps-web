@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -8,6 +7,8 @@ import Donate from '../components/donate';
 import RequestCodes from '../components/request-codes';
 import BusinessSignUp from '../components/business-sign-up';
 import Footer from '../components/footer';
+import { AuthUserContext, withUserExists } from '../components/auth/Session';
+import SignOutButton from '../components/auth/SignOutButton';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,11 +26,14 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const LogIn = () => (
-  <Link to="/login">Log in</Link>
+const LogOut = ({ user }) => (
+  <div>
+    {`Logged in as ${user}`}
+    <SignOutButton />
+  </div>
 );
 
-function Home() {
+function AdminPage() {
   const styles = useStyles();
   return (
     <div className={styles.root}>
@@ -44,7 +48,11 @@ function Home() {
           <RequestCodes />
           <BusinessSignUp />
         </Grid>
-        <LogIn />
+        <div>
+          <AuthUserContext.Consumer>
+            {authContext => authContext.user ? <LogOut user={authContext.user.email} /> : ''}
+          </AuthUserContext.Consumer>
+        </div>
       </Container>
       <div className={styles.spacer} />
       <Footer />
@@ -52,4 +60,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default withUserExists(AdminPage);

@@ -20,7 +20,7 @@ class SignInFormBase extends Component {
       .doLoginWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push('/');
+        this.props.history.push('/admin');
       })
       .catch(error => {
         this.setState({ error });

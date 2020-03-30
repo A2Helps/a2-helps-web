@@ -6,6 +6,7 @@ import SignInPage from './pages/signin';
 import Phone from './pages/phone';
 import Confirm from './pages/confirm';
 import Redeem from './pages/redeem';
+import AdminPage from './pages/admin';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {
   BrowserRouter as Router,
@@ -39,6 +40,9 @@ const App = () => {
         </Route>
         <Route path="/login">
           <SignInPage />
+        </Route>
+        <Route path="/admin">
+          <AdminPage />
         </Route>
       </Router>
     </MuiThemeProvider>
