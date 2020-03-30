@@ -6,6 +6,8 @@ import SignInPage from './pages/signin';
 import Phone from './pages/phone';
 import Confirm from './pages/confirm';
 import Redeem from './pages/redeem';
+import AdminPage from './pages/admin';
+import * as ROUTES from './util/routes';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {
   BrowserRouter as Router,
@@ -18,27 +20,30 @@ const App = () => {
   return (
     <MuiThemeProvider theme={createMuiTheme(theme)}>
       <Router>
-        <Route path="/donation/cancel">
+        <Route path={ROUTES.CANCEL}>
           <Canceled />
         </Route>
-        <Route path="/donation/success">
+        <Route path={ROUTES.SUCCESS}>
           <Success />
         </Route>
         {/* verify */}
-        <Route path="/v/:code">
+        <Route path={ROUTES.CODE}>
           <Phone />
         </Route>
-        <Route path="/confirm">
+        <Route path={ROUTES.CONFIRM}>
           <Confirm />
         </Route>
-        <Route path="/redeem">
+        <Route path={ROUTES.REDEEM}>
           <Redeem />
         </Route>
-        <Route exact path="/">
+        <Route exact path={ROUTES.HOME}>
           <Home />
         </Route>
-        <Route path="/login">
+        <Route path={ROUTES.LOGIN}>
           <SignInPage />
+        </Route>
+        <Route path={ROUTES.ADMIN}>
+          <AdminPage />
         </Route>
       </Router>
     </MuiThemeProvider>

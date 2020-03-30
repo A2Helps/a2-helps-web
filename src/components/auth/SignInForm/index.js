@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
+import { ADMIN } from '../../../util/routes';
 
 const INITIAL_STATE = {
   email: '',
@@ -20,7 +21,7 @@ class SignInFormBase extends Component {
       .doLoginWithEmailAndPassword(email, password)
       .then(() => {
         this.setState({ ...INITIAL_STATE });
-        this.props.history.push('/');
+        this.props.history.push(ADMIN);
       })
       .catch(error => {
         this.setState({ error });

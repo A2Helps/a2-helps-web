@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import {
   Link,
 } from "react-router-dom";
+import { HOME, LOGIN } from '../../util/routes';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,6 +25,10 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const LogIn = () => (
+  <Link to={LOGIN}>Log in</Link>
+);
+
 export default function Banner() {
   const classes = useStyles();
 
@@ -35,7 +40,7 @@ export default function Banner() {
           className={classes.center}
         >
           <Grid item xs={4} sm={2}>
-            <Link to="/">
+            <Link to={HOME}>
               <img className={classes.img} src="logo_white_transparentBG.png" alt="A2Cares" />
             </Link>
           </Grid>
@@ -43,6 +48,7 @@ export default function Banner() {
             <Typography variant="h4" color="inherit">
               Support <strong>front-line workers</strong> and <strong>local businesses</strong> in Ann Arbor during the COVID-19 crisis.
             </Typography>
+            <LogIn />
           </Grid>
         </Grid>
       </Container>

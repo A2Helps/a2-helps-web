@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import {
   Link,
 } from "react-router-dom";
+import { HOME } from '../util/routes';
 import Banner from '../components/banner';
 import Footer from '../components/footer';
 
@@ -45,7 +46,7 @@ function Success() {
             <Typography variant="h6" color="inherit">
               Your donation has been received.
               <br />
-              <Link to="/">Return home.</Link>
+              <Link to={HOME}>Return home.</Link>
             </Typography>
           </Grid>
         </Grid>

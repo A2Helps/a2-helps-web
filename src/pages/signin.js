@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import SignInForm from '../components/auth/SignInForm';
+import Wrapper from '../components/wrapper';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,20 +19,16 @@ function SignInPage() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Grid
-        container
-      >
-        <Grid item xs>
-          <Paper className={classes.paper}>
-            <Typography variant="h1" color="inherit">
-              Sign In
-            </Typography>
-            <SignInForm />
-          </Paper>
-        </Grid>
+    <Wrapper>
+      <Grid item xs>
+        <Paper className={classes.paper}>
+          <Typography variant="h1" color="inherit">
+            Sign In
+          </Typography>
+          <SignInForm />
+        </Paper>
       </Grid>
-    </div>
+    </Wrapper>
   );
 }
 
