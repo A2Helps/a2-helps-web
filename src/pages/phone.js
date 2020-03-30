@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Footer from '../components/footer';
-import Link from '@material-ui/core/Link';
 
 import {
   useParams

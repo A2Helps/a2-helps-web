@@ -8,6 +8,7 @@ import Donate from '../components/donate';
 import RequestCodes from '../components/request-codes';
 import BusinessSignUp from '../components/business-sign-up';
 import Footer from '../components/footer';
+import { LOGIN } from '../util/routes';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,7 +27,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const LogIn = () => (
-  <Link to="/login">Log in</Link>
+  <Link to={LOGIN}>Log in</Link>
 );
 
 function Home() {

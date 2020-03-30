@@ -11,6 +11,7 @@ import Banner from '../components/banner';
 import Footer from '../components/footer';
 import { querystringToObj } from '../util';
 import Donation from '../models/donation';
+import { HOME } from '../util/routes';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -61,7 +62,7 @@ function Success() {
             <br />
             <br />
             <Typography variant="h6" color="inherit">
-              <Link to="/">Return home.</Link>
+              <Link to={HOME}>Return home.</Link>
             </Typography>
           </Grid>
         </Grid>

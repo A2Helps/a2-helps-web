@@ -6,6 +6,7 @@ import Container from '@material-ui/core/Container';
 import {
   Link,
 } from "react-router-dom";
+import { HOME } from '../../util/routes';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -35,7 +36,7 @@ export default function Banner() {
           className={classes.center}
         >
           <Grid item xs={4} sm={2}>
-            <Link to="/">
+            <Link to={HOME}>
               <img className={classes.img} src="logo_white_transparentBG.png" alt="A2Cares" />
             </Link>
           </Grid>
