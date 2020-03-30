@@ -5,6 +5,7 @@ import Canceled from './pages/canceled';
 import SignInPage from './pages/signin';
 import Phone from './pages/phone';
 import Confirm from './pages/confirm';
+import Redeem from './pages/redeem';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {
   BrowserRouter as Router,
@@ -29,6 +30,9 @@ const App = () => {
         </Route>
         <Route path="/confirm">
           <Confirm />
+        </Route>
+        <Route path="/redeem">
+          <Redeem />
         </Route>
         <Route exact path="/">
           <Home />
