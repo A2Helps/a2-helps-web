@@ -9,7 +9,6 @@ import {
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
     textAlign: 'center',
     backgroundColor: '#719F20',
     borderBottom: '6px solid #7B6F68',

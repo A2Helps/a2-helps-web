@@ -15,6 +15,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     minHeight: '100vh',
     backgroundColor: '#efefef',
+    display: 'flex',
+    flexDirection: 'column',
   },
   ctas: {
     padding: 16,
@@ -56,9 +58,9 @@ function Home() {
             {authContext => authContext.isAuthenticated ? <LogOut user={authContext.user.email} /> : <LogIn />}
           </AuthUserContext.Consumer>
         </div>
-        <div className={styles.spacer} />
-        <Footer />
       </Container>
+      <div className={styles.spacer} />
+      <Footer />
     </div>
   );
 }

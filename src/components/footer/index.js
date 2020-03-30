@@ -6,7 +6,6 @@ import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
     textAlign: 'center',
     borderTop: '1px solid #3D3B39',
     padding: 32,
