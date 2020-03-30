@@ -43,4 +43,9 @@ export const STUB_BUSINESSES = [{
   procurements: ['DELIVERY', 'PICK_UP'],
   name: 'The Lunch Room',
   id: '1',
+}, {
+  types: ['RESTAURANT', 'GROCERY'],
+  procurements: ['DELIVERY', 'PICK_UP'],
+  name: 'Zingerman\'s',
+  id: '2',
 }];
