@@ -16,7 +16,7 @@ import { HOME } from '../util/routes';
 const useStyles = makeStyles(theme => ({
   root: {
     minHeight: '100vh',
-    backgroundColor: '#efefef',
+    backgroundColor: '#ffffff',
   },
   message: {
     padding: 64,

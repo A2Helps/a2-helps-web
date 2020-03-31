@@ -43,7 +43,7 @@ export default function Footer() {
 
           <Grid item xs={12} sm={9}>
             <Typography variant="body1" color="inherit">
-              Made with <strong style={{color: "#F1A205"}}>♥</strong> by volunteers in Ann Arbor, MI.
+              Made with <strong style={{color: "#F85A3E"}}>♥</strong> by volunteers in Ann Arbor, MI.
             </Typography>
           </Grid>
 

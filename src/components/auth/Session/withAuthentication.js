@@ -5,7 +5,7 @@ import { withFirebase } from '../Firebase';
 
 const initialState = {
   isAuthenticated: false,
-  user: null,
+  authUser: null,
 };
 
 const withAuthentication = Component => {
@@ -18,7 +18,7 @@ const withAuthentication = Component => {
       this.listener = this.props.firebase.auth.onAuthStateChanged(
         authUser => {
           authUser
-            ? this.setState({ user: authUser, isAuthenticated: true })
+            ? this.setState({ authUser, isAuthenticated: true })
             : this.setState(initialState);
         },
       );

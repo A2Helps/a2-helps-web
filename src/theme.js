@@ -168,8 +168,8 @@ export const theme = {
     },
     h3: {
       fontFamily: '"Lato", "Open Sans", sans-serif',
-      fontWeight: 400,
-      fontSize: '3rem',
+      fontWeight: 600,
+      fontSize: '36px',
       lineHeight: 1.167,
       letterSpacing: '0em',
     },
@@ -212,7 +212,7 @@ export const theme = {
       fontFamily: '"Lato", "Open Sans", sans-serif',
       fontWeight: 400,
       fontSize: '1rem',
-      lineHeight: 1.5,
+      lineHeight: 1.4,
       letterSpacing: '0.00938em',
     },
     body2: {
@@ -279,3 +279,5 @@ export const theme = {
     color: '#000',
   },
 };
+
+

@@ -6,6 +6,7 @@ import {
   Link,
 } from "react-router-dom";
 import { HOME } from '../../util/routes';
+import LogInOutButton from '../auth/LogInOutButton';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -21,9 +22,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 20,
     paddingBottom: 20,
   },
-
 }));
-
 
 export default function Banner() {
   const classes = useStyles();
@@ -34,11 +33,15 @@ export default function Banner() {
         <Grid
           container
           className={classes.center}
+          alignItems='center'
         >
           <Grid item xs={4} sm={2}>
             <Link to={HOME}>
               <img className={classes.img} src="logo_fullColor_transparentBG.png" alt="A2Cares" />
             </Link>
+          </Grid>
+          <Grid item xs>
+            <LogInOutButton />
           </Grid>
         </Grid>
       </Container>
