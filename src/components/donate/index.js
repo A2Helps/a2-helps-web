@@ -16,7 +16,7 @@ import { submitDonation } from './submit-donation';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: 16,
+    padding: 30,
     marginTop: 12,
   }
 }));
@@ -54,7 +54,7 @@ export default function Donate() {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} sm={4}>
+    <Grid item xs={12} md={4}>
       <Typography variant="h4" color="inherit">
         Provide Support
       </Typography>
@@ -90,7 +90,7 @@ export default function Donate() {
           <br />
           <Button
             variant="contained"
-            color="primary"
+            color="secondary"
             onClick={openDonations}
           >
             Complete Donation
