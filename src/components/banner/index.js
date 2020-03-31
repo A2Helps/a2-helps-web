@@ -10,24 +10,21 @@ import { HOME, LOGIN } from '../../util/routes';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    textAlign: 'center',
-    backgroundColor: '#719F20',
-    borderBottom: '6px solid #7B6F68',
+    textAlign: 'left',
+    backgroundColor: '#ffffff',
     color: 'white',
   },
   font: {
     padding: 32,
   },
   img: {
-    width: '80%',
-    paddingTop: 16,
-    paddingBottom: 16,
+    width: '60%',
+    paddingTop: 20,
+    paddingBottom: 20,
   },
 }));
 
-const LogIn = () => (
-  <Link to={LOGIN}>Log in</Link>
-);
+
 
 export default function Banner() {
   const classes = useStyles();
@@ -41,14 +38,8 @@ export default function Banner() {
         >
           <Grid item xs={4} sm={2}>
             <Link to={HOME}>
-              <img className={classes.img} src="logo_white_transparentBG.png" alt="A2Cares" />
+              <img className={classes.img} src="logo_fullColor_transparentBG.png" alt="A2Cares" />
             </Link>
-          </Grid>
-          <Grid item xs={12} sm={10} className={classes.font}>
-            <Typography variant="h4" color="inherit">
-              Support <strong>front-line workers</strong> and <strong>local businesses</strong> in Ann Arbor during the COVID-19 crisis.
-            </Typography>
-            <LogIn />
           </Grid>
         </Grid>
       </Container>

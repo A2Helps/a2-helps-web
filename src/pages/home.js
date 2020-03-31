@@ -4,7 +4,9 @@ import Grid from '@material-ui/core/Grid';
 import Donate from '../components/donate';
 import RequestCodes from '../components/request-codes';
 import BusinessSignUp from '../components/business-sign-up';
+import HomeHero from '../components/home-hero';
 import Wrapper from '../components/wrapper';
+
 
 const useStyles = makeStyles(theme => ({
   ctas: {
@@ -17,6 +19,7 @@ function Home() {
   const styles = useStyles();
   return (
     <Wrapper>
+      <HomeHero />
       <Grid
         spacing={2}
         container
