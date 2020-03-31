@@ -50,7 +50,7 @@ function AdminPage() {
         </Grid>
         <div>
           <AuthUserContext.Consumer>
-            {authContext => authContext.user ? <LogOut user={authContext.user.email} /> : ''}
+            {({ authUser }) => authUser ? <LogOut user={authUser.email} /> : ''}
           </AuthUserContext.Consumer>
         </div>
       </Container>
