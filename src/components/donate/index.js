@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: 12,
     boxShadow: '0px 0px 7px 1px rgba(0,0,0,0.13)',
     color: '#3D3B39',
-    minHeight: '300px',
+    minHeight: '438px',
     [theme.breakpoints.up('sm')]: {
       
     },
@@ -117,7 +117,7 @@ export default function Donate() {
           <br />
           <Button
             variant="contained"
-            color="secondary"
+            color="primary"
             onClick={openDonations}
           >
             Complete Donation
