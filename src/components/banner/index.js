@@ -31,6 +31,7 @@ export default function Banner() {
         <Grid
           container
           className={classes.center}
+          alignItems='center'
         >
           <Grid item xs={4} sm={2}>
             <Link to={HOME}>

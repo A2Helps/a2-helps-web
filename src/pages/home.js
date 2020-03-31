@@ -19,7 +19,6 @@ function Home() {
   const styles = useStyles();
   return (
     <Wrapper>
-      <HomeHero />
       <Grid
         spacing={2}
         container
