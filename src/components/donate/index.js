@@ -30,9 +30,10 @@ const useStyles = makeStyles(theme => ({
   title: {
     color: '#3D3B39', 
     textAlign: 'center',
-    paddingBottom: '5px',
+    paddingBottom: '10px',
     marginTop: '20px',
-    fontSize: '20px',
+    fontSize: '30px',
+    fontWeight: 300,
     [theme.breakpoints.up('sm')]: {
       paddingBottom: '10px',
       marginTop: '60px',
