@@ -3,10 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import { HOME, LOGIN } from '../../util/routes';
-import {
-  Link,
-} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,10 +19,6 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: 16,
   },
 }));
-
-const LogIn = () => (
-  <Link to={LOGIN}>Log in</Link>
-);
 
 export default function HomeHero() {
   const classes = useStyles();
@@ -45,11 +37,10 @@ export default function HomeHero() {
             <Typography variant="h4" color="inherit">
               Supporting <strong>front-line workers</strong> and <strong>local businesses</strong> in Ann Arbor during the COVID-19 crisis.
             </Typography>
-            <LogIn />
           </Grid>
         </Grid>
       </Container>
-      
+
     </div>
   );
 }

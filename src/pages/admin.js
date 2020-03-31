@@ -7,8 +7,7 @@ import Donate from '../components/donate';
 import RequestCodes from '../components/request-codes';
 import BusinessSignUp from '../components/business-sign-up';
 import Footer from '../components/footer';
-import { AuthUserContext, withUserExists } from '../components/auth/Session';
-import SignOutButton from '../components/auth/SignOutButton';
+import { withUserExists } from '../components/auth/Session';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,13 +25,6 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const LogOut = ({ user }) => (
-  <div>
-    {`Logged in as ${user}`}
-    <SignOutButton />
-  </div>
-);
-
 function AdminPage() {
   const styles = useStyles();
   return (
@@ -48,11 +40,6 @@ function AdminPage() {
           <RequestCodes />
           <BusinessSignUp />
         </Grid>
-        <div>
-          <AuthUserContext.Consumer>
-            {({ authUser }) => authUser ? <LogOut user={authUser.email} /> : ''}
-          </AuthUserContext.Consumer>
-        </div>
       </Container>
       <div className={styles.spacer} />
       <Footer />
