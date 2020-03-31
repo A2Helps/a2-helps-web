@@ -168,8 +168,8 @@ export const theme = {
     },
     h3: {
       fontFamily: '"Lato", "Open Sans", sans-serif',
-      fontWeight: 400,
-      fontSize: '3rem',
+      fontWeight: 600,
+      fontSize: '36px',
       lineHeight: 1.167,
       letterSpacing: '0em',
     },

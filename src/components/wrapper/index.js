@@ -8,7 +8,7 @@ import Footer from '../footer';
 const useStyles = makeStyles(theme => ({
   root: {
     minHeight: '100vh',
-    backgroundColor: '#efefef',
+    backgroundColor: '#ffffff',
     display: 'flex',
     flexDirection: 'column',
   },

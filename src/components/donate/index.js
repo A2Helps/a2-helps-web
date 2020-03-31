@@ -18,7 +18,33 @@ const useStyles = makeStyles(theme => ({
   root: {
     padding: 30,
     marginTop: 12,
-  }
+    boxShadow: '0px 0px 7px 1px rgba(0,0,0,0.13)',
+    color: '#3D3B39',
+    minHeight: '300px',
+    [theme.breakpoints.up('sm')]: {
+      
+    },
+    [theme.breakpoints.up('md')]: {
+    },
+  },
+  title: {
+    color: '#3D3B39', 
+    textAlign: 'center',
+    paddingBottom: '5px',
+    marginTop: '20px',
+    fontSize: '20px',
+    [theme.breakpoints.up('sm')]: {
+      paddingBottom: '10px',
+      marginTop: '60px',
+      paddingBottom: '5px',
+      fontSize: '32px',
+    },
+    [theme.breakpoints.up('md')]: {
+      paddingBottom: '10px',
+      marginTop: '60px',
+      paddingBottom: '5px',
+    }, 
+  },
 }));
 
 export default function Donate() {
@@ -54,12 +80,12 @@ export default function Donate() {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} md={4}>
-      <Typography variant="h4" color="inherit">
+    <Grid item xs={12} md={6}>
+      <Typography variant="h3" color="inherit" className={classes.title}>
         Provide Support
       </Typography>
       <Paper className={classes.root}>
-        <Typography variant="h6" color="inherit">
+        <Typography variant="h4" color="inherit">
           Donate Now
         </Typography>
 
