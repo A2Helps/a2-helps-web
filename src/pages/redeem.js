@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 
 import { STUB_BUSINESSES } from '../components/redeem/data';
 import { Businesses } from '../components/redeem/businesses';
+import { Selections } from '../components/redeem/selections';
 
 export const useStyles = makeStyles(theme => ({
   root: {
@@ -19,6 +20,7 @@ export const useStyles = makeStyles(theme => ({
   },
   padding: {
     padding: 12,
+    marginBottom: 12,
   },
   spacer: {
     flex: 1,
@@ -26,29 +28,36 @@ export const useStyles = makeStyles(theme => ({
   img: {
     width: 72,
   },
-  heading: {
-    fontWeight: 'bold',
-    fontSize: 18,
-  },
-  secondaryHeading: {
-    fontSize: 18,
-    paddingLeft: 12,
-  },
-  summary: {
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    display: 'flex',
-  },
-  checkbox: {
-    padding: 1,
-    paddingRight: 6,
-  },
 }));
 
+const MAX_CREDITS = 6;
 
-function Phone() {
+function Redeem() {
   const styles = useStyles();
   const businesses = [...STUB_BUSINESSES];
+  const [credits, setCredits] = React.useState(MAX_CREDITS);
+  const [allocation, setAllocation] = React.useState({});
+
+  const incrementCredits = (key) => {
+    const initialVal = (allocation[key] || 0);
+    setAllocation({
+      ...allocation,
+      [key]: credits === 0 ? initialVal : (allocation[key] || 0) + 1,
+    });
+    setCredits(credits === 0 ? 0 : credits - 1)
+  };
+
+  const decrementCredits = (key) => {
+    const initialVal = (allocation[key] || 0);
+    const newAllocation = {
+      ...allocation,
+      [key]: initialVal ? initialVal - 1 : undefined,
+    }
+
+    if (!newAllocation[key]) delete newAllocation[key];
+    setAllocation(newAllocation);
+    setCredits(credits === MAX_CREDITS ? credits : credits + 1);
+  };
 
   return (
     <div className={styles.root}>
@@ -66,14 +75,21 @@ function Phone() {
           container
           className={styles.padding}
         >
+          <Businesses
+            businesses={businesses}
+            decrementCredits={decrementCredits}
+            incrementCredits={incrementCredits}
+            allocation={allocation}
+          />
           <Grid item xs={12} sm={3}>
-            <Paper className={styles.padding}>
-              <Typography variant="h6" color="inherit">
-                Your remaining balance is: <strong>$150</strong>
-              </Typography>
-            </Paper>
+            <Balance credits={credits} />
+            <Selections
+              businesses={businesses}
+              allocation={allocation}
+              decrementCredits={decrementCredits}
+              incrementCredits={incrementCredits}
+            />
           </Grid>
-          <Businesses businesses={businesses} />
         </Grid>
         <Button>Next</Button>
       </Container>
@@ -83,4 +99,15 @@ function Phone() {
   );
 }
 
-export default Phone;
+export default Redeem;
+
+function Balance({ credits }) {
+  const styles = useStyles();
+  return <Paper className={styles.padding}>
+    <Typography variant="h6" color="inherit">
+      Your remaining balance is: <strong>${credits * 25}</strong>
+    </Typography>
+  </Paper>;
+}
+
+

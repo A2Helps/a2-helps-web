@@ -1,12 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import {
   Link,
 } from "react-router-dom";
-import { HOME, LOGIN } from '../../util/routes';
+import { HOME } from '../../util/routes';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,7 +23,6 @@ const useStyles = makeStyles(theme => ({
   },
 
 }));
-
 
 
 export default function Banner() {

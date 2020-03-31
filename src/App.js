@@ -50,4 +50,4 @@ const App = () => {
   );
 }
 
-export default withAuthentication(App);
+export default withAuthentication(React.memo(App));

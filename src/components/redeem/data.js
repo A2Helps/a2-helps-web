@@ -18,7 +18,7 @@ const BUSINESS_TYPE = {
     name: 'Restaurant',
   },
 };
-const PROCURMENTS = {
+const FULFILLMENTS = {
   DELIVERY: {
     Icon: LocalShipping,
     name: 'Delivery',
@@ -35,17 +35,17 @@ const PROCURMENTS = {
 export const getBusinessTypes = (keys) => {
   return keys.map((key) => BUSINESS_TYPE[key]);
 };
-export const getProcurements = (keys) => {
-  return keys.map((key) => PROCURMENTS[key]);
+export const getFulfillments = (keys) => {
+  return keys.map((key) => FULFILLMENTS[key]);
 };
 export const STUB_BUSINESSES = [{
   types: ['RESTAURANT'],
-  procurements: ['DELIVERY', 'PICK_UP'],
+  fulfillments: ['DELIVERY', 'PICK_UP'],
   name: 'The Lunch Room',
   id: '1',
 }, {
   types: ['RESTAURANT', 'GROCERY'],
-  procurements: ['DELIVERY', 'PICK_UP'],
+  fulfillments: ['DELIVERY', 'PICK_UP'],
   name: 'Zingerman\'s',
   id: '2',
 }];
