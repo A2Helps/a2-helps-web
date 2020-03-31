@@ -155,7 +155,7 @@ export const theme = {
     h1: {
       fontFamily: '"Lato", "Open Sans", sans-serif',
       fontWeight: 300,
-      fontSize: '6rem',
+      fontSize: '28px',
       lineHeight: 1.167,
       letterSpacing: '-0.01562em',
     },
@@ -224,8 +224,8 @@ export const theme = {
     },
     button: {
       fontFamily: '"Lato", "Open Sans", sans-serif',
-      fontWeight: 500,
-      fontSize: '0.875rem',
+      fontWeight: 600,
+      fontSize: '.9rem',
       lineHeight: 1.75,
       letterSpacing: '0.02857em',
       textTransform: 'uppercase',
