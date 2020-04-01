@@ -4,7 +4,6 @@ import Grid from '@material-ui/core/Grid';
 import Donate from '../components/donate';
 import RequestCodes from '../components/request-codes';
 import BusinessSignUp from '../components/business-sign-up';
-import HomeHero from '../components/home-hero';
 import Mission from '../components/mission';
 import Wrapper from '../components/wrapper';
 
