@@ -14,6 +14,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {
   BrowserRouter as Router,
   Route,
+  Switch,
 } from "react-router-dom";
 import { withAuthentication } from './components/auth/Session';
 import { theme } from './theme';
@@ -22,39 +23,45 @@ const App = () => {
   return (
     <MuiThemeProvider theme={createMuiTheme(theme)}>
       <Router>
-        <Route path={ROUTES.CANCEL}>
-          <Canceled />
-        </Route>
-        <Route path={ROUTES.SUCCESS}>
-          <Success />
-        </Route>
-        {/* verify */}
-        <Route path={ROUTES.CODE}>
-          <Phone />
-        </Route>
-        <Route path={ROUTES.CONFIRM}>
-          <Confirm />
-        </Route>
-        <Route path={ROUTES.REDEEM}>
-          <Redeem />
-        </Route>
-        <Route exact path={ROUTES.DONATE}>
-          <Donate />
-        </Route>
-        <Route exact path={ROUTES.HOME}>
-          <Home />
-        </Route>
-        {(process.env.NODE_ENV !== 'production') &&
-          <>
+        <Switch>
+          <Route path={ROUTES.CANCEL}>
+            <Canceled />
+          </Route>
+          <Route path={ROUTES.SUCCESS}>
+            <Success />
+          </Route>
+          {/* verify */}
+          <Route path={ROUTES.CODE}>
+            <Phone />
+          </Route>
+          <Route path={ROUTES.CONFIRM}>
+            <Confirm />
+          </Route>
+          <Route path={ROUTES.REDEEM}>
+            <Redeem />
+          </Route>
+          <Route exact path={ROUTES.DONATE}>
+            <Donate />
+          </Route>
+          <Route exact path={ROUTES.HOME}>
+            <Home />
+          </Route>
+          {(process.env.NODE_ENV !== 'production') &&
             <Route path={ROUTES.LOGIN}>
               <SignInPage />
             </Route>
-            <Route path={ROUTES.ADMIN}>
-              <AdminPage />
-            </Route>
-          </>
-        }
-        <Route path="*" component={NoMatch} status={404} />
+          }
+          {/*
+            These need to be separate because if they're nested
+            it breaks <Switch>
+          */}
+          {(process.env.NODE_ENV !== 'production') &&
+              <Route path={ROUTES.ADMIN}>
+                <AdminPage />
+              </Route>
+          }
+          <Route component={NoMatch} />
+        </Switch>
       </Router>
     </MuiThemeProvider>
   );
