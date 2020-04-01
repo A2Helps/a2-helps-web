@@ -43,12 +43,16 @@ const App = () => {
         <Route exact path={ROUTES.HOME}>
           <Home />
         </Route>
-        <Route path={ROUTES.LOGIN}>
-          <SignInPage />
-        </Route>
-        <Route path={ROUTES.ADMIN}>
-          <AdminPage />
-        </Route>
+        {(process.env.NODE_ENV !== 'production') &&
+          <>
+            <Route path={ROUTES.LOGIN}>
+              <SignInPage />
+            </Route>
+            <Route path={ROUTES.ADMIN}>
+              <AdminPage />
+            </Route>
+          </>
+        }
       </Router>
     </MuiThemeProvider>
   );
