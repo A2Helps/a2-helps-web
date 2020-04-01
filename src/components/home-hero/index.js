@@ -111,9 +111,12 @@ export default function HomeHero() {
         >
         <Container>
           <Grid item xs={12} className={classes.font}>
-            {(time > 6e5) // less than 10 minutes remaining
-              ? <Typography variant="h1" className={classes.countdown}>Launching in: <strong>{fmtTime}</strong></Typography>
-              : <Typography variant="h1" className={`${classes.countdown} ${classes.finalCountdown}`}>{fmtTime}</Typography>
+            {(time <= 0)
+              ? '' // Hide countdown once we launch
+              : ((time > 6e5) // less than 10 minutes remaining
+                  ? <Typography variant="h1" className={classes.countdown}>Launching in: <strong>{fmtTime}</strong></Typography>
+                  : <Typography variant="h1" className={`${classes.countdown} ${classes.finalCountdown}`}>{fmtTime}</Typography>
+                )
             }
             <Typography variant="h2" color="inherit" className={classes.h2}>
               You're here for us. We're here for you.
