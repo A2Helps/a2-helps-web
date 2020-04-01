@@ -8,6 +8,8 @@ export const submitDonation = (amount) => {
       stripe.redirectToCheckout({
         sessionId: donation.co_session
       }).then(function (result) {
+        console.log(result.error);
+
         // If `redirectToCheckout` fails due to a browser or network
         // error, display the localized error message to your customer
         // using `result.error.message`.

@@ -3,12 +3,17 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import MuiPhoneNumber from 'material-ui-phone-number';
+
 import firebase from 'firebase/app';
 import 'firebase/auth';
+
+// code does not exist
+// code exists but phone # already exists
+// code exists and unclaimed and you're good to go
 
 import Footer from '../components/footer';
 
@@ -19,7 +24,7 @@ import {
 const useStyles = makeStyles(theme => ({
   root: {
     minHeight: '100vh',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#efefef',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -42,16 +47,17 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const validatePhone = (input) => {
-  const reg = /^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g;
-  return input.match(reg);
+  if (!input) return false;
+  const clean = cleanPhone(input);
+  return clean.match(/\d/g).length === 11;
 }
 
+// dont allow other country codes
 const cleanPhone = (input) => {
   const cleaned = ('' + input).replace(/\D/g, '')
   const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/)
   if (match) {
-    const intlCode = (match[1] ? '+1' : '+1')
-    return [intlCode, match[2], '-', match[3], '-', match[4]].join('')
+    return [match[1], match[2], match[3], match[4]].join('')
   }
   return input.replace(/[^0-9\.]+/g, '');
 }
@@ -77,8 +83,6 @@ const Phone = () => {
   const onClick = () => {
     if (!validNumber) {
       setOpen(true);
-      console.log('not valid');
-
       return;
     }
     const appVerifier = window.recaptchaVerifier;
@@ -121,11 +125,12 @@ const Phone = () => {
             </Typography>
             <br />
             <br />
-            <TextField
-              placeholder="Phone #"
-              value={phone}
-              onChange={(event) => setPhone(cleanPhone(event.target.value))}
-            />&nbsp;
+            <MuiPhoneNumber
+              defaultCountry={'us'}
+              onlyCountries={['us']}
+              onChange={(value) => setPhone(value)}
+            />
+            &nbsp;
             <Button ref={ref} onClick={onClick}>Next</Button>
           </Grid>
         </Grid>
