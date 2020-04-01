@@ -8,6 +8,7 @@ import Confirm from './pages/confirm';
 import Redeem from './pages/redeem';
 import Donate from './pages/donate';
 import AdminPage from './pages/admin';
+import NoMatch from './pages/404';
 import * as ROUTES from './util/routes';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {
@@ -53,6 +54,7 @@ const App = () => {
             </Route>
           </>
         }
+        <Route path="*" component={NoMatch} status={404} />
       </Router>
     </MuiThemeProvider>
   );
