@@ -6,6 +6,7 @@ import SignInPage from './pages/signin';
 import Phone from './pages/phone';
 import Confirm from './pages/confirm';
 import Redeem from './pages/redeem';
+import Donate from './pages/donate';
 import AdminPage from './pages/admin';
 import * as ROUTES from './util/routes';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -35,6 +36,9 @@ const App = () => {
         </Route>
         <Route path={ROUTES.REDEEM}>
           <Redeem />
+        </Route>
+        <Route exact path={ROUTES.DONATE}>
+          <Donate />
         </Route>
         <Route exact path={ROUTES.HOME}>
           <Home />
