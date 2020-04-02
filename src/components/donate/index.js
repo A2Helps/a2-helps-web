@@ -22,13 +22,13 @@ const useStyles = makeStyles(theme => ({
     color: '#3D3B39',
     minHeight: '438px',
     [theme.breakpoints.up('sm')]: {
-      
+
     },
     [theme.breakpoints.up('md')]: {
     },
   },
   title: {
-    color: '#3D3B39', 
+    color: '#3D3B39',
     textAlign: 'center',
     paddingBottom: '10px',
     marginTop: '20px',
@@ -44,13 +44,13 @@ const useStyles = makeStyles(theme => ({
       paddingBottom: '10px',
       marginTop: '60px',
       paddingBottom: '5px',
-    }, 
+    },
   },
 }));
 
 export default function Donate() {
   const [value, setValue] = React.useState('25');
-  const [inputValue, setInputValue] = React.useState('150');
+  const [inputValue, setInputValue] = React.useState('');
   const [open, setOpen] = React.useState(false);
 
   const handleChange = event => {
