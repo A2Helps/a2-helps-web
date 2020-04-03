@@ -5,12 +5,16 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
+import TextField from '@material-ui/core/TextField';
 import MuiAlert from '@material-ui/lab/Alert';
 import MuiPhoneNumber from 'material-ui-phone-number';
-
+import {
+  useHistory,
+} from "react-router-dom";
 import firebase from 'firebase/app';
 import 'firebase/auth';
 
+import * as ROUTES from '../util/routes';
 // code does not exist
 // code exists but phone # already exists
 // code exists and unclaimed and you're good to go
@@ -35,6 +39,16 @@ const useStyles = makeStyles(theme => ({
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
+  },
+  messageLoading: {
+    padding: 24,
+    flexGrow: 1,
+    textAlign: 'center',
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    opacity: 0.5,
+    pointerEvents: 'none',
   },
   spacer: {
     flex: 1,
@@ -64,8 +78,11 @@ const cleanPhone = (input) => {
 
 const Phone = () => {
   const styles = useStyles();
+  const history = useHistory();
   const [phone, setPhone] = useState('');
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [codeSent, setCodeSent] = useState(false);
   const ref = useRef(null);
   const { code } = useParams();
   const validNumber = validatePhone(phone);
@@ -86,18 +103,35 @@ const Phone = () => {
       return;
     }
     const appVerifier = window.recaptchaVerifier;
+    setLoading(true);
     firebase
-      .auth()
-      .signInWithPhoneNumber(phone, appVerifier)
-      .then(confirmResult => {
-        // success
-        console.log({ confirmResult });
-
+    .auth()
+    .signInWithPhoneNumber(phone, appVerifier)
+    .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+        setCodeSent(true);
+        setLoading(false);
       })
       .catch(error => {
         console.log({ error });
-        // error
+        setLoading(false);
       });
+  }
+
+  const tryVerify = (textedCode) => {
+    setLoading(true);
+
+    window.confirmationResult.confirm(textedCode).then(function (result) {
+      // User signed in successfully.
+      const user = result.user;
+      setLoading(false);
+      history.push(ROUTES.REDEEM);
+    }).catch(function (error) {
+      setLoading(false);
+      console.log({
+        message: 'User couldnt sign in',
+      });
+    });
   }
 
   const handleClose = () => setOpen(false);
@@ -108,31 +142,22 @@ const Phone = () => {
         <Grid
           spacing={2}
           container
-          className={styles.message}
+          className={loading ? styles.messageLoading : styles.message}
         >
           <Grid item xs={12}>
             <img className={styles.img} src="logo_fullColor_transparentBG.png" alt="A2Cares" />
           </Grid>
-          <Grid item xs={12}>
-            <br />
-            <Typography variant="h4" color="inherit">
-              Enter Phone #
-            </Typography>
-            <br />
-            <br />
-            <Typography variant="h6" color="inherit">
-              We will text you a verification code.
-            </Typography>
-            <br />
-            <br />
-            <MuiPhoneNumber
-              defaultCountry={'us'}
-              onlyCountries={['us']}
-              onChange={(value) => setPhone(value)}
+          {codeSent ? (
+            <VerifyAccount
+              tryVerify={tryVerify}
             />
-            &nbsp;
-            <Button ref={ref} onClick={onClick}>Next</Button>
-          </Grid>
+          ) : (
+            <InputPhone
+              setPhone={setPhone}
+              buttonRef={ref}
+              onClick={onClick}
+            />
+          )}
         </Grid>
       </Container>
       <div className={styles.spacer} />
@@ -147,3 +172,60 @@ const Phone = () => {
 }
 
 export default React.memo(Phone);
+
+const InputPhone = ({
+  setPhone,
+  buttonRef,
+  onClick,
+}) => (
+  <Grid item xs={12}>
+    <br />
+    <Typography variant="h4" color="inherit">
+      Enter Phone #
+    </Typography>
+    <br />
+    <br />
+    <Typography variant="h6" color="inherit">
+      We will text you a verification code.
+    </Typography>
+    <br />
+    <br />
+    <MuiPhoneNumber
+      defaultCountry={'us'}
+      onlyCountries={['us']}
+      onChange={(value) => setPhone(value)}
+    />
+    &nbsp;
+    <Button ref={buttonRef} onClick={onClick}>Next</Button>
+  </Grid>
+);
+
+const VerifyAccount = ({
+  tryVerify,
+}) => {
+  const [code, setCode] = useState('');
+
+  return (
+    <Grid item xs={12}>
+      <br />
+      <Typography variant="h6" color="inherit">
+        We sent you a verification code.
+      </Typography>
+      <br />
+      <br />
+      <Typography variant="h4" color="inherit">
+        Verify Code
+      </Typography>
+      <br />
+      <br />
+      <TextField
+        placeholder="Enter Code"
+        onChange={(event) => setCode(event.target.value)}
+      />&nbsp;
+      <Button onClick={() => tryVerify(code)}>Next</Button>
+      <br />
+      <br />
+      <Button onClick={() => window.location.reload()}>Try again</Button>
+    </Grid>
+  );
+};

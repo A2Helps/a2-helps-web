@@ -4,7 +4,6 @@ import Success from './pages/success';
 import Canceled from './pages/canceled';
 import SignInPage from './pages/signin';
 import Phone from './pages/phone';
-import Confirm from './pages/confirm';
 import Redeem from './pages/redeem';
 import Donate from './pages/donate';
 import AdminPage from './pages/admin';
@@ -33,9 +32,6 @@ const App = () => {
           {/* verify */}
           <Route path={ROUTES.CODE}>
             <Phone />
-          </Route>
-          <Route path={ROUTES.CONFIRM}>
-            <Confirm />
           </Route>
           <Route path={ROUTES.REDEEM}>
             <Redeem />
