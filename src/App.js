@@ -8,6 +8,8 @@ import Redeem from './pages/redeem';
 import Donate from './pages/donate';
 import AdminPage from './pages/admin';
 import NoMatch from './pages/404';
+import FaqPage from './pages/faq';
+import About from './pages/about';
 import * as ROUTES from './util/routes';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {
@@ -38,6 +40,12 @@ const App = () => {
           </Route>
           <Route exact path={ROUTES.DONATE}>
             <Donate />
+          </Route>
+          <Route exact path={ROUTES.FAQ}>
+            <FaqPage />
+          </Route>
+          <Route exact path={ROUTES.ABOUT}>
+            <About />
           </Route>
           <Route exact path={ROUTES.HOME}>
             <Home />
