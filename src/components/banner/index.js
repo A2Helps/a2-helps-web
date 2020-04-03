@@ -2,12 +2,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
 import {
   Link,
 } from "react-router-dom";
-import { HOME, DONATE } from '../../util/routes';
-// import LogInOutButton from '../auth/LogInOutButton';
+import { HOME } from '../../util/routes';
+import Navigation from '../Navigation';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -47,17 +46,7 @@ export default function Banner() {
               <img className={classes.img} src="logo_fullColor_transparentBG.png" alt="A2Cares" />
             </Link>
           </Grid>
-          <Grid item xs className={classes.donate}>
-            <Link to={DONATE} className={classes.clearUnderline}>
-              <Button
-                variant="contained"
-                color="secondary"
-              >
-                Donate
-              </Button>
-            </Link>
-            {/* <LogInOutButton /> */}
-          </Grid>
+          <Navigation />
         </Grid>
       </Container>
     </div>
