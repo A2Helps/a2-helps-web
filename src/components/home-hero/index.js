@@ -22,17 +22,19 @@ const useStyles = makeStyles(theme => ({
     },
   },
   countdown: {
-    textAlign: 'center',
-    fontSize: '26px',
+    textAlign: 'left',
+    fontSize: '20px',
     fontWeight: '400',
-    marginTop: '-20px',
+    marginTop: '12px',
     paddingBottom: '40px',
+    marginBottom: '-30px',
+    opacity: '.7',
     [theme.breakpoints.up('sm')]: {
-      marginTop: '-80px',
-      fontSize: '38px',
+      marginTop: '-20px',
+      fontSize: '20px',
     },
     [theme.breakpoints.up('md')]: {
-      fontSize: '46px',
+      fontSize: '20px',
     },
   },
   finalCountdown: {

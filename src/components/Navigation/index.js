@@ -11,10 +11,19 @@ const useStyles = makeStyles(() => ({
   root: {
     textAlign: 'right',
   },
+  body1: {
+    fontFamily: '"Lato", "Open Sans", sans-serif',
+    fontWeight: 400,
+    fontSize: '14px',
+    lineHeight: 1.4,
+    letterSpacing: '0.00938em',
+    color: '#3D3B39',
+  },
 }));
 
 const StyledLink = styled(Link)({
-  padding: '0 10px',
+  padding: '0 40px',
+  paddingRight: '0',
   textDecoration: 'none',
 });
 
@@ -23,8 +32,8 @@ export default function Navigation() {
 
   return (
       <Grid item xs className={classes.root}>
-        <StyledLink to={ABOUT}>About</StyledLink>
-        <StyledLink to={FAQ}>FAQ</StyledLink>
+        <StyledLink className={classes.body1} to={ABOUT}>ABOUT</StyledLink>
+        <StyledLink className={classes.body1} to={FAQ}>FAQ</StyledLink>
         <StyledLink to={DONATE}>
           <Button
             variant="contained"

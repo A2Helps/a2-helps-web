@@ -66,27 +66,27 @@ export default function Footer() {
             justify='space-between'
             className={classes.socialLinks}
           >
-            <Grid item xs={2}>
+            <Grid item xs={2} style={{textAlign: 'right'}}>
               <a href="mailto:help@a2helps.com" target="_top">
                 <img className={classes.img} src="email-icon.svg" alt="Email Icon" />
               </a>
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={2} style={{textAlign: 'right'}}>
               <a target="_blank" href="https://www.instagram.com/a2helps/">
                 <img className={classes.img} src="instagram-icon.svg" alt="Instagram Icon" />
               </a>
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={2} style={{textAlign: 'right'}}>
               <a target="_blank" href="https://twitter.com/a2helps">
                 <img className={classes.img} src="twitter-icon.svg" alt="Twitter Icon" />
               </a>
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={2} style={{textAlign: 'right'}}>
               <a target="_blank" href="https://www.facebook.com/a2helps">
                 <img className={classes.img} src="facebook-icon.svg" alt="Facebook Icon" />
               </a>
             </Grid>
-            <Grid item xs={2}>
+            <Grid item xs={2} style={{textAlign: 'right'}}>
               <a target="_blank" href="https://www.linkedin.com/company/a2-helps/">
                 <img className={classes.img} href="https://www.linkedin.com/company/a2-helps/" src="linkedin-icon.svg" alt="Linkedin Icon" />
               </a>
