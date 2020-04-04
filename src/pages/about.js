@@ -10,24 +10,32 @@ const useStyles = makeStyles(theme => ({
     margin: '50px auto',
     maxWidth: '900px',
     color: '#3D3B39',
+    marginBottom: '0',
     [theme.breakpoints.up('md')]: {
       marginBottom: '10px',
       marginTop: '100px',
     },
   },
   subtitle: {
-    fontSize: '24px',
+    fontSize: '20px',
     marginTop: '10px',
     marginBottom: '50px',
     maxWidth: '700px',
     fontWeight: 600,
     color: '#719F20',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '24px',
+    },
   },
   cahoots: {
     color: '#719F20',
     textDecoration: 'none',
     borderBottom: '2px #719F20 solid',
-
+  },
+  cahoots2: {
+    color: '#3D3B39',
+    textDecoration: 'none',
+    borderBottom: '1px #3D3B39 solid',
   },
   h2: {
     fontWeight: 300,
@@ -86,7 +94,12 @@ const useStyles = makeStyles(theme => ({
     borderRadius: '3px 3px 0px 0px',
   },
   left: {
-    maxWidth: '300px',
+    maxWidth: '430px',
+    textAlign: 'center',
+    [theme.breakpoints.up('md')]: {
+      textAlign: 'left',
+      maxWidth: '300px',
+    },
   },
   right: {
     maxWidth: '450px',
@@ -123,32 +136,27 @@ const AboutContent = () => {
         About A2 Helps
       </Typography>
       <Typography variant="body1" className={styles.subtitle}>
-        Brought together by <a target="_blank" href="https://cahoots.com/" className={styles.cahoots}>Cahoots</a>, we’re an organization designed to help our local businesses and healthcare professionals.
+        Brought together by <a target="_blank" href="https://cahoots.com/" className={styles.cahoots}>Cahoots</a>, we’re an organization committed to helping Washtenaw County’s local businesses and healthcare professionals on the front lines of COVID-19.
       </Typography>
 
       <Typography variant="h3" className={styles.h3}>
         Why did we start A2 Helps?
       </Typography>
       <Typography variant="body1" className={styles.body}>
-       This pandemic is unprecedented. The uncertainty that our community now faces is incredibly taxing, both emotionally, and financially.
+       This pandemic is unprecedented. The uncertainty that our community faces now is incredibly taxing, both emotionally and financially.
       </Typography>
       <Typography variant="body1" className={styles.body}>
-        Small businesses are being impacted with a rapid decline in operating cash to support their teams, pay their overhead and ensure their long term survival.
+        Small businesses are being impacted by a rapid decline in operating cash to support their teams, pay their overhead, and ensure their long term survival. If we lose them, where will we gather to celebrate when this is over? How can we expect them to rebuild from nothing? 
       </Typography>
       <Typography variant="body1" className={styles.body}>
-      <Typography variant="body1" className={styles.body}>
-       Small businesses are being impacted with a rapid decline in operating cash to support their teams, pay their overhead and ensure their long term survival.
-      </Typography>
-      </Typography>
-      <Typography variant="body1" className={styles.body}>
-        Meanwhile, there are people who are risking their lives every day to ensure we are well taken care of and stocked with food and other necessities. We started A2 Helps to provide a token of our gratitude for their service.
+        Meanwhile, people are risking their lives every day to ensure our health and safety. We started A2 Helps to provide a token of our gratitude for their service.
       </Typography>
 
       <Typography variant="h3" className={styles.h3}>
         How do we operate?
       </Typography>
       <Typography variant="body1" className={styles.body}>
-        A2 Helps receives donations from the community to purchase gift cards from local restaurants and retail stores. These gift cards are then electronically distributed to healthcare professionals, in partnership with St. Joe’s Hospital and The University of Michigan Hospital.  
+        A2 Helps receives donations from the community to purchase gift cards from local restaurants and retail stores. These gift cards are then electronically distributed to healthcare professionals in partnership with St. Joe’s Hospital and Michigan Medicine.  
       </Typography>
       <img className={styles.imgDesktop} src={"diagramDesktop.png"} alt="A2Cares" />
       <img className={styles.imgMobile} src={"diagramMobile.png"} alt="A2Cares" />
@@ -165,7 +173,7 @@ const AboutContent = () => {
           Meet the Team
         </Typography>
         <Typography variant="body1" className={styles.body}>
-          We couldn’t have built A2 helps without our amazing volunteers. Brought together by Cahoots, we have over 10 volunteer engineers, designers, and marketers dedicated to launching this organization and supporting healthcare professionals and local businesses.
+          We couldn’t have built A2 Helps without our amazing volunteers. Brought together by <a target="_blank" href="https://cahoots.com/" className={styles.cahoots2}>Cahoots</a>, we have over 10 volunteer engineers, designers, and marketers dedicated to launching this organization and supporting healthcare professionals and local businesses.
         </Typography>
         </Grid>
         <Grid item xs={12} md={6} className={styles.right}>
@@ -178,7 +186,7 @@ const AboutContent = () => {
         className={styles.team}
         >
         
-        <Grid item xs={6} md={3} className={styles.person}>
+        <Grid item xs={6} sm={4} md={3} className={styles.person}>
           <img className={styles.headshot} src={"headshots/joe-malcoun.png"} alt="Joe Malcoun headshot" />
           <Typography variant="h4" className={styles.teammate}>
           Joe Malcoun
@@ -191,7 +199,7 @@ const AboutContent = () => {
           </Typography>
         </Grid>
 
-         <Grid item xs={6} md={3} className={styles.person}>
+         <Grid item xs={6} sm={4} md={3} className={styles.person}>
           <img className={styles.headshot} src={"headshots/alison-todak.png"} alt="Alison Todak headshot" />
           <Typography variant="h4" className={styles.teammate}>
             Alison Todak
@@ -204,7 +212,7 @@ const AboutContent = () => {
           </Typography>
         </Grid>
 
-         <Grid item xs={6} md={3} className={styles.person}>
+         <Grid item xs={6} sm={4} md={3} className={styles.person}>
           <img className={styles.headshot} src={"headshots/kristen-gray.png"} alt="Kristen Gray headshot" />
           <Typography variant="h4" className={styles.teammate}>
             Kristen Gray
@@ -221,7 +229,7 @@ const AboutContent = () => {
         </Grid>
 
 
-         <Grid item xs={6} md={3} className={styles.person}>
+         <Grid item xs={6} sm={4} md={3} className={styles.person}>
           <img className={styles.headshot} src={"headshots/patrick-mccarren.png"} alt="Patrick McCarren headshot" />
           <Typography variant="h4" className={styles.teammate}>
             Patrick McCarren
@@ -234,7 +242,7 @@ const AboutContent = () => {
           </Typography>
         </Grid>
 
-         <Grid item xs={6} md={3} className={styles.person}>
+         <Grid item xs={6} sm={4} md={3} className={styles.person}>
           <img className={styles.headshot} src={"headshots/emma-furlong.png"} alt="Emma Furlong headshot" />
           <Typography variant="h4" className={styles.teammate}>
             Emma Furlong
@@ -247,7 +255,7 @@ const AboutContent = () => {
           </Typography>
         </Grid>
 
-        <Grid item xs={6} md={3} className={styles.person}>
+        <Grid item xs={6} sm={4} md={3} className={styles.person}>
           <img className={styles.headshot} src={"headshots/austin-psychas.png"} alt="Austin Psychas headshot" />
           <Typography variant="h4" className={styles.teammate}>
             Austin Psychas
@@ -264,7 +272,7 @@ const AboutContent = () => {
         </Grid>
 
 
-        <Grid item xs={6} md={3} className={styles.person}>
+        <Grid item xs={6} sm={4} md={3} className={styles.person}>
           <img className={styles.headshot} src={"headshots/jim-hall.png"} alt="Jim-Hall headshot" />
           <Typography variant="h4" className={styles.teammate}>
             Jim Hall
@@ -277,7 +285,7 @@ const AboutContent = () => {
           </Typography>
         </Grid>
 
-         <Grid item xs={6} md={3} className={styles.person}>
+         <Grid item xs={6} sm={4} md={3} className={styles.person}>
           <img className={styles.headshot} src={"headshots/jack-virag.png"} alt="Jack Virag headshot" />
           <Typography variant="h4" className={styles.teammate}>
             Jack Virag
@@ -290,7 +298,7 @@ const AboutContent = () => {
           </Typography>
         </Grid>
 
-         <Grid item xs={6} md={3} className={styles.person}>
+         <Grid item xs={6} sm={4} md={3} className={styles.person}>
           <img className={styles.headshot} src={"headshots/dylan-goings.png"} alt="Dylan Goings headshot" />
           <Typography variant="h4" className={styles.teammate}>
             Dylan Goings
@@ -303,7 +311,7 @@ const AboutContent = () => {
           </Typography>
           </Grid>
 
-        <Grid item xs={6} md={3} className={styles.person}>
+        <Grid item xs={6} sm={4} md={3} className={styles.person}>
           <img className={styles.headshot} src={"headshots/hana-coon.png"} alt="Kristen Gray headshot" />
           <Typography variant="h4" className={styles.teammate}>
             Hana Coon
