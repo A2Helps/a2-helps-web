@@ -5,7 +5,8 @@ import Donate from '../components/donate';
 import RequestCodes from '../components/request-codes';
 import BusinessSignUp from '../components/business-sign-up';
 import Mission from '../components/mission';
-import Wrapper from '../components/wrapper';
+import WrapperHome from '../components/wrapper-home';
+import HowItWorks from '../components/how-it-works';
 
 
 const useStyles = makeStyles(theme => ({
@@ -18,8 +19,9 @@ const useStyles = makeStyles(theme => ({
 function Home() {
   const styles = useStyles();
   return (
-    <Wrapper>
+    <WrapperHome>
       <Mission />
+
       <Grid
         spacing={4}
         container
@@ -29,7 +31,8 @@ function Home() {
         <RequestCodes />
         {/* <BusinessSignUp /> */}
       </Grid>
-    </Wrapper>
+      <HowItWorks />
+    </WrapperHome>
   );
 }
 

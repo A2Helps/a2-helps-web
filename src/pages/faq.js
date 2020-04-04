@@ -5,25 +5,44 @@ import Wrapper from '../components/wrapper';
 import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
-  ctas: {
-    padding: 16,
-    flexGrow: 1,
+  root: {
+    maxWidth: '800px',
+    margin: '0 auto',
+    marginTop: '70px',
   },
+  question: {
+    fontSize: '24px',
+    marginTop: '30px',
+    marginBottom: '10px',
+  },
+  answer: {
+    fontSize: '18px',
+  },
+  
 }));
 
 const FAQ = () => {
+  const styles = useStyles();
   return (
-    <div>
-      <Typography variant="h1">
+    <div className={styles.root}>
+      <Typography variant="h2">
         FAQs
       </Typography>
-      <Typography variant="body1">
-        <strong>Where does my money go when it's collected?</strong>
-        <p>It goes to the people who need it!</p>
-      </Typography>
+
+        <div className={styles.faq}>
+          <Typography className={styles.question} variant="h3" color="inherit">
+            Where does my money go when it's collected?
+          </Typography>
+          <Typography className={styles.answer} variant="body1" color="inherit">
+            Where does my money go when it's collected?
+          </Typography>
+        </div>
+
     </div>
   )
 }
+
+
 
 function FaqPage() {
   const styles = useStyles();

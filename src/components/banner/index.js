@@ -34,7 +34,7 @@ export default function Banner() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root} style={{boxShadow: '0px 1px 8px 0px rgba(0,0,0,0.3)', zIndex: 10}}>
+    <div className={classes.root} style={{boxShadow: '0px 1px 8px 0px rgba(0,0,0,0.15)', zIndex: 10}}>
       <Container>
         <Grid
           container

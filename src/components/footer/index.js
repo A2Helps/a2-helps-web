@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       textAlign: 'left',
     },
-    backgroundColor: '#ffffff',
+    backgroundColor: '#FBFBFB',
     padding: 40,
     marginTop: 40,
   },

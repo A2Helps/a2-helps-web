@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function Wrapper(props) {
+function WrapperHome(props) {
   const styles = useStyles();
 
   console.log(props.route);
@@ -25,6 +25,7 @@ function Wrapper(props) {
   return (
     <div className={styles.root}>
       <Banner />
+      <HomeHero />
       <Container>
         {props.children}
       </Container>
@@ -34,4 +35,4 @@ function Wrapper(props) {
   );
 }
 
-export default Wrapper;
+export default WrapperHome;
