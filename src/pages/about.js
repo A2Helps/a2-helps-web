@@ -230,7 +230,7 @@ const AboutContent = () => {
             App Development
           </Typography>
           <Typography variant="body1" className={styles.company}>
-            Cumulative
+            Cumulative & Wedge
           </Typography>
         </Grid>
 
