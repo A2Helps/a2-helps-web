@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Radio from '@material-ui/core/Radio';
+import Checkbox from '@material-ui/core/Checkbox';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -53,6 +54,9 @@ const useStyles = makeStyles(theme => ({
   body: {
     marginBottom: '30px',
   },
+  ccFees: {
+    marginTop: '10px',
+  },
   form: {
     width: '100%',
   },
@@ -65,6 +69,7 @@ const useStyles = makeStyles(theme => ({
 export default function Donate() {
   const [value, setValue] = React.useState('25');
   const [inputValue, setInputValue] = React.useState('');
+  const [addCCValue, setAddCCFeeValue] = React.useState(true);
   const [open, setOpen] = React.useState(false);
 
   const handleChange = event => {
@@ -75,19 +80,33 @@ export default function Donate() {
     setInputValue(event.target.value.replace(/\D/g,''));
   };
 
-  const openDonations = () => {
-    let finalValue;
+  const handleCardFeeChange = event => {
+    setAddCCFeeValue(event.target.checked);
+  };
 
+  const computeCCFee = (donationValue) => {
+    if (!addCCValue) return donationValue;
+    const finalDonation = (donationValue + 0.3) / .971;
+
+    return finalDonation.toFixed(2);
+  };
+
+  const computeFinalValue = () => {
+    if (value === 'other') {
+      if (inputValue === '') return 0;
+      return computeCCFee(parseInt(inputValue));
+    }
+
+    return computeCCFee(parseInt(value));
+  }
+
+  const openDonations = () => {
     if (inputValue === '' && value === 'other') {
       setOpen(true);
       return;
     }
 
-    if (value === 'other') {
-      finalValue = parseInt(inputValue);
-    } else {
-      finalValue = parseInt(value);
-    }
+    const finalValue = computeFinalValue();
 
     submitDonation(finalValue * 100);
   };
@@ -130,6 +149,19 @@ export default function Donate() {
               }
             />
           </RadioGroup>
+          <br />
+          <Typography variant="body1" color="inherit" className={classes.ccFees}>
+            Please consider upping your donation to cover our credit card processing fees:
+          </Typography>
+          <FormControlLabel
+            control={
+              <Checkbox checked={addCCValue} onChange={handleCardFeeChange} />
+            }
+            label="Add 2.9% + $0.30 to my donation"
+          />
+          <Typography variant="body1" color="inherit" className={classes.ccFees}>
+            <strong>Total Donation: ${computeFinalValue()}</strong>
+          </Typography>
           <br />
           <Button
             variant="contained"
