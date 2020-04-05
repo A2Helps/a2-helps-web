@@ -66,7 +66,7 @@ export default function Mission() {
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" color="inherit" className={classes.h4}>
-            Provide direct financial assistance to local businesses and grocery stores to ensure they survive this pandemic.
+            Provide direct financial assistance to local businesses to ensure they survive this pandemic.
             </Typography>
           </Grid>
         </Grid>

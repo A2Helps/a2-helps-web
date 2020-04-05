@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Radio from '@material-ui/core/Radio';
+import Checkbox from '@material-ui/core/Checkbox';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
@@ -11,7 +12,6 @@ import FormLabel from '@material-ui/core/FormLabel';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
-import Checkbox from '@material-ui/core/Checkbox';
 
 import { EmptySubmissionSnackbar } from './empty-submission-snackbar';
 import { submitDonation } from './submit-donation';
@@ -55,6 +55,9 @@ const useStyles = makeStyles(theme => ({
   body: {
     marginBottom: '30px',
   },
+  ccFees: {
+    marginTop: '10px',
+  },
   form: {
     width: '100%',
   },
@@ -69,6 +72,7 @@ export default function Donate() {
   const [listingName, setListingName] = React.useState('');
   const [value, setValue] = React.useState('25');
   const [inputValue, setInputValue] = React.useState('');
+  const [addCCValue, setAddCCFeeValue] = React.useState(true);
   const [open, setOpen] = React.useState(false);
 
   const handleChange = event => {
@@ -79,19 +83,33 @@ export default function Donate() {
     setInputValue(event.target.value.replace(/\D/g,''));
   };
 
-  const openDonations = () => {
-    let finalValue;
+  const handleCardFeeChange = event => {
+    setAddCCFeeValue(event.target.checked);
+  };
 
+  const computeCCFee = (donationValue) => {
+    if (!addCCValue) return donationValue;
+    const finalDonation = (donationValue + 0.3) / .971;
+
+    return finalDonation.toFixed(2);
+  };
+
+  const computeFinalValue = () => {
+    if (value === 'other') {
+      if (inputValue === '') return 0;
+      return computeCCFee(parseInt(inputValue));
+    }
+
+    return computeCCFee(parseInt(value));
+  }
+
+  const openDonations = () => {
     if (inputValue === '' && value === 'other') {
       setOpen(true);
       return;
     }
 
-    if (value === 'other') {
-      finalValue = parseInt(inputValue);
-    } else {
-      finalValue = parseInt(value);
-    }
+    const finalValue = computeFinalValue();
 
     submitDonation({
       amount: finalValue * 100,
@@ -115,7 +133,6 @@ export default function Donate() {
           We have partnered with the Ann Arbor Spark foundation as our 501(c)(3) fiduciary partner. All contributions are 100% tax dedicutibe.
         </Typography>
         <FormControl component="fieldset" className={classes.form}>
-
           <FormLabel component="legend">Amount</FormLabel>
           <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
             <FormControlLabel value="25" control={<Radio />} label="25" />
@@ -140,7 +157,6 @@ export default function Donate() {
             />
           </RadioGroup>
           <br />
-          <br />
           <FormLabel component="legend">Would you like your name listed on the donor's page?</FormLabel>
           <FormControlLabel
             control={
@@ -160,7 +176,19 @@ export default function Donate() {
             value={listingName}
             onChange={(event) => setListingName(event.target.value)}
           />
-
+          <br />
+          <Typography variant="body1" color="inherit" className={classes.ccFees}>
+            Please consider covering the credit card processing fees associated with your gift:
+          </Typography>
+          <FormControlLabel
+            control={
+              <Checkbox checked={addCCValue} onChange={handleCardFeeChange} />
+            }
+            label="Add 2.9% + $0.30 to my donation"
+          />
+          <Typography variant="body1" color="inherit" className={classes.ccFees}>
+            <strong>Total Donation: ${computeFinalValue()}</strong>
+          </Typography>
           <br />
           <Button
             variant="contained"
@@ -172,7 +200,6 @@ export default function Donate() {
           </Button>
         </FormControl>
       </Paper>
-
       <EmptySubmissionSnackbar open={open} setOpen={setOpen} />
     </Grid>
   );

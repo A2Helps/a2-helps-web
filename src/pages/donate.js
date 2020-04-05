@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Donate from '../components/donate';
 import Wrapper from '../components/wrapper';
+import Typography from '@material-ui/core/Typography';
 import Footer from '../components/footer';
 
 const useStyles = makeStyles(theme => ({
@@ -12,7 +13,6 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#ffffff',
     display: 'flex',
     flexDirection: 'column',
-    marginBottom: '-130px',
   },
   message: {
     padding: 24,
@@ -38,7 +38,16 @@ const useStyles = makeStyles(theme => ({
       marginTop: '0px',
     },
   },
-  donate: {
+  body: {
+    textAlign: 'center',
+    color: '#3D3B39',
+    maxWidth: '600px',
+    margin: '60px auto 0 auto',
+    fontSize: '20px',
+    fontWeight: 600,
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '24px',
+    },
   },
 }));
 
@@ -47,12 +56,14 @@ function Confirm() {
 
   return (
     <Wrapper>
-    <div className={styles.root}>
-      <Container className={styles.donateBox}>
+      <div className={styles.root}>
+        <Typography variant="body1" color="inherit" className={styles.body}>
+          Your donation will provide direct support to local businesses in Washtenaw Country and workers on the front lines of the CoVID-19 crisis.
+        </Typography>
+        <Container className={styles.donateBox}>
           <Donate className={styles.donate}/>
-      </Container>
-      <div className={styles.spacer} />
-    </div>
+        </Container>
+      </div>
     </Wrapper>
   );
 }
