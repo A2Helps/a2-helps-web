@@ -7,37 +7,51 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: 30,
-    marginTop: 12,
+    padding: 40,
     boxShadow: '0px 0px 7px 1px rgba(0,0,0,0.13)',
     color: '#3D3B39',
-    minHeight: '438px',
+    minHeight: '180px',
+    maxWidth: '580px',
+    margin: '0 auto',
     [theme.breakpoints.up('sm')]: {
       
     },
     [theme.breakpoints.up('md')]: {
-      
+      minHeight: '370px',
     },
   },
   title: {
-    color: '#3D3B39', 
+    color: '#3D3B39',
     textAlign: 'center',
     paddingBottom: '10px',
     marginTop: '20px',
     fontSize: '30px',
     fontWeight: 300,
     [theme.breakpoints.up('sm')]: {
-      paddingBottom: '10px',
+      paddingBottom: '25px',
       marginTop: '60px',
-      paddingBottom: '5px',
       fontSize: '32px',
     },
     [theme.breakpoints.up('md')]: {
-      paddingBottom: '10px',
+      paddingBottom: '20px',
       marginTop: '60px',
-      paddingBottom: '5px',
-    },  
+    },
   },
+    h4: {
+      fontSize: '28px',
+      fontWeight: 600,
+      marginBottom: '10px',
+    },
+    body: {
+      marginBottom: '30px', 
+    },
+    button: {
+      width: '100%',
+      marginTop: '0px',
+      [theme.breakpoints.up('md')]: {
+        marginTop: '179px',
+      },
+    },
 }));
 
 const openRequestForm = () => {
@@ -49,16 +63,16 @@ export default function BusinessSignUp() {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12} lg={6}>
       <Typography variant="h3" color="inherit" className={classes.title}>
-        Become an A2 Helps Vendor
+        Join the A2 Helps network!
       </Typography>
       <Paper className={classes.root}>
-        <Typography variant="h4" color="inherit">
-          Sign up your local business
+        <Typography variant="h4" color="inherit" className={classes.h4}>
+          Sign Up
         </Typography>
-        <Typography variant="body1" color="inherit">
-          Are you a local business who can sell gift certificates to A2Helps?
+        <Typography variant="body1" color="inherit" className={classes.body}>
+          Are you a business in washtenaw county who can sell gift certificates through A2Helps? Sign up to receive our support. 
         </Typography>
         <br />
         <br />
@@ -66,8 +80,9 @@ export default function BusinessSignUp() {
           variant="contained"
           color="primary"
           onClick={openRequestForm}
+          className={classes.button}
         >
-          Submit your business
+          Join the A2 Helps Family
         </Button>
       </Paper>
     </Grid>

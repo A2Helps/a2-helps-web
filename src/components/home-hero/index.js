@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up('md')]: {
       fontSize: '46px',
-      maxWidth: 665,
+      maxWidth: 750,
     },
   },
   h2: {
@@ -124,7 +124,7 @@ export default function HomeHero() {
               You're here for us. We're here for you.
             </Typography>
             <Typography variant="h1" color="inherit" className={classes.h1}>
-              Supporting <strong>front-line workers</strong> and <strong>local businesses</strong> in Ann Arbor during the COVID-19 crisis.
+              Supporting <strong>healthcare professionals</strong> and <strong>local businesses</strong> in Ann Arbor during the COVID-19 crisis.
             </Typography>
           </Grid>
           </Container>
