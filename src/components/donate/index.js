@@ -151,7 +151,7 @@ export default function Donate() {
           </RadioGroup>
           <br />
           <Typography variant="body1" color="inherit" className={classes.ccFees}>
-            Please consider upping your donation to cover our credit card processing fees:
+            Please consider covering the credit card processing fees associated with your gift:
           </Typography>
           <FormControlLabel
             control={
