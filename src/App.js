@@ -6,10 +6,12 @@ import SignInPage from './pages/signin';
 import Phone from './pages/phone';
 import Redeem from './pages/redeem';
 import Donate from './pages/donate';
+import Wire from './pages/wire';
 import AdminPage from './pages/admin';
 import NoMatch from './pages/404';
 import FaqPage from './pages/faq';
 import About from './pages/about';
+import WireSuccess from './pages/wire-success';
 import * as ROUTES from './util/routes';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import {
@@ -40,6 +42,12 @@ const App = () => {
           </Route>
           <Route exact path={ROUTES.DONATE}>
             <Donate />
+          </Route>
+          <Route exact path={ROUTES.WIRE}>
+            <Wire />
+          </Route>
+          <Route exact path={ROUTES.WIRE_SUCCESS}>
+            <WireSuccess />
           </Route>
           <Route exact path={ROUTES.FAQ}>
             <FaqPage />

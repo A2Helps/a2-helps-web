@@ -12,7 +12,7 @@ export const EmptySubmissionSnackbar = ({ setOpen, open }) => {
   return (<Snackbar anchorOrigin={{
     vertical: 'bottom',
     horizontal: 'center',
-  }} open={open} autoHideDuration={6000} onClose={handleClose} message="Submit an amount in dollars you wish to donate." action={<React.Fragment>
+  }} open={open} autoHideDuration={6000} onClose={handleClose} message="Please check your submission and try again" action={<React.Fragment>
     <Button color="secondary" size="small" onClick={handleClose}>
       Continue
     </Button>

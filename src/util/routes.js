@@ -8,3 +8,5 @@ export const SUCCESS = '/donation/success';
 export const CODE = '/v/:code';
 export const FAQ = '/faq';
 export const ABOUT = '/about';
+export const WIRE = '/wire';
+export const WIRE_SUCCESS = '/wire/success';
