@@ -1,8 +1,8 @@
 import { loadStripe } from '@stripe/stripe-js';
 import Donation from '../../models/donation';
 
-export const submitDonation = ({ amount, pubic, public_from }) => {
-  let donation = new Donation({ amount });
+export const submitDonation = ({ amount, isPublic, public_name }) => {
+  let donation = new Donation({ amount, public_name, public: isPublic });
   donation.save().then(() => {
     loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY).then(stripe => {
       stripe.redirectToCheckout({

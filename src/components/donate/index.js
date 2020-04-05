@@ -95,8 +95,8 @@ export default function Donate() {
 
     submitDonation({
       amount: finalValue * 100,
-      public: listingAllowed,
-      public_from: listingName,
+      isPublic: listingAllowed,
+      public_name: listingName,
     });
   };
 
