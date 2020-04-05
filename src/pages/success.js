@@ -39,7 +39,7 @@ function Success() {
           <Grid xs={12}>
             <br />
             <Typography variant="h4" color="inherit">
-              <strong>Thank you</strong> for supporting local healthcare professionals and businesses.
+              <strong>Thank you</strong> for supporting local healthcare professionals and Washtenaw County businesses.
             </Typography>
             <br />
             <br />
