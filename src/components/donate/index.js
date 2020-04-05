@@ -65,6 +65,9 @@ const useStyles = makeStyles(theme => ({
   addFee: {
     fontSize: '12px',
   },
+  question: {
+    fontSize: '13px',
+  },
   form: {
     width: '100%',
   },
@@ -165,14 +168,14 @@ export default function Donate() {
           </RadioGroup>
           <br />
           <br />
-          <FormLabel component="legend">Would you like your name listed on the donor's page?</FormLabel>
+          <FormLabel component="legend" className={classes.question}>Would you like your name listed on the donor's page?</FormLabel>
           <FormControlLabel
             control={
               <Checkbox
                 checked={listingAllowed}
                 onChange={() => setListingAllowed(!listingAllowed)}
                 name="listingAllowed"
-                color="primary"
+                color="secondary"
               />
             }
             label="List my name."
@@ -186,7 +189,7 @@ export default function Donate() {
           />
           <br />
           <br />
-          <FormLabel component="legend">
+          <FormLabel component="legend" className={classes.question}>
             Please consider covering the credit card processing fees associated with your gift:
           </FormLabel>
           <FormControlLabel className={classes.addFee}
