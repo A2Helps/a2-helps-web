@@ -8,6 +8,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import TextField from '@material-ui/core/TextField';
 import MuiAlert from '@material-ui/lab/Alert';
 import MuiPhoneNumber from 'material-ui-phone-number';
+import verifyCode from '../models/verify-code';
 import {
   useHistory,
 } from "react-router-dom";
@@ -97,25 +98,31 @@ const Phone = () => {
     });
   });
 
-  const onClick = () => {
+  const onClick = async () => {
     if (!validNumber) {
       setOpen(true);
       return;
     }
     const appVerifier = window.recaptchaVerifier;
     setLoading(true);
-    firebase
-    .auth()
-    .signInWithPhoneNumber(phone, appVerifier)
-    .then((confirmationResult) => {
-        window.confirmationResult = confirmationResult;
-        setCodeSent(true);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.log({ error });
-        setLoading(false);
+
+    try {
+      const result = await verifyCode({
+        code,
+        phone,
       });
+      console.log(result);
+    } catch(e) {
+      console.log(e);
+      return;
+    }
+
+    window.confirmationResult = await firebase
+      .auth()
+      .signInWithPhoneNumber(phone, appVerifier);
+
+    setCodeSent(true);
+    setLoading(false);
   }
 
   const tryVerify = (textedCode) => {
