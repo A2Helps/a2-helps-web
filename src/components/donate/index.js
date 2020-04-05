@@ -12,6 +12,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
+
 import { EmptySubmissionSnackbar } from './empty-submission-snackbar';
 import { submitDonation } from './submit-donation';
 
@@ -74,6 +75,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Donate() {
+  const [listingAllowed, setListingAllowed] = React.useState(true);
+  const [listingName, setListingName] = React.useState('');
   const [value, setValue] = React.useState('25');
   const [inputValue, setInputValue] = React.useState('');
   const [addCCValue, setAddCCFeeValue] = React.useState(true);
@@ -115,7 +118,11 @@ export default function Donate() {
 
     const finalValue = computeFinalValue();
 
-    submitDonation(finalValue * 100);
+    submitDonation({
+      amount: finalValue * 100,
+      isPublic: listingAllowed,
+      public_name: listingName,
+    });
   };
 
   const classes = useStyles();
@@ -157,9 +164,31 @@ export default function Donate() {
             />
           </RadioGroup>
           <br />
-          <Typography variant="body1" color="inherit" className={classes.ccFeesMessage}>
+          <br />
+          <FormLabel component="legend">Would you like your name listed on the donor's page?</FormLabel>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={listingAllowed}
+                onChange={() => setListingAllowed(!listingAllowed)}
+                name="listingAllowed"
+                color="primary"
+              />
+            }
+            label="List my name."
+          />
+          <TextField
+            id="outlined-basic"
+            label="Listing Name"
+            disabled={!listingAllowed}
+            value={listingName}
+            onChange={(event) => setListingName(event.target.value)}
+          />
+          <br />
+          <br />
+          <FormLabel component="legend">
             Please consider covering the credit card processing fees associated with your gift:
-          </Typography>
+          </FormLabel>
           <FormControlLabel className={classes.addFee}
             control={
               < Checkbox checked={addCCValue} onChange={handleCardFeeChange} />
