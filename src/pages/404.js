@@ -17,8 +17,9 @@ const useStyles = makeStyles(theme => ({
   },
   h1: {
     fontSize: '26px',
-    paddingTop: '10px',
-    fontWeight: '400',
+    paddingTop: '60px',
+    fontWeight: '300',
+    color: '#3D3B39',
     [theme.breakpoints.up('sm')]: {
       fontSize: '38px',
     },
@@ -43,7 +44,6 @@ function NoMatch() {
             </Typography>
           </Grid>
         </Container>
-      <Mission />
       <div className={classes.spacer} />
       <Footer />
     </div>
