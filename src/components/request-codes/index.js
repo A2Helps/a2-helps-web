@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
       
     },
     [theme.breakpoints.up('md')]: {
-      minHeight: '370px',
+      minHeight: '480px',
     },
   },
   title: {
@@ -49,7 +49,7 @@ const useStyles = makeStyles(theme => ({
       width: '100%',
       marginTop: '0px',
       [theme.breakpoints.up('md')]: {
-        marginTop: '179px',
+        marginTop: '289px',
       },
     },
 }));
