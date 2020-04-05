@@ -22,6 +22,9 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 20,
     paddingBottom: 20,
   },
+  center: {
+    justifyContent: 'space-between',
+  },
   donate: {
     textAlign: 'right',
   },
