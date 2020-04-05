@@ -157,6 +157,7 @@ export default function Donate() {
             />
           </RadioGroup>
           <br />
+          <br />
           <FormLabel component="legend">Would you like your name listed on the donor's page?</FormLabel>
           <FormControlLabel
             control={
@@ -177,9 +178,10 @@ export default function Donate() {
             onChange={(event) => setListingName(event.target.value)}
           />
           <br />
-          <Typography variant="body1" color="inherit" className={classes.ccFees}>
+          <br />
+          <FormLabel component="legend">
             Please consider covering the credit card processing fees associated with your gift:
-          </Typography>
+          </FormLabel>
           <FormControlLabel
             control={
               <Checkbox checked={addCCValue} onChange={handleCardFeeChange} />
