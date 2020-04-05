@@ -46,10 +46,12 @@ function WireSuccess() {
             <Typography variant="h6" color="inherit">
               You will receive an email containing instuctions for your next steps.
               <br />
-              <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="I just donated to @a2helps! If you'd like to contribute to the mission of supporting our local businesses and workers on the front lines of #COVID19, head over to https://www.a2helps.com/donate" data-url="https://a2helps.com/donate " data-hashtags="kindnessiscontagioustoo " data-show-count="false">Tweet</a>
-              <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-              <br />
               <Link to={HOME}>Return home.</Link>
+              <br />
+              <br />
+              Share that you donated to A2 Helps on social media!
+              <br />
+              <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="I just donated to @a2helps! If you'd like to contribute to the mission of supporting our local businesses and workers on the front lines of #COVID19, head over to https://www.a2helps.com/donate" data-url="https://a2helps.com/donate " data-hashtags="kindnessiscontagioustoo " data-show-count="false">Tweet</a>
             </Typography>
           </Grid>
         </Grid>
