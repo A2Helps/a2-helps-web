@@ -54,8 +54,15 @@ const useStyles = makeStyles(theme => ({
   body: {
     marginBottom: '30px',
   },
+  ccFeesMessage: {
+    color: 'rgba(0, 0, 0, 0.54)',
+    fontSize: '13px',
+  },
   ccFees: {
     marginTop: '10px',
+  },
+  addFee: {
+    fontSize: '12px',
   },
   form: {
     width: '100%',
@@ -150,12 +157,12 @@ export default function Donate() {
             />
           </RadioGroup>
           <br />
-          <Typography variant="body1" color="inherit" className={classes.ccFees}>
+          <Typography variant="body1" color="inherit" className={classes.ccFeesMessage}>
             Please consider covering the credit card processing fees associated with your gift:
           </Typography>
-          <FormControlLabel
+          <FormControlLabel className={classes.addFee}
             control={
-              <Checkbox checked={addCCValue} onChange={handleCardFeeChange} />
+              < Checkbox checked={addCCValue} onChange={handleCardFeeChange} />
             }
             label="Add 2.9% + $0.30 to my donation"
           />
