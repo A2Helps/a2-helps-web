@@ -16,11 +16,12 @@ import { submitDonation } from './submit-donation';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: 30,
-    marginTop: 12,
+    padding: 40,
     boxShadow: '0px 0px 7px 1px rgba(0,0,0,0.13)',
     color: '#3D3B39',
-    minHeight: '438px',
+    minHeight: '370px',
+    maxWidth: '580px',
+    margin: '0 auto',
     [theme.breakpoints.up('sm')]: {
 
     },
@@ -35,16 +36,29 @@ const useStyles = makeStyles(theme => ({
     fontSize: '30px',
     fontWeight: 300,
     [theme.breakpoints.up('sm')]: {
-      paddingBottom: '10px',
+      paddingBottom: '25px',
       marginTop: '60px',
-      paddingBottom: '5px',
       fontSize: '32px',
     },
     [theme.breakpoints.up('md')]: {
-      paddingBottom: '10px',
+      paddingBottom: '20px',
       marginTop: '60px',
-      paddingBottom: '5px',
     },
+  },
+  h4: {
+    fontSize: '28px',
+    fontWeight: 600,
+    marginBottom: '10px',
+  },
+  body: {
+    marginBottom: '30px', 
+  },
+  form: {
+    width: '100%',
+  },
+  button: {
+    width: '100%',
+    marginTop: '7px',
   },
 }));
 
@@ -81,17 +95,20 @@ export default function Donate() {
   const classes = useStyles();
 
   return (
-    <Grid item xs={12} md={6}>
+    <Grid item xs={12} lg={6}>
       <Typography variant="h3" color="inherit" className={classes.title}>
-        Provide Support
+        Support the Ann Arbor Community
       </Typography>
       <Paper className={classes.root}>
-        <Typography variant="h4" color="inherit">
+        <Typography variant="h4" color="inherit" className={classes.h4}>
           Donate Now
         </Typography>
-
-        <FormControl component="fieldset">
-          <FormLabel component="legend">Amount</FormLabel>
+  <Typography variant="body1" color="inherit" className={classes.body}>
+          We have partnered with the Ann Arbor Spark foundation as our 501(c)(3) fiduciary partner. All contributions are 100% tax dedicutibe.
+        </Typography>
+        <FormControl component="fieldset" className={classes.form}>
+         
+        <FormLabel component="legend">Amount</FormLabel>       
           <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
             <FormControlLabel value="25" control={<Radio />} label="25" />
             <FormControlLabel value="50" control={<Radio />} label="50" />
@@ -119,6 +136,7 @@ export default function Donate() {
             variant="contained"
             color="primary"
             onClick={openDonations}
+            className={classes.button}
           >
             Complete Donation
           </Button>

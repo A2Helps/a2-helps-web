@@ -29,14 +29,24 @@ const useStyles = makeStyles(theme => ({
   },
   howItWorks: {
     fontWeight: 300,
-    marginTop: '70px',
-    marginBottom: '40px',
+    marginTop: '120px',
     fontSize: '30px',
     textAlign: 'center',
     color: '#3D3B39',
+    marginBottom: '20px',
     [theme.breakpoints.up('md')]: {
       fontSize: '32px',
+    },
+  },
+  subtitle: {
+    color: '#3D3B39',
+    maxWidth: '325px',
+    textAlign: 'center',
+    margin: '0 auto',
+    marginBottom: '40px',
+    [theme.breakpoints.up('md')]: {
       marginBottom: '60px',
+      maxWidth: '460px',
     },
   },
 }));
@@ -48,6 +58,9 @@ export default function HowItWorks() {
     <div className={classes.root}>
        <Typography variant="h3" color="inherit" className={classes.howItWorks}>
         How It Works
+      </Typography>
+      <Typography variant="body1" color="inherit" className={classes.subtitle}>
+      Donations to A2 Helps enable us to purchase gift cards from local restaurants and retail stores which are then distributed to healthcare professionals in our community. 
       </Typography>
       <img className={classes.imgDesktop} src={"diagramDesktop.png"} alt="A2Cares" />
       <img className={classes.imgMobile} src={"diagramMobile.png"} alt="A2Cares" />

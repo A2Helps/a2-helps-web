@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Donate from '../components/donate';
+import Wrapper from '../components/wrapper';
 import Footer from '../components/footer';
 
 const useStyles = makeStyles(theme => ({
@@ -11,6 +12,7 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: '#ffffff',
     display: 'flex',
     flexDirection: 'column',
+    marginBottom: '-130px',
   },
   message: {
     padding: 24,
@@ -28,28 +30,30 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '240px',
     minWidth: '62px',
   },
+  donateBox: {
+    marginLeft: '0px',
+    marginTop: '20px',
+    [theme.breakpoints.up('lg')]: {
+      marginLeft: '290px',
+      marginTop: '0px',
+    },
+  },
+  donate: {
+  },
 }));
 
 function Confirm() {
   const styles = useStyles();
 
   return (
+    <Wrapper>
     <div className={styles.root}>
-      <Container>
-        <Grid
-          spacing={2}
-          container
-          className={styles.message}
-        >
-          <Grid item xs={12}>
-            <img className={styles.img} src="logo_fullColor_transparentBG.png" alt="A2Cares" />
-          </Grid>
-          <Donate />
-        </Grid>
+      <Container className={styles.donateBox}>
+          <Donate className={styles.donate}/>
       </Container>
       <div className={styles.spacer} />
-      <Footer />
     </div>
+    </Wrapper>
   );
 }
 

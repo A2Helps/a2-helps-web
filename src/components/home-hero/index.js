@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up('md')]: {
       fontSize: '46px',
-      maxWidth: 665,
+      maxWidth: 750,
     },
   },
   h2: {
