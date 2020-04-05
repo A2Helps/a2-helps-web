@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '10px',
   },
   body: {
-    marginBottom: '30px', 
+    marginBottom: '30px',
   },
   form: {
     width: '100%',
@@ -103,12 +103,11 @@ export default function Donate() {
         <Typography variant="h4" color="inherit" className={classes.h4}>
           Donate Now
         </Typography>
-  <Typography variant="body1" color="inherit" className={classes.body}>
+        <Typography variant="body1" color="inherit" className={classes.body}>
           We have partnered with the Ann Arbor Spark foundation as our 501(c)(3) fiduciary partner. All contributions are 100% tax dedicutibe.
         </Typography>
         <FormControl component="fieldset" className={classes.form}>
-         
-        <FormLabel component="legend">Amount</FormLabel>       
+          <FormLabel component="legend">Amount</FormLabel>
           <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
             <FormControlLabel value="25" control={<Radio />} label="25" />
             <FormControlLabel value="50" control={<Radio />} label="50" />
@@ -142,7 +141,6 @@ export default function Donate() {
           </Button>
         </FormControl>
       </Paper>
-
       <EmptySubmissionSnackbar open={open} setOpen={setOpen} />
     </Grid>
   );
