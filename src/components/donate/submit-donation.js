@@ -1,7 +1,7 @@
 import { loadStripe } from '@stripe/stripe-js';
 import Donation from '../../models/donation';
 
-export const submitDonation = (amount) => {
+export const submitDonation = ({ amount, pubic, public_from }) => {
   let donation = new Donation({ amount });
   donation.save().then(() => {
     loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY).then(stripe => {

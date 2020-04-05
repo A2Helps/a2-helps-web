@@ -11,6 +11,8 @@ import FormLabel from '@material-ui/core/FormLabel';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+
 import { EmptySubmissionSnackbar } from './empty-submission-snackbar';
 import { submitDonation } from './submit-donation';
 
@@ -51,7 +53,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '10px',
   },
   body: {
-    marginBottom: '30px', 
+    marginBottom: '30px',
   },
   form: {
     width: '100%',
@@ -63,6 +65,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Donate() {
+  const [listingAllowed, setListingAllowed] = React.useState(true);
+  const [listingName, setListingName] = React.useState('');
   const [value, setValue] = React.useState('25');
   const [inputValue, setInputValue] = React.useState('');
   const [open, setOpen] = React.useState(false);
@@ -89,7 +93,11 @@ export default function Donate() {
       finalValue = parseInt(value);
     }
 
-    submitDonation(finalValue * 100);
+    submitDonation({
+      amount: finalValue * 100,
+      public: listingAllowed,
+      public_from: listingName,
+    });
   };
 
   const classes = useStyles();
@@ -103,12 +111,12 @@ export default function Donate() {
         <Typography variant="h4" color="inherit" className={classes.h4}>
           Donate Now
         </Typography>
-  <Typography variant="body1" color="inherit" className={classes.body}>
+        <Typography variant="body1" color="inherit" className={classes.body}>
           We have partnered with the Ann Arbor Spark foundation as our 501(c)(3) fiduciary partner. All contributions are 100% tax dedicutibe.
         </Typography>
         <FormControl component="fieldset" className={classes.form}>
-         
-        <FormLabel component="legend">Amount</FormLabel>       
+
+          <FormLabel component="legend">Amount</FormLabel>
           <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
             <FormControlLabel value="25" control={<Radio />} label="25" />
             <FormControlLabel value="50" control={<Radio />} label="50" />
@@ -131,6 +139,28 @@ export default function Donate() {
               }
             />
           </RadioGroup>
+          <br />
+          <br />
+          <FormLabel component="legend">Would you like your name listed on the donor's page?</FormLabel>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={listingAllowed}
+                onChange={() => setListingAllowed(!listingAllowed)}
+                name="listingAllowed"
+                color="primary"
+              />
+            }
+            label="List my name."
+          />
+          <TextField
+            id="outlined-basic"
+            label="Listing Name"
+            disabled={!listingAllowed}
+            value={listingName}
+            onChange={(event) => setListingName(event.target.value)}
+          />
+
           <br />
           <Button
             variant="contained"
