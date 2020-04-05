@@ -30,7 +30,7 @@ export default function RequestCodes() {
           Request Codes for your Team
         </Typography>
         <Typography variant="body1" color="inherit">
-          Do you lead a team of COVID-19 front-liners? Submit your information to see if your team is eligible to recieve A2Helps codes.
+          Do you lead a team of COVID-19 healthcare professionals? Submit your information to see if your team is eligible to recieve A2Helps codes.
         </Typography>
         <br />
         <br />
