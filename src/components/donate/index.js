@@ -153,9 +153,9 @@ export default function Donate() {
         <FormControl component="fieldset" className={classes.form}>
           <FormLabel component="legend">Amount</FormLabel>
           <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-            <FormControlLabel value="25" control={<Radio />} label="25" />
-            <FormControlLabel value="50" control={<Radio />} label="50" />
-            <FormControlLabel value="100" control={<Radio />} label="100" />
+            <FormControlLabel value="25" control={<Radio />} label="$25" />
+            <FormControlLabel value="50" control={<Radio />} label="$50" />
+            <FormControlLabel value="100" control={<Radio />} label="$100" />
             <FormControlLabel
               value="other"
               control={
@@ -190,7 +190,7 @@ export default function Donate() {
           />
           <TextField
             id="outlined-basic"
-            label="Listing Name"
+            label="How would you like to be named?"
             disabled={!listingAllowed}
             value={listingName}
             onChange={(event) => setListingName(event.target.value)}
