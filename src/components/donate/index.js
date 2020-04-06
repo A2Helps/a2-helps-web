@@ -73,7 +73,7 @@ const useStyles = makeStyles(theme => ({
     fontSize: '12px',
   },
   question: {
-    fontSize: '13px',
+    marginTop: '30px',
   },
   form: {
     width: '100%',
@@ -92,9 +92,6 @@ const useStyles = makeStyles(theme => ({
   amount: {
     width: '25%',
     marginRight: '0',
-  },
-  question: {
-    marginTop: '30px',
   },
   largeAmounts: {
     textAlign: 'center',
