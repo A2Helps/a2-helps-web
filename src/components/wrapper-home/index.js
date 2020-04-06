@@ -20,8 +20,6 @@ const useStyles = makeStyles(theme => ({
 function WrapperHome(props) {
   const styles = useStyles();
 
-  console.log(props.route);
-
   return (
     <div className={styles.root}>
       <Banner />

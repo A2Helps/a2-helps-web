@@ -82,6 +82,30 @@ const useStyles = makeStyles(theme => ({
     width: '100%',
     marginTop: '7px',
   },
+  radioGroup: {
+    display: 'flex',
+    flexDirection: 'column',
+    [theme.breakpoints.up('lg')]: {
+      flexDirection: 'row',
+    },
+  },
+  amount: {
+    width: '25%',
+    marginRight: '0',
+  },
+  question: {
+    marginTop: '30px',
+  },
+  largeAmounts: {
+    textAlign: 'center',
+    marginTop: '20px',
+  },
+  button2: {
+    textAlign: 'center',
+    margin: '5px auto 0 auto',
+    padding: 2,
+    width: '100%',
+  }
 }));
 
 export default function Donate() {
@@ -152,20 +176,22 @@ export default function Donate() {
         </Typography>
         <FormControl component="fieldset" className={classes.form}>
           <FormLabel component="legend">Amount</FormLabel>
-          <RadioGroup aria-label="gender" name="gender1" value={value} onChange={handleChange}>
-            <FormControlLabel value="25" control={<Radio />} label="$25" />
-            <FormControlLabel value="50" control={<Radio />} label="$50" />
-            <FormControlLabel value="100" control={<Radio />} label="$100" />
+          <RadioGroup className={classes.radioGroup} aria-label="gender" name="gender1" value={value} onChange={handleChange}>
+            <FormControlLabel className={classes.amount} value="25" control={<Radio />} label="$25" />
+            <FormControlLabel className={classes.amount} value="50" control={<Radio />} label="$50" />
+            <FormControlLabel className={classes.amount} value="100" control={<Radio />} label="$100" />
             <FormControlLabel
               value="other"
+              className={classes.amount}
               control={
                 <Radio />
               }
               label={
                 <TextField
                   id="outlined-basic"
-                  label="Other amount"
+                  label="Other"
                   value={inputValue}
+                  className={classes.otherAmount}
                   onChange={handleInputChange}
                   InputProps={{
                     startAdornment: <InputAdornment position="start">$</InputAdornment>
@@ -174,8 +200,7 @@ export default function Donate() {
               }
             />
           </RadioGroup>
-          <br />
-          <br />
+
           <FormLabel component="legend" className={classes.question}>Would you like your name listed on the donor's page?</FormLabel>
           <FormControlLabel
             control={
@@ -195,8 +220,6 @@ export default function Donate() {
             value={listingName}
             onChange={(event) => setListingName(event.target.value)}
           />
-          <br />
-          <br />
           <FormLabel component="legend" className={classes.question}>
             Please consider covering the credit card processing fees associated with your gift:
           </FormLabel>
@@ -218,22 +241,20 @@ export default function Donate() {
           >
             Complete Donation
           </Button>
-          <br />
-          <FormLabel component="legend">
-            For large amounts consider wiring your donation.
-          </FormLabel>
-          <br />
-          <StyledLink to={WIRE}>
-            <Button
-              variant="contained"
-              color="secondary"
-              className={classes.button}
-            >
-              Get wiring instructions
-            </Button>
-          </StyledLink>
         </FormControl>
       </Paper>
+      <FormLabel className={classes.largeAmounts} component="legend">
+            For large amounts, please consider wiring your donation.
+          </FormLabel>
+          <StyledLink to={WIRE}>
+            <Button
+              variant="text"
+              color="primary"
+              className={classes.button2}
+            >
+              Get Wire Instructions
+            </Button>
+          </StyledLink>
       <EmptySubmissionSnackbar open={open} setOpen={setOpen} />
     </Grid>
   );
