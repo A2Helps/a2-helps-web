@@ -146,6 +146,10 @@ export default function Donate() {
       setOpen(true);
       return;
     }
+    if (!listingName) {
+      setOpen(true);
+      return;
+    }
 
     const finalValue = computeFinalValue();
 
