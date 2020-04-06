@@ -47,7 +47,7 @@ export default function Mission() {
         Our Mission
       </Typography>
 
-      <Grid container xs={12} justify='center'className={classes.missionSection}>
+      <Grid container justify='center'className={classes.missionSection}>
 
         <Grid item xs={12} md={4} className={classes.missionItem}>
           <Grid item xs={12}>

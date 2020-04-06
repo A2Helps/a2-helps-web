@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('sm')]: {
       fontSize: '12px',
       minHeight: 320,
-      paddingTop: '130px',
     },
     [theme.breakpoints.up('md')]: {
       fontSize: '12px',
@@ -70,6 +69,20 @@ const useStyles = makeStyles(theme => ({
       fontSize: '32px',
     },
   },
+  fbLive: {
+    fontSize: '20px',
+    marginBottom: '20px',
+    marginTop: '-20px',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '28px',
+      marginBottom: '30px',
+      marginTop: '-30px',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '32px',
+      marginBottom: '40px',
+    },
+  },
 }));
 
 const launchDate = new Date('April 6, 2020 12:00:00');
@@ -90,11 +103,24 @@ const fmtTimeString = (time) => {
   return `${time / 8.64e7 | 0} days, ${parts[0]}:${parts[1]}:${parts[2]}`;
 };
 
+const fbLiveEvents = [
+  { start: new Date('April 6, 2020 12:00:00'), end: new Date('April 6, 2020 13:00:00') },
+  { start: new Date('April 6, 2020 14:00:00'), end: new Date('April 6, 2020 15:00:00') },
+  { start: new Date('April 6, 2020 16:00:00'), end: new Date('April 6, 2020 18:00:00') },
+];
+
+const isFBLive = (time) => {
+  return fbLiveEvents.some((event) => {
+    return (time > event.start && time < event.end);
+  });
+}
+
 export default function HomeHero() {
   const classes = useStyles();
   const currentTime = Date.now();
   const [time, setTime] = useState(launchDate - currentTime);
   const [fmtTime, setFmtTime] = useState(fmtTimeString(time));
+  const [fbLive, setFBLive] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -103,6 +129,10 @@ export default function HomeHero() {
     }, 1000);
     return () => clearInterval(interval);
   }, [time, fmtTime]);
+
+  useEffect(() => {
+    setFBLive(isFBLive(currentTime));
+  }, [currentTime]);
 
   return (
     <div className={classes.root}>
@@ -113,6 +143,9 @@ export default function HomeHero() {
         >
         <Container>
           <Grid item xs={12} className={classes.font}>
+            {fbLive &&
+              <Typography variant="h2" className={classes.fbLive}>We're live on facebook: <a href="httsp://www.facebook.com/a2helps/live" target="_blank">facebook.com/a2helps/live</a></Typography>
+            }
             {(time <= 0)
               ? '' // Hide countdown once we launch
               : ((time > 6e5) // less than 10 minutes remaining
