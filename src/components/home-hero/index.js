@@ -144,7 +144,7 @@ export default function HomeHero() {
         <Container>
           <Grid item xs={12} className={classes.font}>
             {fbLive &&
-              <Typography variant="h2" className={classes.fbLive}>We're live on facebook: <a href="httsp://www.facebook.com/a2helps/live" target="_blank">facebook.com/a2helps/live</a></Typography>
+              <Typography variant="h2" className={classes.fbLive}>We're live on facebook: <a href="https://www.facebook.com/a2helps/live" target="_blank">facebook.com/a2helps/live</a></Typography>
             }
             {(time <= 0)
               ? '' // Hide countdown once we launch
