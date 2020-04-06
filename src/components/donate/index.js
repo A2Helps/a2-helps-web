@@ -213,8 +213,8 @@ export default function Donate() {
           <TextField
             id="outlined-basic"
             label="How would you like to be named?"
-            disabled={!listingAllowed}
             value={listingName}
+            required
             onChange={(event) => setListingName(event.target.value)}
           />
           <FormLabel component="legend" className={classes.question}>
