@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import Footer from '../components/footer';
 import Paper from '@material-ui/core/Paper';
+import { useHistory } from 'react-router-dom';
 
+import Footer from '../components/footer';
+import Merchant from '../models/merchant';
 import { STUB_BUSINESSES } from '../components/redeem/data';
 import { Businesses } from '../components/redeem/businesses';
 import { Selections } from '../components/redeem/selections';
@@ -34,6 +36,19 @@ const MAX_CREDITS = 6;
 
 function Redeem() {
   const styles = useStyles();
+  const history = useHistory();
+  console.log(history.location.state);
+
+
+  useEffect(() => {
+    const makeRequest = async () => {
+      const results = await Merchant.get();
+      console.log(results);
+    };
+    makeRequest();
+  });
+
+
   const businesses = [...STUB_BUSINESSES];
   const [credits, setCredits] = React.useState(MAX_CREDITS);
   const [allocation, setAllocation] = React.useState({});

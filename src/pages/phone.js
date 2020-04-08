@@ -2,29 +2,23 @@ import React, { useState, useEffect, useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
-import TextField from '@material-ui/core/TextField';
 import MuiAlert from '@material-ui/lab/Alert';
-import MuiPhoneNumber from 'material-ui-phone-number';
 import verifyCode from '../models/verify-code';
 import {
   useHistory,
 } from "react-router-dom";
 import firebase from 'firebase/app';
 import 'firebase/auth';
-
 import * as ROUTES from '../util/routes';
-// code does not exist
-// code exists but phone # already exists
-// code exists and unclaimed and you're good to go
-
 import Footer from '../components/footer';
 
 import {
   useParams
 } from "react-router-dom";
+import { InputPhone } from '../components/validate-code/input-phone';
+import { VerifyAccount } from '../components/validate-code/verify-account';
+import { validatePhone } from '../components/validate-code/validate-phone';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -61,31 +55,23 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const validatePhone = (input) => {
-  if (!input) return false;
-  const clean = cleanPhone(input);
-  return clean.match(/\d/g).length === 11;
-}
-
-// dont allow other country codes
-const cleanPhone = (input) => {
-  const cleaned = ('' + input).replace(/\D/g, '')
-  const match = cleaned.match(/^(1|)?(\d{3})(\d{3})(\d{4})$/)
-  if (match) {
-    return [match[1], match[2], match[3], match[4]].join('')
-  }
-  return input.replace(/[^0-9\.]+/g, '');
-}
+const ERRORS = {
+  'veryify.recipient.exists': 'This phone number is already being used.',
+  'verify.code.claimed': 'This code has already been claimed.',
+};
 
 const Phone = () => {
   const styles = useStyles();
   const history = useHistory();
+  const ref = useRef(null);
+  const { code } = useParams();
+
+  const [errorMessage, setErrorMessage] = useState('');
   const [phone, setPhone] = useState('');
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [codeSent, setCodeSent] = useState(false);
-  const ref = useRef(null);
-  const { code } = useParams();
+
   const validNumber = validatePhone(phone);
 
   useEffect(() => {
@@ -98,8 +84,9 @@ const Phone = () => {
     });
   });
 
-  const onClick = async () => {
+  const submitPhoneNumber = async () => {
     if (!validNumber) {
+      setErrorMessage('The phone number you provided was invalid. It must follow the format 555-555-5555');
       setOpen(true);
       return;
     }
@@ -107,13 +94,17 @@ const Phone = () => {
     setLoading(true);
 
     try {
-      const result = await verifyCode({
+      await verifyCode({
         code,
-        phone,
+        phone: phone.match(/[0-9]/g).join('').slice(1),
+        onError: (response) => {
+          setErrorMessage(ERRORS[response.data.error.code] || '');
+          setOpen(true);
+        }
       });
-      console.log(result);
     } catch(e) {
       console.log(e);
+      setLoading(false);
       return;
     }
 
@@ -127,16 +118,16 @@ const Phone = () => {
 
   const tryVerify = (textedCode) => {
     setLoading(true);
-
     window.confirmationResult.confirm(textedCode).then(function (result) {
       // User signed in successfully.
       const user = result.user;
       setLoading(false);
-      history.push(ROUTES.REDEEM);
+      history.push(ROUTES.REDEEM, { user });
     }).catch(function (error) {
       setLoading(false);
       console.log({
         message: 'User couldnt sign in',
+        error,
       });
     });
   }
@@ -162,7 +153,7 @@ const Phone = () => {
             <InputPhone
               setPhone={setPhone}
               buttonRef={ref}
-              onClick={onClick}
+              onClick={submitPhoneNumber}
             />
           )}
         </Grid>
@@ -171,7 +162,7 @@ const Phone = () => {
       <Footer />
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <MuiAlert elevation={6} variant="filled" severity="warning">
-          The phone number you provided was invalid. It must follow the format 555-555-5555
+          {errorMessage}
         </MuiAlert>
       </Snackbar>
     </div>
@@ -179,60 +170,3 @@ const Phone = () => {
 }
 
 export default React.memo(Phone);
-
-const InputPhone = ({
-  setPhone,
-  buttonRef,
-  onClick,
-}) => (
-  <Grid item xs={12}>
-    <br />
-    <Typography variant="h4" color="inherit">
-      Enter Phone #
-    </Typography>
-    <br />
-    <br />
-    <Typography variant="h6" color="inherit">
-      We will text you a verification code.
-    </Typography>
-    <br />
-    <br />
-    <MuiPhoneNumber
-      defaultCountry={'us'}
-      onlyCountries={['us']}
-      onChange={(value) => setPhone(value)}
-    />
-    &nbsp;
-    <Button ref={buttonRef} onClick={onClick}>Next</Button>
-  </Grid>
-);
-
-const VerifyAccount = ({
-  tryVerify,
-}) => {
-  const [code, setCode] = useState('');
-
-  return (
-    <Grid item xs={12}>
-      <br />
-      <Typography variant="h6" color="inherit">
-        We sent you a verification code.
-      </Typography>
-      <br />
-      <br />
-      <Typography variant="h4" color="inherit">
-        Verify Code
-      </Typography>
-      <br />
-      <br />
-      <TextField
-        placeholder="Enter Code"
-        onChange={(event) => setCode(event.target.value)}
-      />&nbsp;
-      <Button onClick={() => tryVerify(code)}>Next</Button>
-      <br />
-      <br />
-      <Button onClick={() => window.location.reload()}>Try again</Button>
-    </Grid>
-  );
-};
