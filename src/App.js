@@ -77,9 +77,9 @@ const App = () => {
             it breaks <Switch>
           */}
           {(process.env.NODE_ENV !== 'production') &&
-              <Route path={ROUTES.ADMIN}>
-                <AdminPage />
-              </Route>
+            <Route path={ROUTES.ADMIN}>
+              <AdminPage />
+            </Route>
           }
           <Route component={NoMatch} />
         </Switch>

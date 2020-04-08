@@ -7,7 +7,10 @@ import Donate from '../components/donate';
 import RequestCodes from '../components/request-codes';
 import BusinessSignUp from '../components/business-sign-up';
 import Footer from '../components/footer';
+import LogInOutButton from '../components/auth/LogInOutButton';
 import { withUserExists } from '../components/auth/Session';
+import { withFirebase } from '../components/auth/Firebase';
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,6 +33,7 @@ function AdminPage() {
   return (
     <div className={styles.root}>
       <Banner />
+      <LogInOutButton />
       <Container>
         <Grid
           spacing={2}
@@ -47,4 +51,4 @@ function AdminPage() {
   );
 }
 
-export default withUserExists(AdminPage);
+export default withRouter(withFirebase(withUserExists(AdminPage)));
