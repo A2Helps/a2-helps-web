@@ -12,6 +12,8 @@ import Merchant from '../models/merchant';
 import { STUB_BUSINESSES } from '../components/redeem/data';
 import { Businesses } from '../components/redeem/businesses';
 import { Selections } from '../components/redeem/selections';
+import Wrapper from '../components/wrapper';
+
 
 export const useStyles = makeStyles(theme => ({
   root: {
@@ -75,16 +77,9 @@ function Redeem() {
   };
 
   return (
+    <Wrapper>
     <div className={styles.root}>
       <Container>
-        <Grid
-          container
-          className={styles.padding}
-        >
-          <Grid item xs={2}>
-            <img className={styles.img} src="logo_fullColor_transparentBG.png" alt="A2Cares" />
-          </Grid>
-        </Grid>
         <Grid
           spacing={2}
           container
@@ -108,9 +103,8 @@ function Redeem() {
         </Grid>
         <Button>Next</Button>
       </Container>
-      <div className={styles.spacer} />
-      <Footer />
     </div>
+    </Wrapper>
   );
 }
 
