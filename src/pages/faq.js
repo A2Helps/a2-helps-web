@@ -97,10 +97,10 @@ const FAQ = () => {
 
         <div className={styles.faq}>
           <Typography className={styles.question} variant="h3" color="inherit">
-          I am a healthcare worker. How long do I have to redeem my gift card code?
+          I am a healthcare professional. How long do I have to redeem my gift card code?
           </Typography>
           <Typography className={styles.answer} variant="body1" color="inherit">
-          To ensure we help as many healthcare workers as possible, your gift card code will expire 30-days after it is issued.
+          To ensure we help as many healthcare professionals as possible, your gift card code will expire 30-days after it is issued.
           </Typography>
         </div>
 
