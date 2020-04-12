@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
 
-import Footer from '../components/footer';
 import Merchant from '../models/merchant';
 import { Businesses } from '../components/redeem/businesses';
 import { Selections } from '../components/redeem/selections';
@@ -16,9 +15,10 @@ import Wrapper from '../components/wrapper';
 export const useStyles = makeStyles(theme => ({
   root: {
     minHeight: '100vh',
-    backgroundColor: '#efefef',
+    backgroundColor: '#FBFBFB',
     display: 'flex',
     flexDirection: 'column',
+    boxShadow: '0px 1px 2px #ddd'
   },
   padding: {
     padding: 12,
@@ -32,7 +32,7 @@ export const useStyles = makeStyles(theme => ({
   },
 }));
 
-const MAX_CREDITS = 6;
+const MAX_AMOUNT = 100;
 
 function Redeem() {
   const styles = useStyles();
@@ -45,26 +45,24 @@ function Redeem() {
       const results = await Merchant.get();
       if (results && results.length) {
         setMerchants(results);
-        console.log('merchants loaded');
+        console.log(results);
 
 
       }
     };
     makeRequest();
   });
-  console.log(merchants);
 
-
-  const [credits, setCredits] = React.useState(MAX_CREDITS);
+  const [amount, setAmount] = React.useState(MAX_AMOUNT);
   const [allocation, setAllocation] = React.useState({});
 
-  const incrementCredits = (key) => {
+  const incrementCredits = (key, amount) => {
     const initialVal = (allocation[key] || 0);
     setAllocation({
       ...allocation,
-      [key]: credits === 0 ? initialVal : (allocation[key] || 0) + 1,
+      [key]: amount === 0 ? initialVal : (allocation[key] || 0) + 1,
     });
-    setCredits(credits === 0 ? 0 : credits - 1)
+    setAmount(amount === 0 ? 0 : amount - 1)
   };
 
   const decrementCredits = (key) => {
@@ -76,9 +74,8 @@ function Redeem() {
 
     if (!newAllocation[key]) delete newAllocation[key];
     setAllocation(newAllocation);
-    setCredits(credits === MAX_CREDITS ? credits : credits + 1);
+    setAmount(amount === MAX_AMOUNT ? amount : amount + 1);
   };
-
 
 
   return (
@@ -97,7 +94,7 @@ function Redeem() {
             allocation={allocation}
           />
           <Grid item xs={12} sm={3}>
-            <Balance credits={credits} />
+            <Balance credits={amount} />
             <Selections
               businesses={merchants}
               allocation={allocation}

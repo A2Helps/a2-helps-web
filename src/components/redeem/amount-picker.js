@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
 import ChevronRight from '@material-ui/icons/ChevronRight';
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
   amount: {
@@ -36,6 +37,10 @@ export const AmountPicker = ({
       decrementCredits(business.id);
     }} />
     <Typography className={styles.amount}>${(allocation[business.id] || 0) * 25}</Typography>
+    <Button>
+      Add&nbsp;
+      {business.amounts[0]}
+    </Button>
     <ChevronRight onClick={(event) => {
       event.stopPropagation();
       incrementCredits(business.id);
