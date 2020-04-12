@@ -58,7 +58,7 @@ const useStyles = makeStyles(theme => ({
   share: {
     marginBottom: '20px',
     opacity: .8,
-  },
+  },                     
 }));
 
 function Success() {
@@ -98,7 +98,7 @@ function Success() {
                 Share that you donated to A2 Helps on social media!
                 </Typography>      
                  
-                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="I just donated to @a2helps! If you'd like to contribute to the mission of supporting our local businesses and workers on the front lines of #COVID19, head over to https://www.a2helps.com/donate" data-url="https://a2helps.com/donate " data-hashtags="kindnessiscontagioustoo " data-show-count="false">Tweet</a>
+                <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="I just donated to @a2helps! If you'd like to contribute to the mission of supporting our local businesses and healthcare on the front lines of #COVID19, head over to https://www.a2helps.com/donate" data-url="https://a2helps.com/donate " data-hashtags="kindnessiscontagioustoo " data-show-count="false">Tweet</a>
                 </div>
             </Grid>
           </Grid>

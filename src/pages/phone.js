@@ -5,6 +5,8 @@ import Container from '@material-ui/core/Container';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import verifyCode from '../models/verify-code';
+import Wrapper from '../components/wrapper';
+
 import {
   useHistory,
 } from "react-router-dom";
@@ -52,6 +54,15 @@ const useStyles = makeStyles(theme => ({
     width: '50%',
     maxWidth: '240px',
     minWidth: '62px',
+  },
+  phoneContainer: {
+    marginTop: '50px',
+    backgroundColor: '#ffffff',
+    maxWidth: '500px',
+    paddingBottom: '30px',
+    paddingTop: '20px',
+    boxShadow: '0px 0px 7px 1px rgba(0,0,0,0.13)',
+    borderRadius: '4px',
   },
 }));
 
@@ -135,15 +146,14 @@ const Phone = () => {
 
   return (
     <div className={styles.root}>
-      <Container>
+    <Wrapper>
+      <Container className={styles.phoneContainer}>
         <Grid
           spacing={2}
           container
           className={loading ? styles.messageLoading : styles.message}
         >
-          <Grid item xs={12}>
-            <img className={styles.img} src="logo_fullColor_transparentBG.png" alt="A2Cares" />
-          </Grid>
+      
           {codeSent ? (
             <VerifyAccount
               tryVerify={tryVerify}
@@ -158,12 +168,12 @@ const Phone = () => {
         </Grid>
       </Container>
       <div className={styles.spacer} />
-      <Footer />
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
         <MuiAlert elevation={6} variant="filled" severity="warning">
           {errorMessage}
         </MuiAlert>
       </Snackbar>
+      </Wrapper>
     </div>
   );
 }
