@@ -119,10 +119,9 @@ const Phone = () => {
   const tryVerify = (textedCode) => {
     setLoading(true);
     window.confirmationResult.confirm(textedCode).then(function (result) {
-      // User signed in successfully.
-      const user = result.user;
+      window.user = result.user;
       setLoading(false);
-      history.push(ROUTES.REDEEM, { user });
+      history.push(ROUTES.REDEEM);
     }).catch(function (error) {
       setLoading(false);
       console.log({

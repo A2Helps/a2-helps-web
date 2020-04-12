@@ -1,22 +1,20 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-import { useHistory } from 'react-router-dom';
 
 import Footer from '../components/footer';
 import Merchant from '../models/merchant';
-import { STUB_BUSINESSES } from '../components/redeem/data';
 import { Businesses } from '../components/redeem/businesses';
 import { Selections } from '../components/redeem/selections';
 
 export const useStyles = makeStyles(theme => ({
   root: {
     minHeight: '100vh',
-    backgroundColor: '#ffffff',
+    backgroundColor: '#efefef',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -36,20 +34,25 @@ const MAX_CREDITS = 6;
 
 function Redeem() {
   const styles = useStyles();
-  const history = useHistory();
-  console.log(history.location.state);
-
+  const [merchants, setMerchants] = useState([]);
 
   useEffect(() => {
+    if (merchants.length) return;
+
     const makeRequest = async () => {
       const results = await Merchant.get();
-      console.log(results);
+      if (results && results.length) {
+        setMerchants(results);
+        console.log('merchants loaded');
+
+
+      }
     };
     makeRequest();
   });
+  console.log(merchants);
 
 
-  const businesses = [...STUB_BUSINESSES];
   const [credits, setCredits] = React.useState(MAX_CREDITS);
   const [allocation, setAllocation] = React.useState({});
 
@@ -74,6 +77,8 @@ function Redeem() {
     setCredits(credits === MAX_CREDITS ? credits : credits + 1);
   };
 
+
+
   return (
     <div className={styles.root}>
       <Container>
@@ -91,7 +96,7 @@ function Redeem() {
           className={styles.padding}
         >
           <Businesses
-            businesses={businesses}
+            businesses={merchants}
             decrementCredits={decrementCredits}
             incrementCredits={incrementCredits}
             allocation={allocation}
@@ -99,7 +104,7 @@ function Redeem() {
           <Grid item xs={12} sm={3}>
             <Balance credits={credits} />
             <Selections
-              businesses={businesses}
+              businesses={merchants}
               allocation={allocation}
               decrementCredits={decrementCredits}
               incrementCredits={incrementCredits}
