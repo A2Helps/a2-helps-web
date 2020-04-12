@@ -11,6 +11,7 @@ import AdminPage from './pages/admin';
 import NoMatch from './pages/404';
 import FaqPage from './pages/faq';
 import About from './pages/about';
+import Donors from './pages/donors';
 import WireSuccess from './pages/wire-success';
 import * as ROUTES from './util/routes';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -29,6 +30,9 @@ const App = () => {
         <Switch>
           <Route path={ROUTES.CANCEL}>
             <Canceled />
+          </Route>
+          <Route path={ROUTES.DONORS}>
+            <Donors />
           </Route>
           <Route path={ROUTES.SUCCESS}>
             <Success />
