@@ -202,6 +202,13 @@ export default function Donate() {
             />
           </RadioGroup>
 
+          <TextField
+            id="outlined-basic"
+            label="Donor Name"
+            value={listingName}
+            required
+            onChange={(event) => setListingName(event.target.value)}
+          />
           <FormLabel component="legend" className={classes.question}>Would you like your name listed on the donor's page?</FormLabel>
           <FormControlLabel
             control={
@@ -213,13 +220,6 @@ export default function Donate() {
               />
             }
             label="List my name."
-          />
-          <TextField
-            id="outlined-basic"
-            label="How would you like to be named?"
-            value={listingName}
-            required
-            onChange={(event) => setListingName(event.target.value)}
           />
           <FormLabel component="legend" className={classes.question}>
             Please consider covering the credit card processing fees associated with your gift:
