@@ -56,25 +56,25 @@ function Redeem() {
   const [amount, setAmount] = React.useState(MAX_AMOUNT);
   const [allocation, setAllocation] = React.useState({});
 
-  const incrementCredits = (key, amount) => {
+  const incrementCredits = (key, amountChange) => {
     const initialVal = (allocation[key] || 0);
     setAllocation({
       ...allocation,
-      [key]: amount === 0 ? initialVal : (allocation[key] || 0) + 1,
+      [key]: amount === 0 ? initialVal : (allocation[key] || 0) + amountChange,
     });
-    setAmount(amount === 0 ? 0 : amount - 1)
+    setAmount(amount === 0 ? 0 : amount - amountChange)
   };
 
-  const decrementCredits = (key) => {
+  const decrementCredits = (key, amountChange) => {
     const initialVal = (allocation[key] || 0);
     const newAllocation = {
       ...allocation,
-      [key]: initialVal ? initialVal - 1 : undefined,
+      [key]: initialVal ? initialVal - amountChange : undefined,
     }
 
     if (!newAllocation[key]) delete newAllocation[key];
     setAllocation(newAllocation);
-    setAmount(amount === MAX_AMOUNT ? amount : amount + 1);
+    setAmount(amount === MAX_AMOUNT ? amount : amount + amountChange);
   };
 
 
@@ -82,6 +82,15 @@ function Redeem() {
     <Wrapper>
     <div className={styles.root}>
       <Container>
+        <br />
+        <Typography variant="h5">
+          Choose your gift cards
+        </Typography>
+        <br />
+        <Typography variant="body1">
+          You are the recipient of $100 in giftcards from A2 Helps! Select the businesses from which you would like to redeem cards and add them to your cart. You will receive an electronic code for each of the businesses you've selected once you checkout. Thank you for your service on the front lines of COVID19.
+        </Typography>
+        <br />
         <Grid
           spacing={2}
           container
@@ -94,7 +103,7 @@ function Redeem() {
             allocation={allocation}
           />
           <Grid item xs={12} sm={3}>
-            <Balance credits={amount} />
+            <Balance amount={amount} />
             <Selections
               businesses={merchants}
               allocation={allocation}
@@ -112,11 +121,11 @@ function Redeem() {
 
 export default Redeem;
 
-function Balance({ credits }) {
+function Balance({ amount }) {
   const styles = useStyles();
   return <Paper className={styles.padding}>
     <Typography variant="h6" color="inherit">
-      Your remaining balance is: <strong>${credits * 25}</strong>
+      Your remaining balance is: <strong>${amount}</strong>
     </Typography>
   </Paper>;
 }

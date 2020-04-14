@@ -36,15 +36,15 @@ export function Selections({
         .find((b) => b.id === id))
       .map((business) => {
         return (<Paper className={styles.padding}>
+          <Typography variant="body1" color="inherit">
+            <strong>{business.name}</strong>
+          </Typography>
           <AmountPicker
             decrementCredits={decrementCredits}
             incrementCredits={incrementCredits}
             business={business}
             allocation={allocation}
           />
-          <Typography variant="body1" color="inherit">
-            <strong>{business.name}</strong>
-          </Typography>
         </Paper>);
       })}
   </div>);

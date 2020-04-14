@@ -2,8 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Typography from '@material-ui/core/Typography';
-import ChevronLeft from '@material-ui/icons/ChevronLeft';
-import ChevronRight from '@material-ui/icons/ChevronRight';
 import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
@@ -14,13 +12,14 @@ const useStyles = makeStyles(theme => ({
     border: `1px solid ${theme.palette.grey[500]}`,
     display: 'flex',
     alignItems: 'center',
-    borderRadius: 3,
+    borderRadius: 4,
   },
   picker: {
+    flexWrap: 'wrap',
     alignItems: 'center',
-    justifyContent: 'space-between',
     display: 'flex',
     cursor: 'pointer',
+    width: '100%',
   },
 }));
 
@@ -32,18 +31,27 @@ export const AmountPicker = ({
 }) => {
   const styles = useStyles();
   return <div className={styles.picker}>
-    <ChevronLeft onClick={(event) => {
-      event.stopPropagation();
-      decrementCredits(business.id);
-    }} />
-    <Typography className={styles.amount}>${(allocation[business.id] || 0) * 25}</Typography>
-    <Button>
-      Add&nbsp;
+    <Button
+      variant="contained"
+      color="primary"
+      disabled={!allocation[business.id]}
+      onClick={() => {
+        decrementCredits(business.id, business.amounts[0]);
+      }}
+    >
+      -&nbsp;$
+      {business.amounts[0]}
+    </Button>&nbsp;
+    <Typography className={styles.amount}>${(allocation[business.id] || 0)}</Typography>&nbsp;
+    <Button
+      variant="contained"
+      color="primary"
+      onClick={() => {
+        incrementCredits(business.id, business.amounts[0]);
+      }}
+    >
+      +&nbsp;$
       {business.amounts[0]}
     </Button>
-    <ChevronRight onClick={(event) => {
-      event.stopPropagation();
-      incrementCredits(business.id);
-    }} />
   </div>;
 };

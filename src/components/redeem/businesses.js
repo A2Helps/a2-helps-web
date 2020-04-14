@@ -54,6 +54,7 @@ export const Businesses = ({
               </CardActionArea>
               <CardContent>
                 <Typography className={styles.heading}>{business.name}</Typography>
+                <br />
                 <AmountPicker
                   decrementCredits={decrementCredits}
                   incrementCredits={incrementCredits}
