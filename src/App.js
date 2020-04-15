@@ -12,6 +12,8 @@ import NoMatch from './pages/404';
 import FaqPage from './pages/faq';
 import About from './pages/about';
 import Donors from './pages/donors';
+import Resources from './pages/resources';
+
 import WireSuccess from './pages/wire-success';
 import * as ROUTES from './util/routes';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
@@ -33,6 +35,9 @@ const App = () => {
           </Route>
           <Route path={ROUTES.DONORS}>
             <Donors />
+          </Route>
+          <Route path={ROUTES.RESOURCES}>
+            <Resources />
           </Route>
           <Route path={ROUTES.SUCCESS}>
             <Success />

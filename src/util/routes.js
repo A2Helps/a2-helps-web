@@ -11,3 +11,5 @@ export const ABOUT = '/about';
 export const WIRE = '/wire';
 export const WIRE_SUCCESS = '/wire/success';
 export const DONORS = '/donors';
+export const RESOURCES = '/resources';
+
