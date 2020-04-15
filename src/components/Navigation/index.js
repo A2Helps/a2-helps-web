@@ -7,7 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import {
   Link,
 } from "react-router-dom";
-import { DONATE, ABOUT, FAQ } from '../../util/routes';
+import { DONATE, ABOUT, FAQ, DONORS, RESOURCES } from '../../util/routes';
 
 const useStyles = makeStyles((theme) => ({
   mobile: {
@@ -101,6 +101,20 @@ const Mobile = ({ classes }) => {
         >
           FAQ
         </StyledLink>
+        {/* <StyledLink
+          onClick={handleClose}
+          className={classes.menuItem}
+          to={FAQ}
+        >
+          DONORS
+        </StyledLink> */}
+        <StyledLink
+          onClick={handleClose}
+          className={classes.menuItem}
+          to={RESOURCES}
+        >
+          COMMUNITY RESOURCES
+        </StyledLink>
         <StyledLink
           onClick={handleClose}
           className={classes.menuItem}
@@ -122,6 +136,8 @@ const Desktop = ({ classes }) => (
   <Grid item xs className={classes.desktop}>
     <StyledLink className={classes.body1} to={ABOUT}>ABOUT</StyledLink>
     <StyledLink className={classes.body1} to={FAQ}>FAQ</StyledLink>
+{/*     <StyledLink className={classes.body1} to={DONORS}>DONORS</StyledLink>
+ */}    <StyledLink className={classes.body1} to={RESOURCES}>COMMUNITY RESOURCES</StyledLink>
     <StyledLink to={DONATE}>
       <Button
         variant="contained"
