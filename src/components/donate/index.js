@@ -173,7 +173,7 @@ export default function Donate() {
           Donate Now
         </Typography>
         <Typography variant="body1" color="inherit" className={classes.body}>
-          We have partnered with the Ann Arbor Spark foundation as our 501(c)(3) fiduciary partner. All contributions are 100% tax dedicutibe.
+          We have partnered with the Ann Arbor Spark foundation as our 501(c)(3) fiduciary partner. All contributions are 100% tax deductible.
         </Typography>
         <FormControl component="fieldset" className={classes.form}>
           <FormLabel component="legend">Amount</FormLabel>
