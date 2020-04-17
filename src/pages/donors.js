@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 import Donation from '../models/donation';
 import Wrapper from '../components/wrapper';
+import Paper from '@material-ui/core/Paper';
 
 
 export const useStyles = makeStyles(theme => ({
@@ -20,6 +21,10 @@ export const useStyles = makeStyles(theme => ({
     padding: 12,
     marginBottom: 12,
   },
+  person: {
+    padding: 6,
+    margin: 8,
+  },
 }));
 
 
@@ -33,6 +38,8 @@ function Donors() {
     const makeRequest = async () => {
       const results = await Donation.get();
       if (results && results.length) {
+        console.log(results);
+
         setDonors(results);
       }
     };
@@ -49,7 +56,9 @@ function Donors() {
           className={styles.padding}
         >
           {donors.map((donor) => (
-            <Typography>{donor.public_name}</Typography>
+            <Paper className={styles.person} key={donor.id}>
+              <Typography>{donor.public_name}</Typography>
+            </Paper>
           ))}
         </Grid>
       </Container>
