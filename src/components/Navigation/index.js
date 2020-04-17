@@ -6,8 +6,10 @@ import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import {
   Link,
+  useRouteMatch
 } from "react-router-dom";
-import { DONATE, ABOUT, FAQ, DONORS, RESOURCES } from '../../util/routes';
+import { DONATE, ABOUT, FAQ, DONORS, RESOURCES, LOGIN } from '../../util/routes';
+import LogInOutButton from '../../components/auth/LogInOutButton';
 
 const useStyles = makeStyles((theme) => ({
   mobile: {
@@ -132,7 +134,10 @@ const Mobile = ({ classes }) => {
   );
 };
 
-const Desktop = ({ classes }) => (
+const Desktop = ({ classes }) => {
+  const { isExact: loginRoute = false } = { ...useRouteMatch(LOGIN) };
+
+  return (
   <Grid item xs className={classes.desktop}>
     <StyledLink className={classes.body1} to={ABOUT}>ABOUT</StyledLink>
     <StyledLink className={classes.body1} to={FAQ}>FAQ</StyledLink>
@@ -146,6 +151,9 @@ const Desktop = ({ classes }) => (
         Donate
       </Button>
     </StyledLink>
-    {/* <LogInOutButton /> */}
+    {(!loginRoute && (process.env.NODE_ENV === 'development')) &&
+      <LogInOutButton />
+    }
   </Grid>
-);
+  );
+}

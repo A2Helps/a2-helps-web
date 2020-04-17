@@ -1,6 +1,5 @@
-import AuthUserContext from './context';
-import withAuthentication from './withAuthentication';
-import withAuthorization from './withAuthorization';
-import { withUserExists } from './conditions';
+import UserSessionProvider from './UserSessionProvider';
+import { useSession } from './useSession';
+import { useAuthRedirect } from './useAuthorization';
 
-export { AuthUserContext, withAuthentication, withAuthorization, withUserExists };
+export { UserSessionProvider, useSession, useAuthRedirect };

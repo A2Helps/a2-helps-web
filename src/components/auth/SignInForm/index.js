@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import { withRouter } from 'react-router-dom';
-import { withFirebase } from '../Firebase';
+import { useHistory } from 'react-router-dom';
+import { useFirebase } from '../Firebase';
 import { ADMIN } from '../../../util/routes';
 
 const INITIAL_STATE = {
@@ -10,32 +9,22 @@ const INITIAL_STATE = {
   error: null,
 };
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    padding: 30,
-    marginTop: 12,
-    boxShadow: '0px 0px 7px 1px rgba(0,0,0,0.13)',
-    color: '#3D3B39',
-    minHeight: '300px',
-  },
-}));
-
-function SignInFormBase(props) {
+function SignInForm() {
   const [login, setLogin] = useState(INITIAL_STATE);
   const [isInvalid, setIsInvalid] = useState(false);
   useEffect(() => {
     setIsInvalid(login.password === '' || login.email === '');
   }, [login]);
-
-  const classes = useStyles();
+  const firebase = useFirebase();
+  const history = useHistory();
 
   const onSubmit = event => {
     const { email, password } = login;
-    props.firebase
+    firebase
       .doLoginWithEmailAndPassword(email, password)
       .then(() => {
         setLogin({ ...INITIAL_STATE });
-        props.history.push(ADMIN);
+        history.push(ADMIN);
       })
       .catch(error => {
         setLogin({
@@ -76,7 +65,5 @@ function SignInFormBase(props) {
     </form>
   );
 }
-
-const SignInForm = withRouter(withFirebase(SignInFormBase));
 
 export default SignInForm;
