@@ -9,7 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 
 import { AmountPicker } from './amount-picker';
 
-export const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles(() => ({
   heading: {
     fontWeight: 'bold',
     fontSize: 18,

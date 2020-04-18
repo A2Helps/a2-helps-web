@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import { AmountPicker } from './amount-picker';
 
-export const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles(() => ({
   padding: {
     padding: 12,
     marginBottom: 12,

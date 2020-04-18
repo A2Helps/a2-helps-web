@@ -21,7 +21,7 @@ import { InputPhone } from '../components/validate-code/input-phone';
 import { VerifyAccount } from '../components/validate-code/verify-account';
 import { validatePhone } from '../components/validate-code/validate-phone';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     minHeight: '100vh',
     backgroundColor: '#efefef',

@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 import Banner from '../banner';
 import Footer from '../footer';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     minHeight: '100vh',
     backgroundColor: '#ffffff',

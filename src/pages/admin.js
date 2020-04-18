@@ -9,7 +9,7 @@ import BusinessSignUp from '../components/business-sign-up';
 import Footer from '../components/footer';
 import { useSession, useAuthRedirect } from '../components/auth/Session';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     minHeight: '100vh',
     backgroundColor: '#ffffff',

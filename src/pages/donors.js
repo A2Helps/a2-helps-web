@@ -9,7 +9,7 @@ import Wrapper from '../components/wrapper';
 import Paper from '@material-ui/core/Paper';
 
 
-export const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles(() => ({
   root: {
     minHeight: '100vh',
     backgroundColor: '#FBFBFB',

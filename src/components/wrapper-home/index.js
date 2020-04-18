@@ -5,7 +5,7 @@ import Banner from '../banner';
 import HomeHero from '../home-hero';
 import Footer from '../footer';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     minHeight: '100vh',
     backgroundColor: '#ffffff',

@@ -8,7 +8,7 @@ import {
 import { HOME } from '../../util/routes';
 import Navigation from '../Navigation';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles(() => ({
   root: {
     textAlign: 'left',
     backgroundColor: '#fff',

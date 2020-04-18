@@ -12,7 +12,7 @@ import { Selections } from '../components/redeem/selections';
 import Wrapper from '../components/wrapper';
 
 
-export const useStyles = makeStyles(theme => ({
+export const useStyles = makeStyles(() => ({
   root: {
     minHeight: '100vh',
     backgroundColor: '#FBFBFB',
