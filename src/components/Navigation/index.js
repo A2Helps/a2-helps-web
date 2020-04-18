@@ -15,14 +15,14 @@ import { donorFlag } from '../../util/feature-flags';
 const useStyles = makeStyles((theme) => ({
   mobile: {
     alignItems: 'center',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'none',
     },
   },
   desktop: {
     display: 'none',
     alignItems: 'center',
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('md')]: {
       display: 'flex',
     },
   },
@@ -153,9 +153,9 @@ const Desktop = ({ classes }) => {
         Donate
       </Button>
     </StyledLink>
-    {(!loginRoute && (process.env.NODE_ENV === 'development')) &&
+    {/* {(!loginRoute && (process.env.NODE_ENV === 'development')) &&
       <LogInOutButton />
-    }
+    } */}
   </Grid>
   );
 }

@@ -5,26 +5,52 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 
 import Donation from '../models/donation';
-import Wrapper from '../components/wrapper';
+import WrapperDonors from '../components/wrapper-donors';
 import Paper from '@material-ui/core/Paper';
 
 
-export const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   root: {
     minHeight: '100vh',
-    backgroundColor: '#FBFBFB',
     display: 'flex',
     flexDirection: 'column',
-    boxShadow: '0px 1px 2px #ddd'
   },
   padding: {
-    padding: 12,
-    marginBottom: 12,
+  },
+  title: {
+    fontWeight: 300,
+    marginTop: '70px',
+    marginBottom: '40px',
+    fontSize: '30px',
+    textAlign: 'center',
+    [theme.breakpoints.up('md')]: {
+      fontSize: '32px',
+      marginBottom: '40px',
+    },
   },
   person: {
-    padding: 6,
-    margin: 8,
+    backgroundColor: '#F1A205',
+    margin: '0 auto 15px auto',
+    width: '100%',
+    textAlign: 'center',
+    color: 'white',
+    padding: '20px 20px 20px 20px',
+    boxShadow: '0 0 8px 0 rgba(0,0,0,0.20)',
+    borderRadius: '3px',
+    [theme.breakpoints.up('md')]: {
+      padding: '35px 20px 35px 20px',
+    },
   },
+  name: {
+    fontWeight: 600,
+    fontSize: '32px',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: '40px',
+    },
+    [theme.breakpoints.up('md')]: {
+      fontSize: '50px',
+    },
+  }
 }));
 
 
@@ -47,23 +73,25 @@ function Donors() {
   });
 
   return (
-    <Wrapper>
+    <WrapperDonors>
     <div className={styles.root}>
       <Container>
+        <Typography variant="h3" color="inherit" className={styles.title}>
+          Donors
+        </Typography>
         <Grid
-          spacing={2}
           container
           className={styles.padding}
         >
           {donors.map((donor) => (
-            <Paper className={styles.person} key={donor.id}>
-              <Typography>{donor.public_name}</Typography>
-            </Paper>
+            <div className={styles.person} key={donor.id}>
+              <Typography className={styles.name}>{donor.public_name}</Typography>
+            </div>
           ))}
         </Grid>
       </Container>
     </div>
-    </Wrapper>
+    </WrapperDonors>
   );
 }
 
