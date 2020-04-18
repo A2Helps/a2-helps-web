@@ -108,7 +108,7 @@ const Mobile = ({ classes }) => {
         <StyledLink
           onClick={handleClose}
           className={classes.menuItem}
-          to={FAQ}
+          to={DONORS}
         >
           DONORS
         </StyledLink>}
