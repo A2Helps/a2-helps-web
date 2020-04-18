@@ -87,6 +87,20 @@ const AboutContent = () => {
       <Grid container justify='flex-start' className={styles.resources}>
 
         <Grid item className={styles.card}>
+          <a target="_blank" rel="noopener noreferrer" href="https://a2neighbors.givingfuel.com/covid-19">
+            <img className={styles.image} src={"resources/a2neighbors.png"} alt="A2 Hospitality Fundraiser" />
+            <div className={styles.container}>
+              <Typography variant="h3" className={styles.h3}>
+                A2Neighbors
+              </Typography>
+              <Typography variant="h4" className={styles.h4}>
+              Community Support
+              </Typography>
+            </div>
+          </a>
+        </Grid>
+
+        <Grid item className={styles.card}>
           <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/please-help-us-support-frita-staff">
             <img className={styles.image} src={"resources/frita.png"} alt="Frita Batidos" />
             <div className={styles.container}>
@@ -95,6 +109,20 @@ const AboutContent = () => {
               </Typography>
               <Typography variant="h4" className={styles.h4}>
                 General Support
+              </Typography>
+            </div>
+          </a>
+        </Grid>
+
+        <Grid item className={styles.card}>
+          <a target="_blank" rel="noopener noreferrer" href="https://giveandgetlocal.com/">
+            <img className={styles.image} src={"resources/square.png"} alt="Give and Get Local" />
+            <div className={styles.container}>
+              <Typography variant="h3" className={styles.h3}>
+                Give and Get Local
+              </Typography>
+              <Typography variant="h4" className={styles.h4}>
+                Community Support
               </Typography>
             </div>
           </a>
@@ -185,6 +213,20 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.micovidcare.com">
+            <img className={styles.image} src={"resources/micovidcare.png"} alt="MI Covid Care" />
+            <div className={styles.container}>
+              <Typography variant="h3" className={styles.h3}>
+                 MI Covid Care
+              </Typography>
+              <Typography variant="h4" className={styles.h4}>
+                Community Support
+              </Typography>
+            </div>
+          </a>
+        </Grid>
+
+        <Grid item className={styles.card}>
           <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/support-ann-arbors-local-fish-market/donate">
             <img className={styles.image} src={"resources/monahans.png"} alt="Monahan's Fish Market" />
             <div className={styles.container}>
@@ -235,6 +277,34 @@ const AboutContent = () => {
               </Typography>
               <Typography variant="h4" className={styles.h4}>
                 Staff Support
+              </Typography>
+            </div>
+          </a>
+        </Grid>
+
+        <Grid item className={styles.card}>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.restimulate.org/">
+            <img className={styles.image} src={"resources/restimulate.png"} alt="reSTIMULATE" />
+            <div className={styles.container}>
+              <Typography variant="h3" className={styles.h3}>
+                reSTIMULATE
+              </Typography>
+              <Typography variant="h4" className={styles.h4}>
+                Community Support
+              </Typography>
+            </div>
+          </a>
+        </Grid>
+
+         <Grid item className={styles.card}>
+          <a target="_blank" rel="noopener noreferrer" href="https://www.savemifaves.org/">
+            <img className={styles.image} src={"resources/savemifaves.png"} alt="Save MI Faves" />
+            <div className={styles.container}>
+              <Typography variant="h3" className={styles.h3}>
+                Save MI Faves
+              </Typography>
+              <Typography variant="h4" className={styles.h4}>
+                Community Support
               </Typography>
             </div>
           </a>
@@ -322,10 +392,6 @@ const AboutContent = () => {
               </Typography>
             </div>
           </a>
-        </Grid>
-
-        <Grid md='4' item >
-
         </Grid>
 
       </Grid>
