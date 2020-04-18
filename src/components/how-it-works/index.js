@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(theme => ({
   imgDesktop: {
@@ -60,7 +58,7 @@ export default function HowItWorks() {
         How It Works
       </Typography>
       <Typography variant="body1" color="inherit" className={classes.subtitle}>
-      Donations to A2 Helps enable us to purchase gift cards from local restaurants and retail stores which are then distributed to healthcare professionals in our community. 
+      Donations to A2 Helps enable us to purchase gift cards from local restaurants and retail stores which are then distributed to healthcare professionals in our community.
       </Typography>
       <img className={classes.imgDesktop} src={"diagramDesktop.png"} alt="A2Cares" />
       <img className={classes.imgMobile} src={"diagramMobile.png"} alt="A2Cares" />

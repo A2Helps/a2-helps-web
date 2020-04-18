@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Mission from '../components/mission';
 import Wrapper from '../components/wrapper';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
@@ -88,7 +87,7 @@ const AboutContent = () => {
       <Grid container justify='flex-start' className={styles.resources}>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/please-help-us-support-frita-staff">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/please-help-us-support-frita-staff">
             <img className={styles.image} src={"resources/frita.png"} alt="Frita Batidos" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -102,7 +101,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/grange-kitchen-and-bar-staff">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/grange-kitchen-and-bar-staff">
             <img className={styles.image} src={"resources/grange.png"} alt="Grange" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -116,7 +115,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/haymaker-public-house-employee-relief-fund">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/haymaker-public-house-employee-relief-fund">
             <img className={styles.image} src={"resources/haymaker.png"} alt="Haymaker" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -130,7 +129,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/homes-staff-relief-fund">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/homes-staff-relief-fund">
             <img className={styles.image} src={"resources/homes.png"} alt="HOMES" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -144,7 +143,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/support-literati-bookstore-amp-booksellers">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/support-literati-bookstore-amp-booksellers">
             <img className={styles.image} src={"resources/literati.png"} alt="Literati" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -158,7 +157,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/literati-coffee-staff-needs-your-help">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/literati-coffee-staff-needs-your-help">
             <img className={styles.image} src={"resources/literati-coffee.png"} alt="Literati Coffee" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -172,7 +171,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/ManiIsalitaMiketteStaff">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/ManiIsalitaMiketteStaff">
             <img className={styles.image} src={"resources/mani.png"} alt="Mani, Isalita & Mikette" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -186,7 +185,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/support-ann-arbors-local-fish-market/donate">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/support-ann-arbors-local-fish-market/donate">
             <img className={styles.image} src={"resources/monahans.png"} alt="Monahan's Fish Market" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -200,7 +199,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/help-support-the-nightcaplofi-staff">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/help-support-the-nightcaplofi-staff">
             <img className={styles.image} src={"resources/nightcap.png"} alt="Nightcap/LoFi" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -214,7 +213,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/old-town-tavern-staff">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/old-town-tavern-staff">
             <img className={styles.image} src={"resources/old-town.png"} alt="Old Town" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -228,7 +227,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/the-ravens-club-staff-support-fund">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/the-ravens-club-staff-support-fund">
             <img className={styles.image} src={"resources/ravens-club.png"} alt="Ravens Club" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -242,7 +241,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/donate-for-alley-bar-staff">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/donate-for-alley-bar-staff">
             <img className={styles.image} src={"resources/alley-bar.png"} alt="The Alley Bar" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -256,7 +255,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.indiegogo.com/projects/financial-relief-for-employees-of-the-last-word">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.indiegogo.com/projects/financial-relief-for-employees-of-the-last-word">
             <img className={styles.image} src={"resources/last-word.png"} alt="The Last Word" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -270,7 +269,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://charity.gofundme.com/o/en/campaign/support-the-michigan-and-state-theaters1">
+          <a target="_blank" rel="noopener noreferrer" href="https://charity.gofundme.com/o/en/campaign/support-the-michigan-and-state-theaters1">
             <img className={styles.image} src={"resources/michigan-theater.png"} alt="The Michigan Theater" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -284,7 +283,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/1xjz7hzhmo">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/1xjz7hzhmo">
             <img className={styles.image} src={"resources/sports-bar.png"} alt="The Sports Bar" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -298,7 +297,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/support-tiny-buddha-yoga">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/support-tiny-buddha-yoga">
             <img className={styles.image} src={"resources/tiny-buddha.png"} alt="Tiny Buddha" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>
@@ -312,7 +311,7 @@ const AboutContent = () => {
         </Grid>
 
         <Grid item className={styles.card}>
-          <a target="_blank" href="https://www.gofundme.com/f/help-the-grotto">
+          <a target="_blank" rel="noopener noreferrer" href="https://www.gofundme.com/f/help-the-grotto">
             <img className={styles.image} src={"resources/zal-gaz.png"} alt="Zal Gaz Grotto" />
             <div className={styles.container}>
               <Typography variant="h3" className={styles.h3}>

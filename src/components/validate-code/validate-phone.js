@@ -11,5 +11,5 @@ const cleanPhone = (input) => {
   if (match) {
     return [match[1], match[2], match[3], match[4]].join('');
   }
-  return input.replace(/[^0-9\.]+/g, '');
+  return input.replace(/[^0-9.]+/g, '');
 };

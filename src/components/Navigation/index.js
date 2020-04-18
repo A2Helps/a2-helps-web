@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { DONATE, ABOUT, FAQ, DONORS, RESOURCES, LOGIN } from '../../util/routes';
 import LogInOutButton from '../../components/auth/LogInOutButton';
+import { donorFlag } from '../../util/feature-flags';
 
 const useStyles = makeStyles((theme) => ({
   mobile: {
@@ -103,13 +104,14 @@ const Mobile = ({ classes }) => {
         >
           FAQ
         </StyledLink>
-        {/* <StyledLink
+        {donorFlag() &&
+        <StyledLink
           onClick={handleClose}
           className={classes.menuItem}
           to={FAQ}
         >
           DONORS
-        </StyledLink> */}
+        </StyledLink>}
         <StyledLink
           onClick={handleClose}
           className={classes.menuItem}
@@ -141,8 +143,8 @@ const Desktop = ({ classes }) => {
   <Grid item xs className={classes.desktop}>
     <StyledLink className={classes.body1} to={ABOUT}>ABOUT</StyledLink>
     <StyledLink className={classes.body1} to={FAQ}>FAQ</StyledLink>
-{/*     <StyledLink className={classes.body1} to={DONORS}>DONORS</StyledLink>
- */}    <StyledLink className={classes.body1} to={RESOURCES}>COMMUNITY RESOURCES</StyledLink>
+    {donorFlag() && <StyledLink className={classes.body1} to={DONORS}>DONORS</StyledLink>}
+    <StyledLink className={classes.body1} to={RESOURCES}>COMMUNITY RESOURCES</StyledLink>
     <StyledLink to={DONATE}>
       <Button
         variant="contained"

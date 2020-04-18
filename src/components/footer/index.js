@@ -3,9 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import {
-  Link,
-} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,7 +21,7 @@ const useStyles = makeStyles(theme => ({
   img: {
     width: '30px',
     marginTop: 20,
-    
+
     [theme.breakpoints.up('md')]: {
       width:'35px',
       marginTop: 0,
@@ -59,7 +56,7 @@ export default function Footer() {
           </Grid>
 
           <Grid
-            item 
+            item
             container
             xs={12}
             md={3}
@@ -72,22 +69,22 @@ export default function Footer() {
               </a>
             </Grid>
             <Grid item xs={2} style={{textAlign: 'right'}}>
-              <a target="_blank" href="https://www.instagram.com/a2helps/">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/a2helps/">
                 <img className={classes.img} src="instagram-icon.svg" alt="Instagram Icon" />
               </a>
             </Grid>
             <Grid item xs={2} style={{textAlign: 'right'}}>
-              <a target="_blank" href="https://twitter.com/a2helps">
+              <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/a2helps">
                 <img className={classes.img} src="twitter-icon.svg" alt="Twitter Icon" />
               </a>
             </Grid>
             <Grid item xs={2} style={{textAlign: 'right'}}>
-              <a target="_blank" href="https://www.facebook.com/a2helps">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/a2helps">
                 <img className={classes.img} src="facebook-icon.svg" alt="Facebook Icon" />
               </a>
             </Grid>
             <Grid item xs={2} style={{textAlign: 'right'}}>
-              <a target="_blank" href="https://www.linkedin.com/company/a2-helps/">
+              <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/company/a2-helps/">
                 <img className={classes.img} href="https://www.linkedin.com/company/a2-helps/" src="linkedin-icon.svg" alt="Linkedin Icon" />
               </a>
             </Grid>

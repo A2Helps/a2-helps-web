@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Mission from '../components/mission';
 import Wrapper from '../components/wrapper';
 import { Typography } from '@material-ui/core';
+import { donorFlag } from '../util/feature-flags';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -104,23 +104,21 @@ const FAQ = () => {
           </Typography>
         </div>
 
-        {/* <div className={styles.faq}>
+        {donorFlag() &&
+        <div className={styles.faq}>
           <Typography className={styles.question} variant="h3" color="inherit">
           I am a donor with a large donation. How should I donate?
           </Typography>
           <Typography className={styles.answer} variant="body1" color="inherit">
           Checks are preferred for donations larger than $500 since there are fees associated with larger transactions. Checks can be made out to: Ann Arbor SPARK Foundation. Memo: #a2helps. You can mail them to the SPARK address: 330 E Liberty St, Lower Level, Ann Arbor, MI 48104.
           </Typography>
-        </div> */}
+        </div>}
 
     </div>
   )
 }
 
-
-
 function FaqPage() {
-  const styles = useStyles();
   return (
     <Wrapper>
       <FAQ />

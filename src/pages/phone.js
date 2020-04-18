@@ -13,7 +13,6 @@ import {
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import * as ROUTES from '../util/routes';
-import Footer from '../components/footer';
 
 import {
   useParams
@@ -153,7 +152,7 @@ const Phone = () => {
           container
           className={loading ? styles.messageLoading : styles.message}
         >
-      
+
           {codeSent ? (
             <VerifyAccount
               tryVerify={tryVerify}

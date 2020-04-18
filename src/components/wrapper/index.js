@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Banner from '../banner';
-import HomeHero from '../home-hero';
 import Footer from '../footer';
 
 const useStyles = makeStyles(theme => ({

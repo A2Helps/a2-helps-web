@@ -1,11 +1,9 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Donate from '../components/donate';
 import Wrapper from '../components/wrapper';
 import Typography from '@material-ui/core/Typography';
-import Footer from '../components/footer';
 
 const useStyles = makeStyles(theme => ({
   root: {

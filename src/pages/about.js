@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Mission from '../components/mission';
 import Wrapper from '../components/wrapper';
 import Grid from '@material-ui/core/Grid';
 import { Typography } from '@material-ui/core';
@@ -73,7 +72,6 @@ const useStyles = makeStyles(theme => ({
     margin: '0 auto',
     marginBottom: '50px',
     marginTop: '40px',
-    marginBottom: '70px',
     [theme.breakpoints.up('md')]: {
       display: 'none',
     },
@@ -123,7 +121,6 @@ const useStyles = makeStyles(theme => ({
     fontSize: '14px',
     margin: '5px 0',
     opacity: '.6',
-    
   },
 }));
 
@@ -135,7 +132,7 @@ const AboutContent = () => {
         About A2 Helps
       </Typography>
       <Typography variant="body1" className={styles.subtitle}>
-        Brought together by <a target="_blank" href="https://cahoots.com/" className={styles.cahoots}>Cahoots</a>, we’re an organization committed to helping Washtenaw County’s local businesses and healthcare professionals on the front lines of COVID-19.
+        Brought together by <a target="_blank" rel="noopener noreferrer" href="https://cahoots.com/" className={styles.cahoots}>Cahoots</a>, we’re an organization committed to helping Washtenaw County’s local businesses and healthcare professionals on the front lines of COVID-19.
       </Typography>
 
       <Typography variant="h3" className={styles.h3}>
@@ -145,7 +142,7 @@ const AboutContent = () => {
        This pandemic is unprecedented. The uncertainty that our community faces now is incredibly taxing, both emotionally and financially.
       </Typography>
       <Typography variant="body1" className={styles.body}>
-        Small businesses are being impacted by a rapid decline in operating cash to support their teams, pay their overhead, and ensure their long term survival. If we lose them, where will we gather to celebrate when this is over? How can we expect them to rebuild from nothing? 
+        Small businesses are being impacted by a rapid decline in operating cash to support their teams, pay their overhead, and ensure their long term survival. If we lose them, where will we gather to celebrate when this is over? How can we expect them to rebuild from nothing?
       </Typography>
       <Typography variant="body1" className={styles.body}>
         Meanwhile, people are risking their lives every day to ensure our health and safety. We started A2 Helps to provide a token of our gratitude for their service.
@@ -155,11 +152,11 @@ const AboutContent = () => {
         How do we operate?
       </Typography>
       <Typography variant="body1" className={styles.body}>
-        A2 Helps receives donations from the community to purchase gift cards from local restaurants and retail stores. These gift cards are then electronically distributed to healthcare professionals in partnership with St. Joe’s Hospital and Michigan Medicine.  
+        A2 Helps receives donations from the community to purchase gift cards from local restaurants and retail stores. These gift cards are then electronically distributed to healthcare professionals in partnership with St. Joe’s Hospital and Michigan Medicine.
       </Typography>
       <img className={styles.imgDesktop} src={"diagramDesktop.png"} alt="A2Cares" />
       <img className={styles.imgMobile} src={"diagramMobile.png"} alt="A2Cares" />
-      
+
       <Grid
         container
         className={styles.teamSection}
@@ -172,7 +169,7 @@ const AboutContent = () => {
           Meet the Team
         </Typography>
         <Typography variant="body1" className={styles.body}>
-          We couldn’t have built A2 Helps without our amazing volunteers. Brought together by <a target="_blank" href="https://cahoots.com/" className={styles.cahoots2}>Cahoots</a>, we have over 10 volunteer engineers, designers, and marketers dedicated to launching this organization and supporting healthcare professionals and local businesses.
+            We couldn’t have built A2 Helps without our amazing volunteers. Brought together by <a target="_blank" rel="noopener noreferrer" href="https://cahoots.com/" className={styles.cahoots2}>Cahoots</a>, we have over 10 volunteer engineers, designers, and marketers dedicated to launching this organization and supporting healthcare professionals and local businesses.
         </Typography>
         </Grid>
         <Grid item xs={12} md={6} className={styles.right}>
@@ -184,7 +181,7 @@ const AboutContent = () => {
         container
         className={styles.team}
         >
-        
+
         <Grid item xs={6} sm={4} md={3} className={styles.person}>
           <img className={styles.headshot} src={"headshots/joe-malcoun.png"} alt="Joe Malcoun headshot" />
           <Typography variant="h4" className={styles.teammate}>
@@ -329,7 +326,7 @@ const AboutContent = () => {
         </Grid>
         </div>
 
-      
+
   )
 }
 

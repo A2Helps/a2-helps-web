@@ -1,13 +1,10 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import {
   Link,
 } from "react-router-dom";
 import { HOME } from '../util/routes';
-import Banner from '../components/banner';
-import Footer from '../components/footer';
 import Wrapper from '../components/wrapper';
 import Button from '@material-ui/core/Button';
 import { makeStyles, styled } from '@material-ui/core/styles';
@@ -72,7 +69,7 @@ function WireSuccess() {
             className={styles.message}
           >
             <Grid xs={12}>
-              
+
               <Typography variant="h4" color="inherit" className={styles.heading}>
                 Thank you for supporting local healthcare professionals and Washtenaw County businesses.
               </Typography>
@@ -80,7 +77,7 @@ function WireSuccess() {
               <Typography variant="h6" color="inherit" className={styles.received}>
               You will receive an email containing instuctions for your next steps.
               </Typography>
-              
+
               <StyledLink
                     to={HOME}
                   >
@@ -92,12 +89,12 @@ function WireSuccess() {
                     Return Home
                   </Button>
               </StyledLink>
-                
-                <div className={styles.socialButtons}>    
+
+                <div className={styles.socialButtons}>
                 <Typography className={styles.share}>
                 Share that you donated to A2 Helps on social media!
-                </Typography>      
-                 
+                </Typography>
+
                 <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="I just donated to @a2helps! If you'd like to contribute to the mission of supporting our local businesses and workers on the front lines of #COVID19, head over to https://www.a2helps.com/donate" data-url="https://a2helps.com/donate " data-hashtags="kindnessiscontagioustoo " data-show-count="false">Tweet</a>
                 </div>
             </Grid>

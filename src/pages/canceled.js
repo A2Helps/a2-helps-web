@@ -1,13 +1,10 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import {
   Link,
 } from "react-router-dom";
 import { HOME } from '../util/routes';
-import Banner from '../components/banner';
-import Footer from '../components/footer';
 import Wrapper from '../components/wrapper';
 import Button from '@material-ui/core/Button';
 import { makeStyles, styled } from '@material-ui/core/styles';
@@ -58,7 +55,7 @@ const useStyles = makeStyles(theme => ({
   share: {
     marginBottom: '20px',
     opacity: .8,
-  },                     
+  },
 }));
 
 function Cancel() {
@@ -72,7 +69,7 @@ function Cancel() {
             className={styles.message}
           >
             <Grid xs={12}>
-              
+
               <Typography variant="h4" color="inherit" className={styles.heading}>
               Your payment has been canceled.
               </Typography>
