@@ -31,6 +31,7 @@ export function Selections({
     <Typography variant="h6" color="inherit">
       Your Selections
     </Typography>
+
     {allocationList
       .map((id) => businesses
         .find((b) => b.id === id))

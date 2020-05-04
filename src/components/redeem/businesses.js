@@ -41,7 +41,7 @@ export const Businesses = ({
         spacing={2}
       >
         {businesses.map((business) => {
-          return (<Grid item sm={6} xs={12}>
+          return (<Grid item sm={6} xs={12} key={business.id}>
             <Card>
             <CardActionArea>
               <CardMedia
@@ -69,5 +69,3 @@ export const Businesses = ({
     </Grid>
   );
 };
-
-

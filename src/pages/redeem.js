@@ -5,11 +5,17 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import { useHistory } from 'react-router-dom';
+import { CODE_EMPTY } from '../util/routes';
 
 import Merchant from '../models/merchant';
 import { Businesses } from '../components/redeem/businesses';
 import { Selections } from '../components/redeem/selections';
+import { RedemptionErrorSnackbar } from '../components/redeem/redemption-error';
 import Wrapper from '../components/wrapper';
+import submitSelections from '../models/submit-selections';
 
 
 export const useStyles = makeStyles(() => ({
@@ -37,6 +43,14 @@ const MAX_AMOUNT = 100;
 function Redeem() {
   const styles = useStyles();
   const [merchants, setMerchants] = useState([]);
+  const [hasError, setHasError] = useState(false);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!firebase.auth().currentUser) {
+      history.push(CODE_EMPTY + '/' + localStorage.getItem('code'));
+    }
+  });
 
   useEffect(() => {
     if (merchants.length) return;
@@ -45,13 +59,24 @@ function Redeem() {
       const results = await Merchant.get();
       if (results && results.length) {
         setMerchants(results);
-        console.log(results);
-
-
       }
     };
     makeRequest();
   });
+
+  const onSubmit = async () => {
+    const token = localStorage.getItem('token');
+    const code = localStorage.getItem('code');
+
+    await submitSelections({
+      code,
+      allocation,
+      token,
+      onError: () => setHasError(true),
+    });
+
+    setHasError(true)
+  }
 
   const [amount, setAmount] = React.useState(MAX_AMOUNT);
   const [allocation, setAllocation] = React.useState({});
@@ -76,7 +101,6 @@ function Redeem() {
     setAllocation(newAllocation);
     setAmount(amount === MAX_AMOUNT ? amount : amount + amountChange);
   };
-
 
   return (
     <Wrapper>
@@ -110,10 +134,16 @@ function Redeem() {
               decrementCredits={decrementCredits}
               incrementCredits={incrementCredits}
             />
+            <Button
+              variant="contained"
+              color="secondary"
+              disabled={!Object.keys(allocation).length}
+              onClick={onSubmit}
+            >Complete Order</Button>
           </Grid>
         </Grid>
-        <Button>Next</Button>
       </Container>
+      <RedemptionErrorSnackbar setOpen={setHasError} open={hasError} />
     </div>
     </Wrapper>
   );

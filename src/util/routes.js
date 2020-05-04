@@ -6,6 +6,7 @@ export const DONATE = '/donate';
 export const CANCEL = '/donation/cancel';
 export const SUCCESS = '/donation/success';
 export const CODE = '/v/:code';
+export const CODE_EMPTY = '/v';
 export const FAQ = '/faq';
 export const ABOUT = '/about';
 export const WIRE = '/wire';
