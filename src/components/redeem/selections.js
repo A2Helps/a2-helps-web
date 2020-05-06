@@ -36,7 +36,7 @@ export function Selections({
       .map((id) => businesses
         .find((b) => b.id === id))
       .map((business) => {
-        return (<Paper className={styles.padding}>
+        return (<Paper className={styles.padding} key={business.id}>
           <Typography variant="body1" color="inherit">
             <strong>{business.name}</strong>
           </Typography>

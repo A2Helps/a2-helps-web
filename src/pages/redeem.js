@@ -8,7 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import { useHistory } from 'react-router-dom';
-import { CODE_EMPTY } from '../util/routes';
+import { CODE_EMPTY, ORDER } from '../util/routes';
 
 import Merchant from '../models/merchant';
 import { Businesses } from '../components/redeem/businesses';
@@ -16,6 +16,7 @@ import { Selections } from '../components/redeem/selections';
 import { RedemptionErrorSnackbar } from '../components/redeem/redemption-error';
 import Wrapper from '../components/wrapper';
 import submitSelections from '../models/submit-selections';
+import fetchOrders from '../models/fetch-orders';
 
 
 export const useStyles = makeStyles(() => ({
@@ -49,7 +50,20 @@ function Redeem() {
   useEffect(() => {
     if (!firebase.auth().currentUser) {
       history.push(CODE_EMPTY + '/' + localStorage.getItem('code'));
+      return;
     }
+
+    const makeRequest = async () => {
+      const token = localStorage.getItem('token');
+      const results = await fetchOrders({ token });
+      console.log({results});
+
+      if (results.data && results.data.length > 0) {
+        history.push(ORDER);
+      }
+    }
+
+    makeRequest();
   });
 
   useEffect(() => {
@@ -75,7 +89,8 @@ function Redeem() {
       onError: () => setHasError(true),
     });
 
-    setHasError(true)
+    // setHasError(true)
+    // history.push(CODE_EMPTY + '/' + localStorage.getItem('code'));
   }
 
   const [amount, setAmount] = React.useState(MAX_AMOUNT);

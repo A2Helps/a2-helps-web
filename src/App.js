@@ -24,6 +24,7 @@ import {
 } from "react-router-dom";
 import { theme } from './theme';
 import { UserSessionProvider } from './components/auth/Session';
+import Order from './pages/order';
 
 const App = () => {
   return (
@@ -67,6 +68,9 @@ const App = () => {
             </Route>
             <Route exact path={ROUTES.HOME}>
               <Home />
+            </Route>
+            <Route exact path={ROUTES.ORDER}>
+              <Order />
             </Route>
             {(process.env.NODE_ENV !== 'production') &&
               <Route path={ROUTES.LOGIN}>
