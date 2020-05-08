@@ -69,7 +69,7 @@ const OptIn = () => {
           container
           className={styles.message}
         >
-          <Typography>On behalf of the entire Washtenaw county community, A2 Helps thanks you for your heroic service on the front lines of COVID19. If you'd like to opt in for the chance to receive a token of our appreciation in the form of a $100 gift card to the Washtenaw County restaurant or reatil store of your choosing, please list your email below. </Typography>
+          <Typography>On behalf of the entire Washtenaw county community, A2 Helps thanks you for your heroic service on the front lines of COVID19. If you'd like to opt in for the chance to receive a token of our appreciation in the form of a $100 gift card to the Washtenaw County restaurant or retail store of your choosing, please list your email below. </Typography>
           <br />
           <TextField
             placeholder="First Name"
