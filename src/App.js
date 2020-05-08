@@ -25,6 +25,7 @@ import {
 import { theme } from './theme';
 import { UserSessionProvider } from './components/auth/Session';
 import Order from './pages/order';
+import OptIn from './pages/opt-in';
 
 const App = () => {
   return (
@@ -71,6 +72,9 @@ const App = () => {
             </Route>
             <Route exact path={ROUTES.ORDER}>
               <Order />
+            </Route>
+            <Route exact path={ROUTES.OPT_IN}>
+              <OptIn />
             </Route>
             {(process.env.NODE_ENV !== 'production') &&
               <Route path={ROUTES.LOGIN}>

@@ -14,4 +14,5 @@ export const WIRE_SUCCESS = '/wire/success';
 export const DONORS = '/donors';
 export const RESOURCES = '/resources';
 export const ORDER = '/order';
+export const OPT_IN = '/opt-in';
 
