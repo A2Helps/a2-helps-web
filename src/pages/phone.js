@@ -129,7 +129,8 @@ const Phone = () => {
   const tryVerify = (textedCode) => {
     setLoading(true);
     window.confirmationResult.confirm(textedCode).then(function (result) {
-      window.user = result.user;
+      localStorage.setItem('token', result.user.xa);
+      localStorage.setItem('code', code);
       setLoading(false);
       history.push(ROUTES.REDEEM);
     }).catch(function (error) {

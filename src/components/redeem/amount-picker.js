@@ -29,6 +29,7 @@ export const AmountPicker = ({
   allocation,
   incrementCredits,
 }) => {
+  const amount = business.amounts.sort()[0]
   const styles = useStyles();
   return <div className={styles.picker}>
     <Button
@@ -36,22 +37,22 @@ export const AmountPicker = ({
       color="primary"
       disabled={!allocation[business.id]}
       onClick={() => {
-        decrementCredits(business.id, business.amounts[0]);
+        decrementCredits(business.id, amount);
       }}
     >
       -&nbsp;$
-      {business.amounts[0]}
+      {amount}
     </Button>&nbsp;
     <Typography className={styles.amount}>${(allocation[business.id] || 0)}</Typography>&nbsp;
     <Button
       variant="contained"
       color="primary"
       onClick={() => {
-        incrementCredits(business.id, business.amounts[0]);
+        incrementCredits(business.id, amount);
       }}
     >
       +&nbsp;$
-      {business.amounts[0]}
+      {amount}
     </Button>
   </div>;
 };
