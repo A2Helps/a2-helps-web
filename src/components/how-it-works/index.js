@@ -47,6 +47,23 @@ const useStyles = makeStyles(theme => ({
       maxWidth: '460px',
     },
   },
+  vidContainer: {
+    width: '80%',
+    height: '0',
+    padding: '44% 0 0',
+    display: 'block',
+    position: 'relative',
+    margin: '0 auto',
+  },
+  vid: {
+    position: 'absolute',
+    top: '0',
+    right: '0',
+    bottom: '0',
+    left: '0',
+    maxWidth: '100%',
+    maxHeight: '100%',
+  },
 }));
 
 export default function HowItWorks() {
@@ -60,8 +77,9 @@ export default function HowItWorks() {
       <Typography variant="body1" color="inherit" className={classes.subtitle}>
       Donations to A2 Helps enable us to purchase gift cards from local restaurants and retail stores which are then distributed to healthcare professionals in our community.
       </Typography>
-      <img className={classes.imgDesktop} src={"diagramDesktop.png"} alt="A2Cares" />
-      <img className={classes.imgMobile} src={"diagramMobile.png"} alt="A2Cares" />
+      <div className={classes.vidContainer}>
+        <iframe className={classes.vid} src="https://drive.google.com/file/d/1k0jLfHPXWR85qMJ_4Sbk6XoXnUttlcmx/preview" width="640" height="480"></iframe>
+      </div>
     </div>
   );
 }
