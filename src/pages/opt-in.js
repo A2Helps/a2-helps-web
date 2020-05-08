@@ -100,9 +100,9 @@ const OptIn = () => {
           />
           <br />
           <MuiPhoneNumber
+            placeholder="Phone"
             defaultCountry={'us'}
             onlyCountries={['us']}
-            placeholder="Phone"
             value={state.phone || ''}
             onChange={(val) => {
               console.log({val});
@@ -115,6 +115,9 @@ const OptIn = () => {
             }}
             className={styles.input}
           />
+          <br />
+          <br />
+          <Typography>Use your work email address so we can confirm its you.</Typography>
           <br />
           <TextField
             placeholder="Email"
