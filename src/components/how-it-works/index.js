@@ -41,9 +41,9 @@ const useStyles = makeStyles(theme => ({
     maxWidth: '325px',
     textAlign: 'center',
     margin: '0 auto',
-    marginBottom: '40px',
+    marginBottom: '20px',
     [theme.breakpoints.up('md')]: {
-      marginBottom: '60px',
+      marginBottom: '30px',
       maxWidth: '460px',
     },
   },
@@ -54,6 +54,12 @@ const useStyles = makeStyles(theme => ({
     display: 'block',
     position: 'relative',
     margin: '0 auto',
+    [theme.breakpoints.up('video')]: {
+      width: '100%',
+    },
+    [theme.breakpoints.up('md')]: {
+      height: '34px',
+    },
   },
   vid: {
     position: 'absolute',
@@ -61,8 +67,18 @@ const useStyles = makeStyles(theme => ({
     right: '0',
     bottom: '0',
     left: '0',
-    maxWidth: '100%',
+    width: '100%',
     maxHeight: '100%',
+    [theme.breakpoints.up('video')]: {
+      margin: '0 auto',
+      width: '670px',
+    },
+    [theme.breakpoints.up('md')]: {
+      width: '770px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '800px',
+    },
   },
 }));
 

@@ -7,6 +7,7 @@ export const theme = {
       'md',
       'lg',
       'xl',
+      'video',
     ],
     values: {
       xs: 0,
@@ -14,6 +15,7 @@ export const theme = {
       md: 960,
       lg: 1280,
       xl: 1920,
+      video: 850,
     },
   },
   direction: 'ltr',
