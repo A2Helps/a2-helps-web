@@ -87,7 +87,6 @@ const OptIn = () => {
       email,
       onError: (e) => setError('Please include a valid phone number and email address.'),
     });
-    console.log({ results });
 
     if (results.data.success) setComplete(true);
   }
