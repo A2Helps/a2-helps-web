@@ -122,6 +122,41 @@ const useStyles = makeStyles(theme => ({
     margin: '5px 0',
     opacity: '.6',
   },
+  vidContainer: {
+    width: '80%',
+    height: '0',
+    padding: '44% 0 0',
+    display: 'block',
+    position: 'relative',
+    margin: '0 auto',
+    marginTop: '3s0px',
+    marginBottom: '150px',
+    [theme.breakpoints.up('video')]: {
+      width: '100%',
+    },
+    [theme.breakpoints.up('md')]: {
+      height: '34px',
+    },
+  },
+  vid: {
+    position: 'absolute',
+    top: '0',
+    right: '0',
+    bottom: '0',
+    left: '0',
+    width: '100%',
+    maxHeight: '100%',
+    [theme.breakpoints.up('video')]: {
+      margin: '0 auto',
+      width: '670px',
+    },
+    [theme.breakpoints.up('md')]: {
+      width: '770px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      width: '800px',
+    },
+  },
 }));
 
 const AboutContent = () => {
@@ -154,8 +189,9 @@ const AboutContent = () => {
       <Typography variant="body1" className={styles.body}>
         A2 Helps receives donations from the community to purchase gift cards from local restaurants and retail stores. These gift cards are then electronically distributed to healthcare professionals in partnership with St. Joe’s Hospital and Michigan Medicine.
       </Typography>
-      <img className={styles.imgDesktop} src={"diagramDesktop.png"} alt="A2Cares" />
-      <img className={styles.imgMobile} src={"diagramMobile.png"} alt="A2Cares" />
+      <div className={styles.vidContainer}>
+        <iframe className={styles.vid} src="https://drive.google.com/file/d/1k0jLfHPXWR85qMJ_4Sbk6XoXnUttlcmx/preview" width="640" height="480"></iframe>
+      </div>
 
       <Grid
         container
@@ -319,7 +355,7 @@ const AboutContent = () => {
             Web Development
           </Typography>
           <Typography variant="body1" className={styles.company}>
-            Student
+            Nutshell
           </Typography>
         </Grid>
 
