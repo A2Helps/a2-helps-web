@@ -56,7 +56,6 @@ function Redeem() {
     const makeRequest = async () => {
       const token = localStorage.getItem('token');
       const results = await fetchOrders({ token });
-      console.log({results});
 
       if (results.data && results.data.length > 0) {
         history.push(ORDER);
@@ -88,9 +87,6 @@ function Redeem() {
       token,
       onError: () => setHasError(true),
     });
-
-    // setHasError(true)
-    // history.push(CODE_EMPTY + '/' + localStorage.getItem('code'));
   }
 
   const [amount, setAmount] = React.useState(MAX_AMOUNT);

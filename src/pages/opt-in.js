@@ -6,8 +6,11 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import MuiPhoneNumber from 'material-ui-phone-number';
+import Snackbar from '@material-ui/core/Snackbar';
 
 import Wrapper from '../components/wrapper';
+import { validatePhone } from '../components/validate-code/validate-phone';
+import optIn from '../models/opt-in';
 
 
 import {
@@ -47,17 +50,65 @@ const useStyles = makeStyles(() => ({
 
 const OptIn = () => {
   const styles = useStyles();
-  const history = useHistory();
+  const [error, setError] = useState('');
+  const [complete, setComplete] = useState(false);
 
-  const [state, setState] = useState({});
-
-
-  useEffect(() => {
+  const [state, setState] = useState({
+    name_first: '',
+    name_last: '',
+    phone: '',
+    email: '',
   });
 
-  const submit = (results) => {
-    console.log('submit');
-    console.log(state);
+  const submit = async () => {
+    if (!state.name_first) {
+      setError('Please include your first name.');
+    }
+    if (!state.name_last) {
+      setError('Please include your last name.');
+    }
+    if (!validatePhone(state.phone)) {
+      setError('Please include a valid phone number.');
+    }
+    if (!state.email || !(state.email || '').split('@').length > 1) {
+      setError('Please include a valid email address.');
+    }
+    const {
+      name_first,
+      name_last,
+      phone,
+      email,
+    } = state;
+
+    const results = await optIn({
+      name_first,
+      name_last,
+      phone: phone && phone.match(/[0-9]/g).join('').slice(1),
+      email,
+      onError: (e) => setError('Please include a valid phone number and email address.'),
+    });
+    console.log({ results });
+
+    if (results.data.success) setComplete(true);
+  }
+
+  if (complete) {
+    return (
+      <div className={styles.root}>
+      <Wrapper>
+        <Container className={styles.container}>
+          <Grid
+            spacing={2}
+            container
+            className={styles.message}
+          >
+            <h2>You're on the list</h2>
+            <Typography>Thank you for opting in.</Typography>
+          </Grid>
+        </Container>
+      </Wrapper>
+      </div>
+    );
   }
 
   return (
@@ -69,16 +120,16 @@ const OptIn = () => {
           container
           className={styles.message}
         >
-          <Typography>On behalf of the entire Washtenaw county community, A2 Helps thanks you for your heroic service on the front lines of COVID19. If you'd like to opt in for the chance to receive a token of our appreciation in the form of a $100 gift card to the Washtenaw County restaurant or retail store of your choosing, please list your email below. </Typography>
+          <Typography>On behalf of the entire Washtenaw County community, A2 Helps thanks you for your heroic service on the front lines of COVID19. If you'd like to opt in for the chance to receive a token of our appreciation in the form of a $100 gift card to the Washtenaw County restaurant or retail store of your choosing, please list your email below. </Typography>
           <br />
           <TextField
             placeholder="First Name"
-            value={state.first_name || ''}
+            value={state.name_first || ''}
             onChange={(e) => {
               const val = e.target.value;
               setState({
                 ...state,
-                first_name: val,
+                name_first: val,
               });
 
             }}
@@ -87,12 +138,12 @@ const OptIn = () => {
           <br />
           <TextField
             placeholder="Last Name"
-            value={state.last_name || ''}
+            value={state.name_last || ''}
             onChange={(e) => {
               const val = e.target.value;
               setState({
                 ...state,
-                last_name: val,
+                name_last: val,
               });
 
             }}
@@ -105,8 +156,6 @@ const OptIn = () => {
             onlyCountries={['us']}
             value={state.phone || ''}
             onChange={(val) => {
-              console.log({val});
-
               setState({
                 ...state,
                 phone: val,
@@ -117,7 +166,7 @@ const OptIn = () => {
           />
           <br />
           <br />
-          <Typography>Use your work email address so we can confirm its you.</Typography>
+          <Typography>Please use your work email address so we can confirm its you.</Typography>
           <br />
           <TextField
             placeholder="Email"
@@ -142,6 +191,14 @@ const OptIn = () => {
         </Grid>
       </Container>
       </Wrapper>
+      <Snackbar anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'center',
+      }} open={!!error} autoHideDuration={6000} onClose={() => setError('')} message={error} action={<React.Fragment>
+        <Button color="secondary" size="small" onClick={() => setError('')}>
+          Continue
+        </Button>
+      </React.Fragment>} />
     </div>
   );
 }
