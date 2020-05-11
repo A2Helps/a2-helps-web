@@ -129,7 +129,7 @@ const useStyles = makeStyles(theme => ({
     display: 'block',
     position: 'relative',
     margin: '0 auto',
-    marginTop: '3s0px',
+    marginTop: '30px',
     marginBottom: '150px',
     [theme.breakpoints.up('video')]: {
       width: '100%',
