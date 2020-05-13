@@ -11,6 +11,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
+    "env-cmd": "^10.1.0",
     "firebase": "^7.13.1",
     "material-ui-phone-number": "^2.2.6",
     "react": "^16.13.1",
@@ -22,6 +23,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:staging": "env-cmd -f .env.development npm run build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
