@@ -1,7 +1,7 @@
-## To deployed
-Run `yarn build`.
-Make a commit.
-Open PR or push to master.
+## To deploy
+Develop from the staging branch.
+Open a PR from the staging branch into the master branch
+Once that PR is merged, a deploy will happen.
 
 ## Available Scripts
 
