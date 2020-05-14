@@ -83,7 +83,7 @@ const OptIn = () => {
     const results = await optIn({
       name_first,
       name_last,
-      phone: phone && phone.match(/[0-9]/g).join('').slice(1),
+      phone: phone && phone.match(/[0-9]/g).join(''),
       email,
       onError: (e) => setError('Please include a valid phone number and email address.'),
     });
@@ -151,6 +151,7 @@ const OptIn = () => {
           <br />
           <MuiPhoneNumber
             placeholder="Phone"
+            disableCountryCode
             defaultCountry={'us'}
             onlyCountries={['us']}
             value={state.phone || ''}
