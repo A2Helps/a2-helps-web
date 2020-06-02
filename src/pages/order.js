@@ -52,7 +52,7 @@ function Order() {
       <Container>
         <br />
         <Typography variant="h5">
-          We have received your selections. You'll hear from us soon with more information!
+        Thank you for your selections! Look out for an email from us soon with more information on how to redeem your cards.
         </Typography>
         <br />
       </Container>
