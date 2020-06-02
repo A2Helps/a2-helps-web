@@ -15,11 +15,14 @@ import Wrapper from '../components/wrapper';
 
 export const useStyles = makeStyles(() => ({
   root: {
-    minHeight: '100vh',
+    minHeight: '80vh',
     backgroundColor: '#FBFBFB',
     display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: 'column',
-    boxShadow: '0px 1px 2px #ddd'
+    boxShadow: '0px 1px 2px #ddd',
+    textAlign: 'center',
   },
   padding: {
     padding: 12,

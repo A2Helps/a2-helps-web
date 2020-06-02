@@ -29,7 +29,7 @@ export const AmountPicker = ({
   allocation,
   incrementCredits,
 }) => {
-  const amount = business.amounts.sort()[0]
+  const amount = business.amounts.sort().reverse()[0]
   const styles = useStyles();
   return <div className={styles.picker}>
     <Button
