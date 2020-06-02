@@ -41,6 +41,9 @@ export const Businesses = ({
         spacing={2}
       >
         {businesses.map((business) => {
+          if (!business.active) return null;
+          if (!(business.amounts || []).length) return null;
+
           return (<Grid item sm={6} xs={12} key={business.id}>
             <Card>
             <CardActionArea>

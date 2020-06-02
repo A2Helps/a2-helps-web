@@ -81,12 +81,17 @@ function Redeem() {
     const token = localStorage.getItem('token');
     const code = localStorage.getItem('code');
 
-    await submitSelections({
-      code,
-      allocation,
-      token,
-      onError: () => setHasError(true),
-    });
+    try {
+      await submitSelections({
+        code,
+        allocation,
+        token,
+        onError: () => setHasError(true),
+      });
+      history.push(ORDER);
+    } catch(e) {
+      console.error(e);
+    }
   }
 
   const [amount, setAmount] = React.useState(MAX_AMOUNT);
