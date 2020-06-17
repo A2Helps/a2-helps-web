@@ -19,18 +19,19 @@ import {
 import 'firebase/auth';
 
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({  
   root: {
     minHeight: '100vh',
     backgroundColor: '#efefef',
     display: 'flex',
     flexDirection: 'column',
+    color: '#3D3B39',
   },
   message: {
     padding: 24,
     flexGrow: 1,
-    textAlign: 'center',
-    alignItems: 'center',
+    textAlign: 'left',
+    alignItems: 'left',
     display: 'flex',
     flexDirection: 'column',
   },
@@ -38,13 +39,49 @@ const useStyles = makeStyles(() => ({
     width: '100%',
   },
   container: {
-    marginTop: '50px',
     backgroundColor: '#ffffff',
     maxWidth: '500px',
     paddingBottom: '30px',
     paddingTop: '20px',
     boxShadow: '0px 0px 7px 1px rgba(0,0,0,0.13)',
     borderRadius: '4px',
+  },
+  title: {
+    color: '#3D3B39',
+    textAlign: 'center',
+    paddingBottom: '10px',
+    marginTop: '20px',
+    fontSize: '30px',
+    fontWeight: 300,
+    [theme.breakpoints.up('sm')]: {
+      paddingBottom: '25px',
+      marginTop: '60px',
+      fontSize: '32px',
+    },
+    [theme.breakpoints.up('md')]: {
+      paddingBottom: '20px',
+      marginTop: '60px',
+    },
+  },
+  h4: {
+    fontSize: '28px',
+    fontWeight: 600,
+    marginBottom: '10px',
+  },
+  img: {
+    height: '18px',
+    width: '18px',
+    marginRight: '7px',
+  },
+  alertBox: {
+    marginTop: '10px',
+    marginBottom: '20px',
+    display: 'flex',
+    alignItems: 'center',
+  },
+  alertText: {
+    fontSize: '11px',
+    fontStyle: 'italic',
   },
 }));
 
@@ -113,16 +150,21 @@ const OptIn = () => {
   return (
     <div className={styles.root}>
     <Wrapper>
+    <Typography className={styles.title}>Thank you!</Typography>
+
       <Container className={styles.container}>
         <Grid
           spacing={2}
           container
           className={styles.message}
         >
-          <Typography>On behalf of the entire Washtenaw County community, A2 Helps thanks you for your heroic service on the front lines of COVID19. If you'd like to opt in for the chance to receive a token of our appreciation in the form of a $100 gift card to the Washtenaw County restaurant or retail store of your choosing, please list your email below. </Typography>
+          <Typography className={styles.h4}>Opt In</Typography>
+
+          <Typography className={styles.body}>On behalf of the Washtenaw County community, A2 Helps thanks you for your service on the front lines of COVID-19. </Typography>
+          <Typography className={styles.body} style={{marginTop: '10px'}}>Please <b>enter your work email</b> for the chance to receive a $100 gift card to be used toward a number of participating local businesses.</Typography>
           <br />
           <TextField
-            placeholder="First Name"
+            label="First Name"
             value={state.name_first || ''}
             onChange={(e) => {
               const val = e.target.value;
@@ -136,7 +178,7 @@ const OptIn = () => {
           />
           <br />
           <TextField
-            placeholder="Last Name"
+            label="Last Name"
             value={state.name_last || ''}
             onChange={(e) => {
               const val = e.target.value;
@@ -150,7 +192,7 @@ const OptIn = () => {
           />
           <br />
           <MuiPhoneNumber
-            placeholder="Phone"
+            label="Mobile Phone"
             disableCountryCode
             defaultCountry={'us'}
             onlyCountries={['us']}
@@ -165,11 +207,9 @@ const OptIn = () => {
             className={styles.input}
           />
           <br />
-          <br />
-          <Typography>Please use your work email address so we can confirm its you.</Typography>
-          <br />
+          
           <TextField
-            placeholder="Email"
+            label="Work Email"
             value={state.email || ''}
             onChange={(e) => {
               const val = e.target.value;
@@ -181,10 +221,17 @@ const OptIn = () => {
             }}
             className={styles.input}
           />
+          <div className={styles.alertBox}>
+            <img className={styles.img} src="alert-icon.png" alt="Alert icon." />
+            <Typography className={styles.alertText}>We ask for your work email to confirm you work in the healthcare industry. </Typography>
+          </div>
+
           <br />
           <Button
             onClick={submit}
             className={styles.input}
+            color="primary"
+            variant="contained"
           >
             Submit
           </Button>
