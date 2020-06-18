@@ -94,7 +94,7 @@ export default function HowItWorks() {
       Donations to A2 Helps enable us to purchase gift cards from local restaurants and retail stores which are then distributed to healthcare professionals in our community.
       </Typography>
       <div className={classes.vidContainer}>
-        <iframe className={classes.vid} src="https://drive.google.com/file/d/1k0jLfHPXWR85qMJ_4Sbk6XoXnUttlcmx/preview" width="640" height="480"></iframe>
+        <iframe className={classes.vid} src="https://drive.google.com/file/d/1k0jLfHPXWR85qMJ_4Sbk6XoXnUttlcmx/preview" width="640" height="480" title="How It Works"></iframe>
       </div>
     </div>
   );
