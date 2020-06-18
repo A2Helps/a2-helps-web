@@ -6,7 +6,6 @@ import Typography from '@material-ui/core/Typography';
 
 import Donation from '../models/donation';
 import WrapperDonors from '../components/wrapper-donors';
-import Paper from '@material-ui/core/Paper';
 
 
 const useStyles = makeStyles(theme => ({

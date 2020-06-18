@@ -190,7 +190,7 @@ const AboutContent = () => {
         A2 Helps receives donations from the community to purchase gift cards from local restaurants and retail stores. These gift cards are then electronically distributed to healthcare professionals in partnership with St. Joe’s Hospital and Michigan Medicine.
       </Typography>
       <div className={styles.vidContainer}>
-        <iframe className={styles.vid} src="https://drive.google.com/file/d/1k0jLfHPXWR85qMJ_4Sbk6XoXnUttlcmx/preview" width="640" height="480"></iframe>
+        <iframe className={styles.vid} src="https://drive.google.com/file/d/1k0jLfHPXWR85qMJ_4Sbk6XoXnUttlcmx/preview" width="640" height="480" title="How It Works"></iframe>
       </div>
 
       <Grid

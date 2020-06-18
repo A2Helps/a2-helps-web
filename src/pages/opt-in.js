@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
@@ -13,13 +13,10 @@ import { validatePhone } from '../components/validate-code/validate-phone';
 import optIn from '../models/opt-in';
 
 
-import {
-  useHistory,
-} from "react-router-dom";
 import 'firebase/auth';
 
 
-const useStyles = makeStyles(theme => ({  
+const useStyles = makeStyles(theme => ({
   root: {
     minHeight: '100vh',
     backgroundColor: '#efefef',
@@ -207,7 +204,7 @@ const OptIn = () => {
             className={styles.input}
           />
           <br />
-          
+
           <TextField
             label="Work Email"
             value={state.email || ''}

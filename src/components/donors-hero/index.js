@@ -96,7 +96,7 @@ export default function DonorsHero() {
   const currentTime = Date.now();
   const [time, setTime] = useState(launchDate - currentTime);
   const [fmtTime, setFmtTime] = useState(fmtTimeString(time));
-  const [fbLive, setFBLive] = useState(false);
+  const setFBLive = useState(false)[1];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -108,7 +108,7 @@ export default function DonorsHero() {
 
   useEffect(() => {
     setFBLive(isFBLive(currentTime));
-  }, [currentTime]);
+  }, [currentTime, setFBLive]);
 
   return (
     <div className={classes.root}>
