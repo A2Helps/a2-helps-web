@@ -87,11 +87,11 @@ export default function Banner() {
             Our site will remain live to celebrate our achievements and share resources, all made possible by our generous donors.
             </Typography>
           </Grid>
-          <Grid item xs={12}>
+          {/* <Grid item xs={12}>
             <Typography variant="body1" color="inherit" className={classes.lineThree}>
             If you’re a healthcare professional still looking to redeem a code, instructions for how to do so can be found <a href="https://www.a2helps.com/donors" style={{color: 'white', fontWeight: '700'}}>here</a>.
             </Typography>
-          </Grid>
+          </Grid> */}
         </Grid>
     </div>
   );
