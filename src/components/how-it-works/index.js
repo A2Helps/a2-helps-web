@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
   howItWorks: {
     fontWeight: 300,
-    marginTop: '120px',
+    marginTop: '80px',
     fontSize: '30px',
     textAlign: 'center',
     color: '#3D3B39',

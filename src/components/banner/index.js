@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+
 import {
   Link,
 } from "react-router-dom";
@@ -31,13 +33,33 @@ const useStyles = makeStyles(() => ({
   clearUnderline: {
     textDecoration: 'none',
   },
+  alertBanner: {
+    backgroundColor: '#3D501C',
+    width: '100%',
+    textAlign: 'center',
+    padding: '20px 20px',
+  },
+  lineOne: {
+    fontWeight: 700,
+    fontSize: '16px',
+  },
+  lineTwo: {
+    fontSize: '14px',
+  },
+  lineThree: {
+    fontSize: '14px',
+    opacity: '70%',
+  },
+  a: {
+    color: 'white',
+  }
 }));
 
 export default function Banner() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root} style={{boxShadow: '0px 1px 8px 0px rgba(0,0,0,0.15)', zIndex: 10}}>
+    <div className={classes.root} style={{boxShadow: '0px 1px 8px 0px rgba(0,0,0,0.25)', zIndex: 10}}>
       <Container>
         <Grid
           container
@@ -52,6 +74,25 @@ export default function Banner() {
           <Navigation />
         </Grid>
       </Container>
+      <Grid
+          container
+          className={classes.alertBanner}
+          alignItems='center'
+        >
+          <Grid item xs={12}>
+            <Typography variant="body1" color="inherit" className={classes.lineOne}>
+            Mission accomplished!
+            </Typography>
+            <Typography variant="body1" color="inherit" className={classes.lineTwo}>
+            Our site will remain live to celebrate our achievements and share resources, all made possible by our generous donors.
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="body1" color="inherit" className={classes.lineThree}>
+            If you’re a healthcare professional still looking to redeem a code, instructions for how to do so can be found <a href="https://www.a2helps.com/donors" style={{color: 'white', fontWeight: '700'}}>here</a>.
+            </Typography>
+          </Grid>
+        </Grid>
     </div>
   );
 }

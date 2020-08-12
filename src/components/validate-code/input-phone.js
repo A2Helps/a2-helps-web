@@ -7,7 +7,7 @@ import MuiPhoneNumber from 'material-ui-phone-number';
 
 export const InputPhone = ({ setPhone, buttonRef, onClick, }) => (<Grid item xs={12}>
   <Typography variant="h4" color="inherit" style={{color:"#3D3B39", fontSize:"40px", paddingBottom:'20px'}}>
-    Please enter  your phone number.
+    Please enter your phone number.
     </Typography>
   <Typography variant="h6" color="inherit" style={{color:"#3D3B39", fontSize:"20px", paddingBottom:'20px'}}>
     We'll text you a verification code.

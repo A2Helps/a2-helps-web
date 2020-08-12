@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: 'center',
     color: '#3D3B39',
   },
-  mission: {
+  impact: {
     fontWeight: 300,
     marginTop: '100px',
     marginBottom: '40px',
@@ -19,13 +19,13 @@ const useStyles = makeStyles(theme => ({
     },
   },
   img: {
-    maxHeight: '40px',
+    maxHeight: '100px',
     marginBottom: '7px',
     [theme.breakpoints.up('md')]: {
       marginBottom: '15px',
     },
   },
-  missionSection: {
+  impactSection: {
     maxWidth: '1000px',
     margin: '0 auto',
   },
@@ -34,49 +34,69 @@ const useStyles = makeStyles(theme => ({
     margin: '0 auto',
     marginBottom: '45px',
   },
+  h4Top: {
+    maxWidth: '220px',
+    margin: '0 auto',
+    marginBottom: '20px',
+  },
 }));
 
-export default function Mission() {
+export default function Impact() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
 
-      <Typography variant="h3" color="inherit" className={classes.mission}>
-        Our Mission
+      <Typography variant="h3" color="inherit" className={classes.impact}>
+        Our Impact
       </Typography>
 
-      <Grid container justify='center'className={classes.missionSection}>
+      <Grid container justify='center'className={classes.impactSection}>
 
-        <Grid item xs={12} md={4} className={classes.missionItem}>
+        <Grid item xs={12} md={4} className={classes.impactItem}>
           <Grid item xs={12}>
-            <img className={classes.img} src="honor.png" alt="Hand holding heart icon." />
+            <Typography variant="body1" color="inherit" className={classes.h4Top}>
+            More than
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <img className={classes.img} src="180k.png" alt="180 thousand dollars" />
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" color="inherit" className={classes.h4}>
-              Honor those who are protecting our health and keeping us well stocked with food and other needs.
+            raised in donations.
             </Typography>
           </Grid>
         </Grid>
 
-        <Grid item xs={12} md={4} className={classes.missionItem}>
+        <Grid item xs={12} md={4} className={classes.impactItem}>
           <Grid item xs={12}>
-            <img className={classes.img} src="provide.png" alt="Coin with dollar sign icon." />
+            <Typography variant="body1" color="inherit" className={classes.h4Top}>
+            Direct financial support for
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <img className={classes.img} src="25plus.png" alt="25 plus" />
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" color="inherit" className={classes.h4}>
-            Provide direct financial assistance to local businesses to ensure they survive this pandemic.
+            local businesses.
             </Typography>
           </Grid>
         </Grid>
 
-        <Grid item xs={12} md={4} className={classes.missionItem}>
+        <Grid item xs={12} md={4} className={classes.impactItem}>
           <Grid item xs={12}>
-            <img className={classes.img} src="share.png" alt="Three people standing in a row icon." />
+            <Typography variant="body1" color="inherit" className={classes.h4Top}>
+            Gift cards sent to
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <img className={classes.img} src="800plus.png" alt="800 plus" />
           </Grid>
           <Grid item xs={12}>
             <Typography variant="body1" color="inherit" className={classes.h4}>
-              Share community-wide resources and opportunities to support those affected.
+            healthcare professionals.
             </Typography>
           </Grid>
         </Grid>
