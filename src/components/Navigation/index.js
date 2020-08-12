@@ -1,13 +1,13 @@
 import React from 'react';
 import { makeStyles, styled } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import {
   Link,
 } from "react-router-dom";
-import { DONATE, ABOUT, FAQ, DONORS, RESOURCES } from '../../util/routes';
+import { ABOUT, DONORS, RESOURCES } from '../../util/routes';
 import { donorFlag } from '../../util/feature-flags';
 
 const useStyles = makeStyles((theme) => ({
