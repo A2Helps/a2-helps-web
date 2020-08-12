@@ -262,15 +262,18 @@ const AboutContent = () => {
 
 
          <Grid item xs={6} sm={4} md={3} className={styles.person}>
-          <img className={styles.headshot} src={"headshots/patrick-mccarren.png"} alt="Patrick McCarren headshot" />
+          <img className={styles.headshot} src={"headshots/rachael-ericson.png"} alt="Rachael Ericson headshot" />
           <Typography variant="h4" className={styles.teammate}>
-            Patrick McCarren
+            Rachael Ericson
           </Typography>
           <Typography variant="body1" className={styles.role}>
-            App Development
+            Fulfillment &
+          </Typography>
+          <Typography variant="body1" className={styles.role}>
+            Communications
           </Typography>
           <Typography variant="body1" className={styles.company}>
-            Cumulative & Wedge
+            NuArx Inc.
           </Typography>
         </Grid>
 
@@ -327,6 +330,19 @@ const AboutContent = () => {
           </Typography>
           <Typography variant="body1" className={styles.company}>
             Nutshell
+          </Typography>
+        </Grid>
+
+        <Grid item xs={6} sm={4} md={3} className={styles.person}>
+          <img className={styles.headshot} src={"headshots/patrick-mccarren.png"} alt="Patrick McCarren headshot" />
+          <Typography variant="h4" className={styles.teammate}>
+            Patrick McCarren
+          </Typography>
+          <Typography variant="body1" className={styles.role}>
+            App Development
+          </Typography>
+          <Typography variant="body1" className={styles.company}>
+            Cumulative & Wedge
           </Typography>
         </Grid>
 

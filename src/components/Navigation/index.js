@@ -1,13 +1,13 @@
 import React from 'react';
 import { makeStyles, styled } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
 import {
   Link,
 } from "react-router-dom";
-import { DONATE, ABOUT, FAQ, DONORS, RESOURCES } from '../../util/routes';
+import { ABOUT, DONORS, RESOURCES } from '../../util/routes';
 import { donorFlag } from '../../util/feature-flags';
 
 const useStyles = makeStyles((theme) => ({
@@ -95,13 +95,6 @@ const Mobile = ({ classes }) => {
         >
           ABOUT
         </StyledLink>
-        <StyledLink
-          onClick={handleClose}
-          className={classes.menuItem}
-          to={FAQ}
-        >
-          FAQ
-        </StyledLink>
         {donorFlag() &&
         <StyledLink
           onClick={handleClose}
@@ -117,18 +110,6 @@ const Mobile = ({ classes }) => {
         >
           COMMUNITY RESOURCES
         </StyledLink>
-        <StyledLink
-          onClick={handleClose}
-          className={classes.menuItem}
-          to={DONATE}
-        >
-          <Button
-            variant="contained"
-            color="secondary"
-          >
-            Donate
-          </Button>
-      </StyledLink>
       </Menu>
     </Grid>
   );
@@ -143,10 +124,10 @@ const Desktop = ({ classes }) => {
   return (
   <Grid item xs className={classes.desktop}>
     <StyledLink className={classes.body1} to={ABOUT}>ABOUT</StyledLink>
-    <StyledLink className={classes.body1} to={FAQ}>FAQ</StyledLink>
+    {/* <StyledLink className={classes.body1} to={FAQ}>FAQ</StyledLink> */}
     {donorFlag() && <StyledLink className={classes.body1} to={DONORS}>DONORS</StyledLink>}
     <StyledLink className={classes.body1} to={RESOURCES}>COMMUNITY RESOURCES</StyledLink>
-    <StyledLink to={DONATE}>
+    {/*<StyledLink to={DONATE}>
       <Button
         variant="contained"
         color="secondary"
@@ -154,7 +135,7 @@ const Desktop = ({ classes }) => {
         Donate
       </Button>
     </StyledLink>
-    {/* {(!loginRoute && (process.env.NODE_ENV === 'development')) &&
+     {(!loginRoute && (process.env.NODE_ENV === 'development')) &&
       <LogInOutButton />
     } */}
   </Grid>
