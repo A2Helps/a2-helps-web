@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Wrapper from '../components/wrapper';
 import { Typography } from '@material-ui/core';
-import { donorFlag } from '../util/feature-flags';
+// import { donorFlag } from '../util/feature-flags';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     color: '#3D3B39',
     [theme.breakpoints.up('md')]: {
       marginBottom: '100px',
-      marginTop: '100px',
+      marginTop: '60px',
     },
   },
   faq: {
@@ -23,6 +23,9 @@ const useStyles = makeStyles(theme => ({
     marginBottom: '10px',
     color: 'primary',
   },
+  link: {
+    color: '#3D3B39',
+  },
 
   h2: {
     fontWeight: 300,
@@ -30,6 +33,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.up('md')]: {
       fontSize: '42px',
     },
+    
   },
 }));
 
@@ -37,19 +41,22 @@ const FAQ = () => {
   const styles = useStyles();
   return (
     <div className={styles.root}>
-      <Typography variant="h2" className={styles.h2}>
-        Frequently Asked Questions
-      </Typography>
+      {/* <Typography variant="h2" className={styles.h2}>
+        Gift Card Codes
+      </Typography> */}
 
         <div className={styles.faq}>
           <Typography className={styles.question} variant="h3" color="inherit">
-            What is A2 Helps?
+            Still have a code to redeem?
           </Typography>
           <Typography className={styles.answer} variant="body1" color="inherit">
-          A2 Helps is a relief service designed to ease some of the financial strain that this quarantine has had on small businesses in the Washtenaw area. Our platform channels donors' contributions to support gift cards that are distributed to healthcare professionals in our community.
+          Please email <a href="mailto:help@a2helps.com" target="_top" className={styles.link}>help@a2helps.com</a> for assistance. One of our volunteers will coordinate with you directly to purchase your gift card selections.
+          </Typography>
+          <Typography className={styles.answer} variant="body1" color="inherit">
+          <br></br>Thank you for everything you do to keep our community safe!
           </Typography>
         </div>
-
+{/* 
         <div className={styles.faq}>
           <Typography className={styles.question} variant="h3" color="inherit">
             How exactly does payment work for participating businesses?
@@ -86,7 +93,7 @@ const FAQ = () => {
           </Typography>
         </div> */}
 
-        <div className={styles.faq}>
+        {/* <div className={styles.faq}>
           <Typography className={styles.question} variant="h3" color="inherit">
             I am a business owner. How can I use the money I receive from A2 Helps?
           </Typography>
@@ -112,7 +119,7 @@ const FAQ = () => {
           <Typography className={styles.answer} variant="body1" color="inherit">
           Checks are preferred for donations larger than $500 since there are fees associated with larger transactions. Checks can be made out to: Ann Arbor SPARK Foundation. Memo: #a2helps. You can mail them to the SPARK address: 330 E Liberty St, Lower Level, Ann Arbor, MI 48104.
           </Typography>
-        </div>}
+        </div>}  */}
 
     </div>
   )
