@@ -84,14 +84,14 @@ export default function Banner() {
             Mission accomplished!
             </Typography>
             <Typography variant="body1" color="inherit" className={classes.lineTwo}>
-            Our site will remain live to celebrate our achievements and share resources, all made possible by our generous donors.
+            Our site will remain online to celebrate the work we've accomplished (all made possible by our generous donors) and to share community resources.
             </Typography>
           </Grid>
-          {/* <Grid item xs={12}>
+          <Grid item xs={12}>
             <Typography variant="body1" color="inherit" className={classes.lineThree}>
-            If you’re a healthcare professional still looking to redeem a code, instructions for how to do so can be found <a href="https://www.a2helps.com/donors" style={{color: 'white', fontWeight: '700'}}>here</a>.
+            If you’re a healthcare professional still looking to redeem a code, instructions for how to do so can be found <a href="https://www.a2helps.com/faq" style={{color: 'white', fontWeight: '700'}}>here</a>.
             </Typography>
-          </Grid> */}
+          </Grid>
         </Grid>
     </div>
   );
