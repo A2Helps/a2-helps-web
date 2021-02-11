@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop: '40px',
     [theme.breakpoints.up('sm')]: {
       fontSize: '12px',
-      minHeight: 320,
+      minHeight: 240,
     },
     [theme.breakpoints.up('md')]: {
       fontSize: '12px',
@@ -154,10 +154,10 @@ export default function HomeHero() {
                 )
             }
             <Typography variant="h2" color="inherit" className={classes.h2}>
-              You're here for us. We're here for you.
+              To all healthcare workers
             </Typography>
             <Typography variant="h1" color="inherit" className={classes.h1}>
-              Supporting <strong>local healthcare professionals</strong> and <strong>local businesses</strong> in Ann Arbor during the COVID-19 crisis.
+              <strong>Thank you</strong> for all that you do.
             </Typography>
           </Grid>
           </Container>
